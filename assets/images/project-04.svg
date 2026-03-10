@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14141b"/>
+      <stop offset="1" stop-color="#2a2a33"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1200" height="750" fill="url(#g4)"/>
+  <rect x="70" y="70" width="1060" height="610" rx="20" fill="#0f0f14" opacity="0.55"/>
+  <rect x="110" y="110" width="980" height="530" rx="18" fill="#14141b" opacity="0.92"/>
+
+  <rect x="150" y="150" width="900" height="140" rx="14" fill="url(#card)"/>
+  <rect x="170" y="176" width="380" height="22" rx="11" fill="#ffffff" opacity="0.18"/>
+  <rect x="170" y="210" width="560" height="14" rx="7" fill="#ffffff" opacity="0.10"/>
+  <rect x="170" y="234" width="520" height="14" rx="7" fill="#ffffff" opacity="0.10"/>
+  <rect x="760" y="184" width="160" height="40" rx="20" fill="#00ff99" opacity="0.82"/>
+
+  <rect x="150" y="310" width="900" height="330" rx="14" fill="#0f0f14" opacity="0.55"/>
+  <rect x="180" y="340" width="360" height="220" rx="12" fill="#ffffff" opacity="0.06"/>
+  <rect x="560" y="340" width="460" height="20" rx="10" fill="#ffffff" opacity="0.16"/>
+  <rect x="560" y="372" width="420" height="12" rx="6" fill="#ffffff" opacity="0.10"/>
+  <rect x="560" y="394" width="380" height="12" rx="6" fill="#ffffff" opacity="0.10"/>
+  <rect x="560" y="426" width="240" height="36" rx="18" fill="#00ff99" opacity="0.82"/>
+  <rect x="560" y="476" width="300" height="12" rx="6" fill="#ffffff" opacity="0.10"/>
+  <rect x="560" y="498" width="270" height="12" rx="6" fill="#ffffff" opacity="0.10"/>
+</svg>
