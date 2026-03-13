@@ -1,38 +1,42 @@
-function qsa(sel, root = document) {
-  return Array.from(root.querySelectorAll(sel));
-}
+/* ═══════════════════════════════════════════════════════
+   PORTFOLIO — ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
 
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const hasHover = window.matchMedia("(hover: hover)").matches;
+function qsa(sel, root = document) { return Array.from(root.querySelectorAll(sel)); }
 
-/* ── Scroll reveal with stagger ── */
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasHover = window.matchMedia('(hover: hover)').matches;
+
+/* ─── Scroll reveal ─── */
 function initScrollReveal() {
-  const items = qsa("[data-reveal]");
+  const items = qsa('[data-reveal]');
   if (!items.length) return;
 
   const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
+    entries => {
+      entries.forEach(e => {
         if (!e.isIntersecting) return;
-        e.target.classList.add("is-in");
+        e.target.classList.add('is-in');
         io.unobserve(e.target);
       });
     },
-    { threshold: 0.1, rootMargin: "0px 0px -8% 0px" },
+    { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
   );
 
   items.forEach((el, i) => {
-    el.style.transitionDelay = `${Math.min(i * 80, 320)}ms`;
+    if (!reducedMotion) {
+      el.style.transitionDelay = `${Math.min(i * 60, 280)}ms`;
+    }
     io.observe(el);
   });
 }
 
-/* ── 3D tilt on [data-tilt] elements ── */
+/* ─── 3D tilt ─── */
 function initTilt() {
-  const els = qsa("[data-tilt]");
+  const els = qsa('[data-tilt]');
   if (!els.length || reducedMotion || !hasHover) return;
 
-  els.forEach((el) => {
+  els.forEach(el => {
     const maxDeg = parseFloat(el.dataset.tiltMax) || 8;
     let raf = 0;
     let tX = 0, tY = 0, cX = 0, cY = 0;
@@ -40,140 +44,165 @@ function initTilt() {
     const lerp = (a, b, t) => a + (b - a) * t;
 
     const tick = () => {
-      cX = lerp(cX, tX, 0.08);
-      cY = lerp(cY, tY, 0.08);
-      if (Math.abs(cX - tX) < 0.01 && Math.abs(cY - tY) < 0.01) { cX = tX; cY = tY; }
+      cX = lerp(cX, tX, 0.1);
+      cY = lerp(cY, tY, 0.1);
+      const done = Math.abs(cX - tX) < 0.005 && Math.abs(cY - tY) < 0.005;
+      if (done) { cX = tX; cY = tY; }
 
-      el.style.transform = `perspective(900px) rotateX(${cX}deg) rotateY(${cY}deg)`;
-
-      if (cX !== tX || cY !== tY) { raf = requestAnimationFrame(tick); } else { raf = 0; }
+      el.style.transform = `perspective(1000px) rotateX(${cX}deg) rotateY(${cY}deg)`;
+      raf = done ? 0 : requestAnimationFrame(tick);
     };
 
     const start = () => { if (!raf) raf = requestAnimationFrame(tick); };
 
-    el.addEventListener("pointermove", (e) => {
+    el.addEventListener('pointermove', e => {
       const r = el.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width;
       const py = (e.clientY - r.top) / r.height;
       tY = (px - 0.5) * maxDeg * 2;
       tX = (0.5 - py) * maxDeg * 2;
 
-      const shine = el.querySelector(".portrait-card__shine");
+      const shine = el.querySelector('.portrait-card__shine');
       if (shine) {
-        shine.style.setProperty("--mx", `${px * 100}%`);
-        shine.style.setProperty("--my", `${py * 100}%`);
+        shine.style.setProperty('--mx', `${px * 100}%`);
+        shine.style.setProperty('--my', `${py * 100}%`);
       }
       start();
     });
 
-    el.addEventListener("pointerleave", () => { tX = 0; tY = 0; start(); });
+    el.addEventListener('pointerleave', () => { tX = 0; tY = 0; start(); });
   });
 }
 
-/* ── Animated stat counters ── */
+/* ─── Counter animation ─── */
 function initCounters() {
-  const nums = qsa("[data-count]");
+  const nums = qsa('[data-count]');
   if (!nums.length) return;
 
   const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
+    entries => {
+      entries.forEach(e => {
         if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+
         const el = e.target;
-        io.unobserve(el);
         const target = parseInt(el.dataset.count, 10);
-        const suffix = el.dataset.suffix || "";
-        const duration = 1400;
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const duration = reducedMotion ? 0 : 1600;
         const t0 = performance.now();
-        const step = (now) => {
+
+        const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+        const step = now => {
           const t = Math.min((now - t0) / duration, 1);
-          el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))) + suffix;
+          el.textContent = prefix + Math.round(target * easeOut(t)) + suffix;
           if (t < 1) requestAnimationFrame(step);
         };
-        requestAnimationFrame(step);
+
+        if (duration === 0) {
+          el.textContent = prefix + target + suffix;
+        } else {
+          requestAnimationFrame(step);
+        }
       });
     },
-    { threshold: 0.3 },
+    { threshold: 0.3 }
   );
 
-  nums.forEach((n) => io.observe(n));
+  nums.forEach(n => io.observe(n));
 }
 
-/* ── Floating particles ── */
+/* ─── Particles ─── */
 function initParticles() {
-  const host = document.getElementById("particles");
+  const host = document.getElementById('particles');
   if (!host || reducedMotion) return;
 
-  const count = window.innerWidth < 768 ? 8 : 22;
+  const count = window.innerWidth < 768 ? 10 : 26;
+  const frag = document.createDocumentFragment();
+
   for (let i = 0; i < count; i++) {
-    const p = document.createElement("span");
-    p.className = "particle";
-    const size = 2 + Math.random() * 4;
+    const p = document.createElement('span');
+    p.className = 'particle';
+    const size = 1.5 + Math.random() * 3;
     const x = Math.random() * 100;
-    const dur = 14 + Math.random() * 22;
+    const dur = 18 + Math.random() * 24;
     const delay = Math.random() * dur;
-    p.style.cssText = `width:${size}px;height:${size}px;left:${x}%;bottom:-${size}px;animation-duration:${dur}s;animation-delay:-${delay}s;opacity:0;`;
-    host.appendChild(p);
+    const opacity = 0.2 + Math.random() * 0.5;
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${x}%;bottom:-${size * 2}px;
+      animation-duration:${dur}s;
+      animation-delay:-${delay}s;
+      opacity:${opacity};
+    `;
+    frag.appendChild(p);
   }
+
+  host.appendChild(frag);
 }
 
-/* ── Custom cursor glow ── */
+/* ─── Cursor glow ─── */
 function initCursor() {
-  const glow = document.getElementById("cursor-glow");
+  const glow = document.getElementById('cursor-glow');
   if (!glow || reducedMotion || !hasHover) return;
 
-  let mx = -100, my = -100, cx = -100, cy = -100;
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let cx = mx, cy = my;
   let visible = false;
-  let hovering = false;
   let raf = 0;
 
+  const lerp = (a, b, t) => a + (b - a) * t;
+
   const tick = () => {
-    cx += (mx - cx) * 0.15;
-    cy += (my - cy) * 0.15;
-    glow.style.left = `${cx}px`;
-    glow.style.top = `${cy}px`;
+    cx = lerp(cx, mx, 0.1);
+    cy = lerp(cy, my, 0.1);
+    glow.style.left = cx + 'px';
+    glow.style.top = cy + 'px';
     raf = requestAnimationFrame(tick);
   };
 
-  document.addEventListener("mousemove", (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-    if (!visible) { visible = true; glow.classList.add("is-visible"); }
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if (!visible) {
+      visible = true;
+      glow.classList.add('is-visible');
+    }
     if (!raf) raf = requestAnimationFrame(tick);
-  });
+  }, { passive: true });
 
-  document.addEventListener("mouseleave", () => {
+  document.addEventListener('mouseleave', () => {
     visible = false;
-    glow.classList.remove("is-visible");
+    glow.classList.remove('is-visible');
   });
 
-  const hoverTargets = "a, button, [data-service], .work-icon, .work__arrow, .social, .tab, .btn, .skill, .info-card, input, select, textarea";
+  const hoverTargets = 'a, button, [data-service], .work-icon, .work__arrow, .social, .tab, .btn, .skill, .info-card, .project-card, input, select, textarea';
 
-  document.addEventListener("pointerover", (e) => {
+  document.addEventListener('pointerover', e => {
     if (e.target instanceof Element && e.target.closest(hoverTargets)) {
-      if (!hovering) { hovering = true; glow.classList.add("is-hover"); }
+      glow.classList.add('is-hover');
     }
-  });
+  }, { passive: true });
 
-  document.addEventListener("pointerout", (e) => {
+  document.addEventListener('pointerout', e => {
     if (e.target instanceof Element && e.target.closest(hoverTargets)) {
-      if (hovering) { hovering = false; glow.classList.remove("is-hover"); }
+      glow.classList.remove('is-hover');
     }
-  });
+  }, { passive: true });
 }
 
-/* ── Parallax background blobs (mouse-driven) ── */
+/* ─── Parallax blobs ─── */
 function initParallaxBlobs() {
-  const blobs = qsa(".blob");
+  const blobs = qsa('.blob');
   if (!blobs.length || reducedMotion || !hasHover) return;
 
-  const speeds = [0.02, 0.015, 0.012];
+  const speeds = [0.018, 0.012, 0.009];
   let mx = 0, my = 0;
   let running = false;
 
   const tick = () => {
     blobs.forEach((b, i) => {
-      const s = speeds[i] || 0.01;
+      const s = speeds[i] || 0.008;
       const dx = (mx - window.innerWidth / 2) * s;
       const dy = (my - window.innerHeight / 2) * s;
       b.style.transform = `translate(${dx}px, ${dy}px)`;
@@ -181,56 +210,18 @@ function initParallaxBlobs() {
     running = false;
   };
 
-  document.addEventListener("mousemove", (e) => {
-    mx = e.clientX;
-    my = e.clientY;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
     if (!running) { running = true; requestAnimationFrame(tick); }
-  });
+  }, { passive: true });
 }
 
-/* ── Hero portrait hover pulse ── */
-function initHeroHoverPulse() {
-  const portrait = document.querySelector(".hero__portrait");
-  if (!portrait) return;
-  portrait.addEventListener("pointerenter", () => portrait.classList.add("is-hover"));
-  portrait.addEventListener("pointerleave", () => portrait.classList.remove("is-hover"));
-}
-
-/* ── Scroll-driven section depth ── */
-function initScrollDepth() {
-  if (reducedMotion || window.innerWidth < 768) return;
-  const sections = qsa(".section");
-  if (!sections.length) return;
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        const ratio = e.intersectionRatio;
-        const el = e.target;
-        const scale = 0.97 + ratio * 0.03;
-        const opa = 0.4 + ratio * 0.6;
-        el.style.transform = `scale(${scale})`;
-        el.style.opacity = String(opa);
-      });
-    },
-    { threshold: Array.from({ length: 20 }, (_, i) => i / 19) },
-  );
-
-  sections.forEach((s) => {
-    s.style.willChange = "transform, opacity";
-    s.style.transition = "transform 100ms linear, opacity 100ms linear";
-    io.observe(s);
-  });
-}
-
-/* ── Init all ── */
-document.addEventListener("DOMContentLoaded", () => {
+/* ─── Init ─── */
+document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initTilt();
   initCounters();
   initParticles();
   initCursor();
   initParallaxBlobs();
-  initHeroHoverPulse();
-  initScrollDepth();
 });

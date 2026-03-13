@@ -3,32 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muhammad Ammar — Portfolio</title>
+    <title>Muhammad Ammar — AI / ML Engineer</title>
+    <meta name="description" content="Muhammad Ammar – AI/ML Engineer specializing in computer vision, deep learning, and production-ready AI systems." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
     <a class="skip-link" href="#home">Skip to content</a>
     <div class="particles" aria-hidden="true" id="particles"></div>
     <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
-    <div class="parallax-blobs" aria-hidden="true" id="parallax-blobs">
+    <div class="parallax-blobs" aria-hidden="true">
       <span class="blob blob--1"></span>
       <span class="blob blob--2"></span>
       <span class="blob blob--3"></span>
     </div>
 
+    <!-- ─── Header ─── -->
     <header class="site-header">
+      <div class="nav__backdrop"></div>
       <nav class="nav" aria-label="Primary">
-        <a class="brand" href="#home" aria-label="Muhammad Ammar home">
-          <span class="brand__name">Muhammad</span><span class="brand__dot">.</span>
+        <a class="brand" href="#home" aria-label="Muhammad Ammar — home">
+          <span class="brand__name">Muhammad Ammar</span><span class="brand__dot">.</span>
         </a>
 
         <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
@@ -39,8 +38,8 @@
           <ul class="nav__links" role="list">
             <li><a class="nav__link is-active" href="#home">Home</a></li>
             <li><a class="nav__link" href="#services">Services</a></li>
-            <li><a class="nav__link" href="#resume">Resume</a></li>
-            <li><a class="nav__link" href="#work">Work</a></li>
+            <li><a class="nav__link" href="#info">Info</a></li>
+            <li><a class="nav__link" href="#projects">Projects</a></li>
             <li><a class="nav__link" href="#contact">Contact</a></li>
           </ul>
           <a class="btn btn--primary btn--pill" href="#contact">Hire me</a>
@@ -49,240 +48,353 @@
     </header>
 
     <main>
-      <section id="home" class="section hero" aria-label="Home">
-        <div class="container hero__grid">
+      <!-- ═══════════════════════════════════════════════
+           HERO
+      ═══════════════════════════════════════════════ -->
+      <section id="home" class="section section--hero" aria-label="Home">
+        <div class="hero__grid">
           <div class="hero__left" data-reveal>
-            <p class="eyebrow">Junior Machine Learning — Deep Learning Engineer</p>
+            <p class="hero__eyebrow">
+              <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+              AI / Machine Learning Engineer
+            </p>
 
             <h1 class="hero__title">
-              <span class="hero__title-line">Hello I'm</span>
-              <span class="hero__title-line hero__title-line--accent">Muhammad Ammar</span>
+              <span class="hero__title-line">Hello, I'm</span>
+              <span class="hero__title-line hero__title-line--name">Muhammad Ammar</span>
             </h1>
 
             <p class="hero__desc">
-              Machine Learning Engineer specializing in Deep Learning and Computer Vision.<br />
-              I build and deploy end-to-end ML solutions with PyTorch, FastAPI, and OpenCV.
+              AI / ML engineer passionate about building intelligent systems and solving real-world problems with data-driven approaches. Experienced in end-to-end machine learning pipelines — from preprocessing through deployment.
             </p>
 
             <div class="hero__actions">
-              <a class="btn btn--outline btn--pill" href="assets/cv/Muhammad-Ammar-CV.pdf" download aria-label="Download CV">
+              <a class="btn btn--primary btn--pill" href="#contact">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="m22 6-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+                Get in touch
+              </a>
+              <a class="btn btn--outline btn--pill" href="assets/cv/muhammad%20ammar%20resume.pdf" download aria-label="Download CV">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="7 10 12 15 17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 Download CV
-                <img class="icon icon--sm" src="assets/icons/icon-download.svg" alt="" />
               </a>
 
               <div class="hero__social" aria-label="Social links">
-                <a class="social" href="https://linkedin.com/in/mu-3mar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <img class="icon" src="assets/icons/icon-linkedin.svg" alt="" />
+                <a class="social" href="https://www.linkedin.com/in/mu-3mar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg>
                 </a>
                 <a class="social" href="https://github.com/mu-3mar" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <img class="icon" src="assets/icons/icon-github.svg" alt="" />
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="currentColor"/></svg>
                 </a>
-                <a class="social" href="https://www.instagram.com/mu.3mar?igsh=NnUwd2FtNTdlZDRu" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                  <img class="icon" src="assets/icons/icon-instagram.svg" alt="" />
-                </a>
-                <a class="social" href="mailto:mu.3marr@gmail.com" aria-label="Email">
-                  <img class="icon" src="assets/icons/icon-email.svg" alt="" />
+                <a class="social" href="https://www.instagram.com/mu.3mar" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.88 0 1.441 1.441 0 012.88 0z" fill="currentColor"/></svg>
                 </a>
               </div>
             </div>
 
-            <dl class="hero__stats" data-reveal>
+            <div class="hero__stats" aria-label="Statistics">
               <div class="stat">
-                <dt class="stat__num" data-count="1" data-suffix="+">0</dt>
-                <dd class="stat__label">Years of<br />ML practice</dd>
+                <span class="stat__num" data-count="1" data-prefix="+">0</span>
+                <span class="stat__label">Experiences</span>
               </div>
               <div class="stat">
-                <dt class="stat__num" data-count="4">0</dt>
-                <dd class="stat__label">Projects<br />shipped</dd>
+                <span class="stat__num" data-stat="total-projects" data-count="12" data-prefix="+">0</span>
+                <span class="stat__label">Total<br>projects</span>
               </div>
               <div class="stat">
-                <dt class="stat__num" data-count="12" data-suffix="+">0</dt>
-                <dd class="stat__label">Tools &<br />frameworks</dd>
+                <span class="stat__num" data-count="25" data-prefix="+">0</span>
+                <span class="stat__label">Technical<br>skills</span>
               </div>
-              <div class="stat">
-                <dt class="stat__num" data-count="1">0</dt>
-                <dd class="stat__label">Award<br />won</dd>
-              </div>
-            </dl>
+            </div>
           </div>
 
           <div class="hero__right" data-reveal>
-            <div class="hero__portrait" data-tilt data-tilt-max="12">
+            <div class="hero__portrait" data-tilt data-tilt-max="10">
               <div class="portrait-card">
-                <div class="orbit" aria-hidden="true"></div>
-                <img class="portrait__img" src="assets/images/profile.png" alt="Profile photo" />
+                <div class="portrait-card__glow" aria-hidden="true"></div>
+                <div class="orbit" aria-hidden="true">
+                  <span class="orbit-dot"></span>
+                </div>
+                <img class="portrait__img" src="assets/images/profile.png" alt="Muhammad Ammar profile photo" />
                 <div class="portrait-card__shine" aria-hidden="true"></div>
+                <div class="portrait-status">
+                  <span class="portrait-status__dot" aria-hidden="true"></span>
+                  Available for work
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ═══════════════════════════════════════════════
+           SERVICES
+      ═══════════════════════════════════════════════ -->
       <section id="services" class="section services" aria-label="Services">
-        <div class="container services__grid">
-          <article class="service-card" data-reveal data-service="0" data-tilt data-tilt-max="6">
-            <div class="service-card__top">
-              <div class="service-card__num">01</div>
-              <div class="service-card__icon">
-                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 17L17 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-                  <path d="M10 7h7v7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-            </div>
-            <h3 class="service-card__title">Machine Learning Solutions</h3>
-            <p class="service-card__desc">
-              End-to-end ML solutions from data preparation to evaluation,<br />
-              focused on measurable results and reliability.
-            </p>
-            <div class="service-card__rule" aria-hidden="true"></div>
-          </article>
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <p class="section-head__eyebrow">What I do</p>
+            <h2 class="section-head__title">Services crafted for real-world AI products</h2>
+            <p class="section-head__lead">From model development to deployment, each service is structured for reliability, speed, and measurable outcomes.</p>
+          </div>
 
-          <article class="service-card" data-reveal data-service="1" data-tilt data-tilt-max="6">
-            <div class="service-card__top">
-              <div class="service-card__num">02</div>
-              <div class="service-card__icon">
-                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 17L17 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-                  <path d="M10 7h7v7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+          <div class="services__grid">
+            <article class="service-card" data-reveal data-service="0" data-tilt data-tilt-max="5">
+              <div class="service-card__top">
+                <span class="service-card__num">01</span>
+                <div class="service-card__icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
-            </div>
-            <h3 class="service-card__title">Deep Learning Models</h3>
-            <p class="service-card__desc">
-              Neural networks and CNN-based systems with strong training<br />
-              workflows and performance tuning.
-            </p>
-            <div class="service-card__rule" aria-hidden="true"></div>
-          </article>
+              <h3 class="service-card__title">Machine Learning Solutions</h3>
+              <p class="service-card__desc">Production-ready ML pipelines — from data processing and feature engineering to model training and evaluation.</p>
+              <div class="service-card__tags">
+                <span class="tag">Python</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">NumPy</span>
+              </div>
+              <div class="service-card__arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </article>
 
-          <article class="service-card service-card--accent" data-reveal data-service="2" data-tilt data-tilt-max="6">
-            <div class="service-card__top">
-              <div class="service-card__num">03</div>
-              <div class="service-card__icon service-card__icon--accent">
-                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 17L17 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-                  <path d="M10 7h7v7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+            <article class="service-card" data-reveal data-service="1" data-tilt data-tilt-max="5">
+              <div class="service-card__top">
+                <span class="service-card__num">02</span>
+                <div class="service-card__icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 12h8M12 8l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
-            </div>
-            <h3 class="service-card__title">Computer Vision Systems</h3>
-            <p class="service-card__desc">
-              Practical CV pipelines for detection/segmentation using OpenCV<br />
-              and modern deep learning approaches.
-            </p>
-            <div class="service-card__rule" aria-hidden="true"></div>
-          </article>
+              <h3 class="service-card__title">Deep Learning Models</h3>
+              <p class="service-card__desc">Custom neural networks with architecture selection, transfer learning, and rigorous benchmarking on real datasets.</p>
+              <div class="service-card__tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">CNNs</span>
+                <span class="tag">Transfer Learning</span>
+              </div>
+              <div class="service-card__arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </article>
 
-          <article class="service-card" data-reveal data-service="3" data-tilt data-tilt-max="6">
-            <div class="service-card__top">
-              <div class="service-card__num">04</div>
-              <div class="service-card__icon">
-                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 17L17 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-                  <path d="M10 7h7v7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+            <article class="service-card" data-reveal data-service="2" data-tilt data-tilt-max="5">
+              <div class="service-card__top">
+                <span class="service-card__num">03</span>
+                <div class="service-card__icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
               </div>
-            </div>
-            <h3 class="service-card__title">AI Model Deployment</h3>
-            <p class="service-card__desc">
-              Production-ready inference with FastAPI + Docker, clean APIs,<br />
-              and reproducible deployments.
-            </p>
-            <div class="service-card__rule" aria-hidden="true"></div>
-          </article>
+              <h3 class="service-card__title">Computer Vision Systems</h3>
+              <p class="service-card__desc">Detection, segmentation, and tracking pipelines using classical and deep-learning approaches for real-time processing.</p>
+              <div class="service-card__tags">
+                <span class="tag">OpenCV</span>
+                <span class="tag">MediaPipe</span>
+                <span class="tag">YOLO</span>
+                <span class="tag">Segmentation</span>
+              </div>
+              <div class="service-card__arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal data-service="3" data-tilt data-tilt-max="5">
+              <div class="service-card__top">
+                <span class="service-card__num">04</span>
+                <div class="service-card__icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 17V7a2 2 0 012-2h12a2 2 0 012 2v10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M2 17h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M8 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-card__title">AI Model Deployment</h3>
+              <p class="service-card__desc">Production-ready REST APIs with Docker containers, clean documentation, and reproducible inference pipelines.</p>
+              <div class="service-card__tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">Docker</span>
+                <span class="tag">ONNX</span>
+                <span class="tag">REST APIs</span>
+              </div>
+              <div class="service-card__arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="resume" class="section resume" aria-label="Resume">
+      <!-- ═══════════════════════════════════════════════
+           INFO (Experience, Education, Skills, Certificates, About)
+      ═══════════════════════════════════════════════ -->
+      <section id="info" class="section resume" aria-label="Info">
         <div class="container resume__grid">
-          <aside class="resume__aside" data-reveal>
-            <h2 class="resume__heading">Why hire me?</h2>
+          <div class="resume__aside" data-reveal>
             <p class="resume__lead">
-              Passion for applied AI, hands-on<br />
-              experience, and strong fundamentals.
+              My <span class="resume__lead-accent">experience</span><br>
+              &amp; skills
             </p>
+            <p class="resume__desc">
+              Focused on practical AI engineering with hands-on experience in computer vision, ML pipelines, and production deployment.
+            </p>
+            <nav class="tablist" role="tablist" aria-label="Info tabs">
+              <button class="tab is-active" role="tab" data-tab="experience" aria-selected="true">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                Experience
+              </button>
+              <button class="tab" role="tab" data-tab="education" aria-selected="false">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                Education
+              </button>
+              <button class="tab" role="tab" data-tab="skills" aria-selected="false">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01z"/></svg>
+                Skills
+              </button>
+              <button class="tab" role="tab" data-tab="certs" aria-selected="false">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                Certificates
+              </button>
+              <button class="tab" role="tab" data-tab="about" aria-selected="false">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                About
+              </button>
+            </nav>
+          </div>
 
-            <div class="tablist" role="tablist" aria-label="Resume tabs">
-              <button class="tab is-active" role="tab" aria-selected="true" data-tab="experience">Experience</button>
-              <button class="tab" role="tab" aria-selected="false" data-tab="education">Education</button>
-              <button class="tab" role="tab" aria-selected="false" data-tab="skills">Skills</button>
-              <button class="tab" role="tab" aria-selected="false" data-tab="about">About me</button>
-            </div>
-          </aside>
-
-          <div class="resume__panel" data-reveal>
+          <div class="tab-panels" data-reveal>
+            <!-- Experience -->
             <div class="tab-panel is-active" role="tabpanel" data-panel="experience">
-              <h3 class="panel__title">My experience</h3>
-              <p class="panel__lead">
-                Hands-on experience building and deploying ML systems, with a focus on<br />
-                Deep Learning and Computer Vision.
-              </p>
-              <div class="cards-grid cards-grid--2">
-                <article class="info-card">
-                  <p class="info-card__meta"><span class="accent">Oct 2024 – Dec 2024</span></p>
-                  <h4 class="info-card__title">Machine Learning Intern</h4>
-                  <p class="info-card__line"><span class="dot"></span>Cellula Technology (Remote) — Giza, Egypt</p>
-                </article>
-                <article class="info-card">
-                  <p class="info-card__meta"><span class="accent">2024</span></p>
-                  <h4 class="info-card__title">End-to-end ML Projects</h4>
-                  <p class="info-card__line"><span class="dot"></span>Built and deployed 2 real-world solutions</p>
-                </article>
-                <article class="info-card">
-                  <p class="info-card__meta"><span class="accent">2023 – Present</span></p>
-                  <h4 class="info-card__title">Deep Learning Focus</h4>
-                  <p class="info-card__line"><span class="dot"></span>CNNs, transfer learning, and evaluation</p>
-                </article>
-                <article class="info-card">
-                  <p class="info-card__meta"><span class="accent">2024</span></p>
-                  <h4 class="info-card__title">IEEE Victories 4</h4>
-                  <p class="info-card__line"><span class="dot"></span>1st Place — AI Powered Application Competition</p>
+              <h3 class="panel__title">Work experience</h3>
+              <p class="panel__lead">Building practical AI systems that solve real-world problems.</p>
+              <div class="timeline">
+                <article class="timeline__item">
+                  <div class="timeline__node" aria-hidden="true"></div>
+                  <div class="timeline__content">
+                    <div class="timeline__header">
+                      <div>
+                        <h4 class="timeline__role">Machine Learning Intern</h4>
+                        <p class="timeline__company">Cellula Technology</p>
+                        <p class="timeline__location"><span class="dot"></span>Remote</p>
+                      </div>
+                      <span class="timeline__date">Oct 2024 – Dec 2024</span>
+                    </div>
+                  </div>
                 </article>
               </div>
             </div>
 
+            <!-- Education -->
             <div class="tab-panel" role="tabpanel" data-panel="education">
-              <h3 class="panel__title">My education</h3>
-              <p class="panel__lead">Academic foundation in Computer Science with an emphasis on applied ML.</p>
-              <div class="cards-grid cards-grid--2">
-                <article class="info-card">
-                  <p class="info-card__meta"><span class="accent">2022 – Present</span></p>
-                  <h4 class="info-card__title">Bachelor of Science in Computer Science</h4>
-                  <p class="info-card__line"><span class="dot"></span>Mansoura University — Mansoura, Egypt</p>
+              <h3 class="panel__title">Education</h3>
+              <p class="panel__lead">Solid academic foundation in computer science and AI.</p>
+              <div class="timeline">
+                <article class="timeline__item">
+                  <div class="timeline__node" aria-hidden="true"></div>
+                  <div class="timeline__content">
+                    <div class="timeline__header">
+                      <div>
+                        <h4 class="timeline__role">Mansoura University</h4>
+                        <p class="timeline__company">Faculty of Computer and Information Science</p>
+                        <p class="timeline__location"><span class="dot"></span>Department: Computer Science</p>
+                      </div>
+                      <span class="timeline__date">2022 – Present</span>
+                    </div>
+                  </div>
                 </article>
               </div>
             </div>
 
+            <!-- Skills -->
             <div class="tab-panel" role="tabpanel" data-panel="skills">
-              <h3 class="panel__title">My skills</h3>
-              <p class="panel__lead">Tools and frameworks I use to build ML systems end-to-end.</p>
-              <div class="skills-grid" aria-label="Skills">
-                <div class="skill"><img src="assets/logos/logo-python.svg" alt="Python" /><span class="skill__label">Python</span></div>
-                <div class="skill"><img src="assets/logos/logo-pytorch.svg" alt="PyTorch" /><span class="skill__label">PyTorch</span></div>
-                <div class="skill"><img src="assets/logos/logo-tensorflow.svg" alt="TensorFlow" /><span class="skill__label">TensorFlow</span></div>
-                <div class="skill"><img src="assets/logos/logo-opencv.svg" alt="OpenCV" /><span class="skill__label">OpenCV</span></div>
-                <div class="skill"><img src="assets/logos/logo-fastapi.svg" alt="FastAPI" /><span class="skill__label">FastAPI</span></div>
-                <div class="skill"><img src="assets/logos/logo-docker.svg" alt="Docker" /><span class="skill__label">Docker</span></div>
-                <div class="skill"><img src="assets/logos/logo-git.svg" alt="Git" /><span class="skill__label">Git</span></div>
-                <div class="skill"><img src="assets/logos/logo-linux.svg" alt="Linux" /><span class="skill__label">Linux</span></div>
+              <h3 class="panel__title">Technical skills</h3>
+              <p class="panel__lead">Core tools and frameworks I use day-to-day.</p>
+              <div class="skill-badges">
+                <div class="skill-badge"><img src="assets/logos/logo-python.svg" alt="" width="30" height="30"><span>Python</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-pytorch.svg" alt="" width="30" height="30"><span>PyTorch</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-tensorflow.svg" alt="" width="30" height="30"><span>TensorFlow</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-fastapi.svg" alt="" width="30" height="30"><span>FastAPI</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-opencv.svg" alt="" width="30" height="30"><span>OpenCV</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-docker.svg" alt="" width="30" height="30"><span>Docker</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-scikit-learn.svg" alt="" width="30" height="30"><span>Scikit-learn</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-git.svg" alt="" width="30" height="30"><span>Git</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-numpy.svg" alt="" width="30" height="30"><span>NumPy</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-pandas.svg" alt="" width="30" height="30"><span>Pandas</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-linux.svg" alt="" width="30" height="30"><span>Linux</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-firebase.svg" alt="" width="30" height="30"><span>Firebase</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-onnx.svg" alt="" width="30" height="30"><span>ONNX</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-mediapipe.svg" alt="" width="30" height="30"><span>MediaPipe</span></div>
+                <div class="skill-badge"><img src="assets/logos/logo-yolo.svg" alt="" width="30" height="30"><span>YOLO</span></div>
+              </div>
+              <div class="skills-text-grid">
+                <div>
+                  <p class="skill-group__title">Deep Learning</p>
+                  <div class="skill-list">
+                    <span class="tag">CNNs</span>
+                    <span class="tag">Transfer Learning</span>
+                    <span class="tag">Object Detection</span>
+                    <span class="tag">Segmentation</span>
+                  </div>
+                </div>
+                <div>
+                  <p class="skill-group__title">MLOps</p>
+                  <div class="skill-list">
+                    <span class="tag">TensorRT</span>
+                    <span class="tag">WebRTC</span>
+                    <span class="tag">REST APIs</span>
+                    <span class="tag">CI/CD</span>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <!-- Certs -->
+            <div class="tab-panel" role="tabpanel" data-panel="certs">
+              <h3 class="panel__title">Certifications</h3>
+              <p class="panel__lead">Continuous learning through industry-recognized programs.</p>
+              <div class="cards-grid cards-grid--2">
+                <article class="info-card">
+                  <h4 class="info-card__title">Deep Learning Specialization</h4>
+                  <p class="info-card__line"><span class="dot"></span>deeplearning.ai</p>
+                </article>
+                <article class="info-card">
+                  <h4 class="info-card__title">Machine Learning in Production</h4>
+                  <p class="info-card__line"><span class="dot"></span>deeplearning.ai</p>
+                </article>
+                <article class="info-card">
+                  <h4 class="info-card__title">Machine Learning Diploma</h4>
+                  <p class="info-card__line"><span class="dot"></span>CSKilled</p>
+                </article>
+              </div>
+            </div>
+
+            <!-- About -->
             <div class="tab-panel" role="tabpanel" data-panel="about">
               <h3 class="panel__title">About me</h3>
-              <p class="panel__lead panel__lead--highlight">Deep Learning and Computer Vision focused ML Engineer building practical systems.</p>
+              <p class="panel__lead panel__lead--highlight">AI / ML engineer focused on practical computer vision and production-oriented systems.</p>
               <div class="about-grid">
                 <dl class="about">
                   <div class="about__row"><dt>Name</dt><dd>Muhammad Ammar</dd></div>
-                  <div class="about__row"><dt>Experience</dt><dd>Internship + Projects</dd></div>
-                  <div class="about__row"><dt>Nationality</dt><dd>Egyptian</dd></div>
-                  <div class="about__row"><dt>Freelance</dt><dd>Open to opportunities</dd></div>
+                  <div class="about__row"><dt>Title</dt><dd>AI / ML Engineer</dd></div>
+                  <div class="about__row"><dt>Education</dt><dd>B.Sc. Computer Science, Mansoura University (2022–present)</dd></div>
+                  <div class="about__row"><dt>Focus</dt><dd>Computer Vision &amp; Applied AI</dd></div>
                 </dl>
                 <dl class="about">
-                  <div class="about__row"><dt>Phone</dt><dd>+20 104 432 2560</dd></div>
-                  <div class="about__row"><dt>Kaggle</dt><dd>kaggle.com/mohamedsayedamarmsa</dd></div>
-                  <div class="about__row"><dt>Email</dt><dd>mu.3marr@gmail.com</dd></div>
+                  <div class="about__row"><dt>Phone</dt><dd><a class="about__link" href="tel:+201044322560">+20 104 432 2560</a></dd></div>
+                  <div class="about__row"><dt>Email</dt><dd><a class="about__link" href="mailto:mu.3marr@gmail.com">mu.3marr@gmail.com</a></dd></div>
+                  <div class="about__row"><dt>LinkedIn</dt><dd><a class="about__link" href="https://www.linkedin.com/in/mu-3mar/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mu-3mar</a></dd></div>
+                  <div class="about__row"><dt>GitHub</dt><dd><a class="about__link" href="https://github.com/mu-3mar" target="_blank" rel="noopener noreferrer">github.com/mu-3mar</a></dd></div>
                   <div class="about__row"><dt>Languages</dt><dd>Arabic, English</dd></div>
                 </dl>
               </div>
@@ -291,102 +403,161 @@
         </div>
       </section>
 
-      <section id="work" class="section work" aria-label="Work">
+      <!-- ═══════════════════════════════════════════════
+           PROJECTS
+      ═══════════════════════════════════════════════ -->
+      <section id="projects" class="section work" aria-label="Projects">
         <div class="container work__grid">
           <div class="work__left" data-reveal>
+            <p class="work__eyebrow">Featured projects</p>
             <p class="work__num" data-work-num>01</p>
-            <h2 class="work__title" data-work-title>Sign Language Recognition System</h2>
-            <p class="work__lead" data-work-desc>Real-time webcam system translating sign gestures into text to improve accessibility.</p>
-            <p class="work__stack" data-work-stack><span class="accent">MediaPipe</span>, <span class="accent">OpenCV</span>, <span class="accent">PyTorch</span></p>
+            <h2 class="work__title" data-work-title>Real-Time Industrial Defect Detection</h2>
+            <p class="work__lead" data-work-desc>AI-driven quality inspection with two-stage defect detection and real-time WebRTC streaming.</p>
+            <div class="work__stack" data-work-stack>
+              <span class="work__stack-item">YOLO</span>
+              <span class="work__stack-item">FastAPI</span>
+              <span class="work__stack-item">WebRTC</span>
+            </div>
             <div class="work__rule" aria-hidden="true"></div>
             <div class="work__links">
               <a class="work-icon" href="#" aria-label="View project details" data-work-live>
-                <img class="icon" src="assets/icons/icon-external.svg" alt="" />
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5H5v4M15 5h4v4M9 19H5v-4M15 19h4v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 10 5 5m14 0-5 5m-4 4-5 5m14 0-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
               </a>
-              <a class="work-icon" href="https://github.com/mu-3mar/Sign-Language-Recognition" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub" data-work-github>
-                <img class="icon" src="assets/icons/icon-github.svg" alt="" />
+              <a class="work-icon" href="https://github.com/mu-3mar/real-time-industrial-defect-detection-system" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub" data-work-github>
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="currentColor"/></svg>
               </a>
             </div>
           </div>
 
           <div class="work__right" data-reveal>
-            <div class="work__shot" data-work-shot data-tilt data-tilt-max="5" aria-label="Project preview">
-              <div class="work__track" data-work-track>
-                <div class="work__slide"><img src="assets/images/project-01.jpg" alt="Project preview 1" /></div>
-                <div class="work__slide"><img src="assets/images/project-02.webp" alt="Project preview 2" /></div>
-                <div class="work__slide"><img src="assets/images/project-03.webp" alt="Project preview 3" /></div>
-                <div class="work__slide"><img src="assets/images/project-04.jpg" alt="Project preview 4" /></div>
-              </div>
+            <div class="work__shot" data-work-shot data-tilt data-tilt-max="4" aria-label="Project preview">
+              <div class="work__track" data-work-track></div>
             </div>
+
             <div class="work__nav" aria-label="Project navigation">
               <button class="work__arrow" type="button" aria-label="Previous project" data-work-prev>
-                <img class="icon icon--dark" src="assets/icons/icon-chevron-left.svg" alt="" />
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
+              <div class="work__progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+                <div class="work__progress-fill" id="work-progress-fill"></div>
+              </div>
               <button class="work__arrow" type="button" aria-label="Next project" data-work-next>
-                <img class="icon icon--dark" src="assets/icons/icon-chevron-right.svg" alt="" />
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
             </div>
+
+            <a class="btn btn--outline btn--pill work__all-btn" href="all-projects.html" data-return-projects>
+              View all projects
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
         </div>
       </section>
 
+      <!-- ═══════════════════════════════════════════════
+           CONTACT
+      ═══════════════════════════════════════════════ -->
       <section id="contact" class="section contact" aria-label="Contact">
         <div class="container contact__grid">
           <div class="contact-card" data-reveal>
             <h2 class="contact-card__title">Let's work together</h2>
-            <p class="contact-card__lead">Have an ML project in mind? Let's discuss how I can<br />help turn your data into actionable solutions.</p>
+            <p class="contact-card__lead">Have an AI or ML project in mind? Let's build a practical, production-ready solution together.</p>
             <form class="form" action="#" method="post">
               <div class="form__row form__row--2">
-                <label class="field"><span class="sr-only">First name</span><input class="input" type="text" placeholder="First name" /></label>
-                <label class="field"><span class="sr-only">Lastname</span><input class="input" type="text" placeholder="Lastname" /></label>
+                <label class="field"><span class="sr-only">First name</span><input class="input" type="text" placeholder="First name" autocomplete="given-name" /></label>
+                <label class="field"><span class="sr-only">Last name</span><input class="input" type="text" placeholder="Last name" autocomplete="family-name" /></label>
               </div>
               <div class="form__row form__row--2">
-                <label class="field"><span class="sr-only">Email address</span><input class="input" type="email" placeholder="Email address" /></label>
-                <label class="field"><span class="sr-only">Phone number</span><input class="input" type="tel" placeholder="Phone number" /></label>
+                <label class="field"><span class="sr-only">Email address</span><input class="input" type="email" placeholder="Email address" autocomplete="email" /></label>
+                <label class="field"><span class="sr-only">Phone</span><input class="input" type="tel" placeholder="Phone (optional)" autocomplete="tel" /></label>
               </div>
-              <label class="field">
-                <span class="sr-only">Select a service</span>
+              <label class="field" style="margin-bottom:10px">
+                <span class="sr-only">Service</span>
                 <select class="input select">
-                  <option selected disabled>Select a service</option>
+                  <option value="" selected disabled>Select a service</option>
                   <option>Machine Learning Solutions</option>
-                  <option>Deep Learning Model Development</option>
+                  <option>Deep Learning Models</option>
                   <option>Computer Vision Systems</option>
                   <option>AI Model Deployment</option>
-                  <option>Predictive Data Analysis</option>
                 </select>
-                <img class="select__chev" src="assets/icons/icon-chevron-down.svg" alt="" aria-hidden="true" />
+                <svg class="select__chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
               </label>
-              <label class="field"><span class="sr-only">Message</span><textarea class="input textarea" rows="5" placeholder="Type your message here."></textarea></label>
-              <button class="btn btn--primary btn--pill" type="submit">Send message</button>
+              <label class="field" style="margin-bottom:14px"><span class="sr-only">Message</span><textarea class="input textarea" rows="5" placeholder="Describe your project..."></textarea></label>
+              <button class="btn btn--primary btn--pill form__submit" type="submit">
+                Send message
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
             </form>
           </div>
+
           <div class="contact-info" data-reveal>
-            <div class="contact-item">
-              <div class="contact-item__icon"><img class="icon" src="assets/icons/icon-phone.svg" alt="" /></div>
-              <div class="contact-item__text"><p class="contact-item__label">Phone</p><p class="contact-item__value">+20 104 432 2560</p></div>
+            <div class="contact-info__head">
+              <h3 class="contact-info__title">Get in touch</h3>
+              <p class="contact-info__lead">I'm currently open to new opportunities and collaborations. Drop a message and I'll get back to you promptly.</p>
             </div>
-            <div class="contact-item">
-              <div class="contact-item__icon"><img class="icon" src="assets/icons/icon-mail.svg" alt="" /></div>
-              <div class="contact-item__text"><p class="contact-item__label">Email</p><p class="contact-item__value">mu.3marr@gmail.com</p></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item__icon"><img class="icon" src="assets/icons/icon-location.svg" alt="" /></div>
-              <div class="contact-item__text"><p class="contact-item__label">Address</p><p class="contact-item__value">Mansoura — Dakahlia — Egypt</p></div>
+            <div class="contact-items">
+              <a class="contact-item contact-item--link" href="tel:+201044322560">
+                <div class="contact-item__icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.1 3h3a2 2 0 012 1.72 13 13 0 00.71 2.81 2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.71A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div>
+                  <p class="contact-item__label">Phone</p>
+                  <p class="contact-item__value">+20 104 432 2560</p>
+                </div>
+              </a>
+              <a class="contact-item contact-item--link" href="mailto:mu.3marr@gmail.com">
+                <div class="contact-item__icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="m22 6-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <div>
+                  <p class="contact-item__label">Email</p>
+                  <p class="contact-item__value">mu.3marr@gmail.com</p>
+                </div>
+              </a>
+              <a class="contact-item contact-item--link" href="https://www.linkedin.com/in/mu-3mar/" target="_blank" rel="noopener noreferrer">
+                <div class="contact-item__icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg>
+                </div>
+                <div>
+                  <p class="contact-item__label">LinkedIn</p>
+                  <p class="contact-item__value">linkedin.com/in/mu-3mar</p>
+                </div>
+              </a>
+              <a class="contact-item contact-item--link" href="https://github.com/mu-3mar" target="_blank" rel="noopener noreferrer">
+                <div class="contact-item__icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="currentColor"/></svg>
+                </div>
+                <div>
+                  <p class="contact-item__label">GitHub</p>
+                  <p class="contact-item__value">github.com/mu-3mar</p>
+                </div>
+              </a>
+              <a class="contact-item contact-item--link" href="https://www.instagram.com/mu.3mar" target="_blank" rel="noopener noreferrer">
+                <div class="contact-item__icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.88 0 1.441 1.441 0 012.88 0z" fill="currentColor"/></svg>
+                </div>
+                <div>
+                  <p class="contact-item__label">Instagram</p>
+                  <p class="contact-item__value">instagram.com/mu.3mar</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- Modal -->
     <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
-      <div class="modal" role="dialog" aria-modal="true" id="modal-dialog">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" id="modal-dialog">
         <button class="modal__close" type="button" aria-label="Close">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div class="modal__body" id="modal-body"></div>
       </div>
     </div>
 
+    <script src="js/projects-data.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/animations.js" defer></script>
   </body>
