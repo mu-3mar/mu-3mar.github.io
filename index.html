@@ -462,18 +462,18 @@
           <div class="contact-card" data-reveal>
             <h2 class="contact-card__title">Let's work together</h2>
             <p class="contact-card__lead">Have an AI or ML project in mind? Let's build a practical, production-ready solution together.</p>
-            <form class="form" action="#" method="post">
+            <form class="form" action="https://formspree.io/f/xdawdkay" method="POST">
               <div class="form__row form__row--2">
-                <label class="field"><span class="sr-only">First name</span><input class="input" type="text" placeholder="First name" autocomplete="given-name" /></label>
-                <label class="field"><span class="sr-only">Last name</span><input class="input" type="text" placeholder="Last name" autocomplete="family-name" /></label>
+                <label class="field"><span class="sr-only">First name</span><input class="input" type="text" name="name" placeholder="First name" autocomplete="given-name" required /></label>
+                <label class="field"><span class="sr-only">Last name</span><input class="input" type="text" name="last_name" placeholder="Last name" autocomplete="family-name" /></label>
               </div>
               <div class="form__row form__row--2">
-                <label class="field"><span class="sr-only">Email address</span><input class="input" type="email" placeholder="Email address" autocomplete="email" /></label>
-                <label class="field"><span class="sr-only">Phone</span><input class="input" type="tel" placeholder="Phone (optional)" autocomplete="tel" /></label>
+                <label class="field"><span class="sr-only">Email address</span><input class="input" type="email" name="email" placeholder="Email address" autocomplete="email" required /></label>
+                <label class="field"><span class="sr-only">Phone</span><input class="input" type="tel" name="phone" placeholder="Phone (optional)" autocomplete="tel" /></label>
               </div>
               <label class="field" style="margin-bottom:10px">
                 <span class="sr-only">Service</span>
-                <select class="input select">
+                <select class="input select" name="service">
                   <option value="" selected disabled>Select a service</option>
                   <option>Machine Learning Solutions</option>
                   <option>Deep Learning Models</option>
@@ -482,11 +482,12 @@
                 </select>
                 <svg class="select__chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
               </label>
-              <label class="field" style="margin-bottom:14px"><span class="sr-only">Message</span><textarea class="input textarea" rows="5" placeholder="Describe your project..."></textarea></label>
+              <label class="field" style="margin-bottom:14px"><span class="sr-only">Message</span><textarea class="input textarea" name="message" rows="5" placeholder="Describe your project..." required></textarea></label>
               <button class="btn btn--primary btn--pill form__submit" type="submit">
                 Send message
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
+              <p class="form__status" aria-live="polite"></p>
             </form>
           </div>
 

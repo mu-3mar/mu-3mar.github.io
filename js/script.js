@@ -470,6 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavOnScroll();
   initWorkCarousel();
   initServiceModals();
+  initContactForm();
   setActiveNav(location.hash || '#home');
 
   // Hero stats: keep Total Projects synced with portfolio data.
@@ -502,3 +503,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+function initContactForm() {
+  const form = document.querySelector('.contact-card .form');
+  if (!form) return;
+
+  const statusEl = form.querySelector('.form__status');
+  if (!statusEl) return;
+
+  form.addEventListener('submit', () => {
+    statusEl.textContent = 'Sending...';
+  });
+}
