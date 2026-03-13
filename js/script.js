@@ -7,6 +7,7 @@ function qs(sel, root = document) { return root.querySelector(sel); }
 function qsa(sel, root = document) { return Array.from(root.querySelectorAll(sel)); }
 
 const RETURN_TO_SECTION_KEY = 'RETURN_TO_SECTION';
+const THEME_KEY = 'PREF_THEME';
 
 /* ─── Nav active state ─── */
 function setActiveNav(hash) {
@@ -122,6 +123,52 @@ function initActiveNavOnScroll() {
   );
 
   sections.forEach(s => io.observe(s));
+}
+
+/* ─── Theme ─── */
+function applyTheme(mode) {
+  const root = document.documentElement;
+  const theme = mode === 'light' ? 'light' : 'dark';
+
+  if (theme === 'light') {
+    root.setAttribute('data-theme', 'light');
+  } else {
+    root.removeAttribute('data-theme');
+  }
+
+  try {
+    localStorage.setItem(THEME_KEY, theme);
+  } catch (_) {}
+
+  const toggle = qs('.theme-toggle');
+  if (toggle) {
+    const isLight = theme === 'light';
+    toggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+    toggle.classList.toggle('is-light', isLight);
+  }
+}
+
+function initThemeToggle() {
+  const toggle = qs('.theme-toggle');
+  if (!toggle) return;
+
+  let stored = null;
+  try {
+    stored = localStorage.getItem(THEME_KEY);
+  } catch (_) {}
+
+  let initial = stored;
+  if (!initial) {
+    const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    initial = mql && !mql.matches ? 'light' : 'dark';
+  }
+
+  applyTheme(initial);
+
+  toggle.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    applyTheme(isLight ? 'dark' : 'light');
+  });
 }
 
 /* ─── Modal system ─── */
@@ -471,6 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWorkCarousel();
   initServiceModals();
   initContactForm();
+  initThemeToggle();
   setActiveNav(location.hash || '#home');
 
   // Hero stats: keep Total Projects synced with portfolio data.
