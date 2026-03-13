@@ -10,31 +10,31 @@ function esc(s) {
   return d.innerHTML;
 }
 
-/* ─── Modal ─── */
-const overlay = qs('#modal-overlay');
-const modalBody = qs('#modal-body');
+/* ─── Modal (scoped vars to avoid globals collision) ─── */
+const overlayAll = qs('#modal-overlay');
+const modalBodyAll = qs('#modal-body');
 
 function openModal(html) {
-  if (!overlay || !modalBody) return;
-  modalBody.innerHTML = html;
-  overlay.classList.add('is-open');
-  overlay.setAttribute('aria-hidden', 'false');
+  if (!overlayAll || !modalBodyAll) return;
+  modalBodyAll.innerHTML = html;
+  overlayAll.classList.add('is-open');
+  overlayAll.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-locked');
 }
 
 function closeModal() {
-  if (!overlay) return;
-  overlay.classList.remove('is-open');
-  overlay.setAttribute('aria-hidden', 'true');
+  if (!overlayAll) return;
+  overlayAll.classList.remove('is-open');
+  overlayAll.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-locked');
 }
 
-if (overlay) {
-  const closeBtn = qs('.modal__close', overlay);
+if (overlayAll) {
+  const closeBtn = qs('.modal__close', overlayAll);
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  overlayAll.addEventListener('click', e => { if (e.target === overlayAll) closeModal(); });
   window.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+    if (e.key === 'Escape' && overlayAll.classList.contains('is-open')) closeModal();
   });
 }
 

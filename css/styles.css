@@ -1725,6 +1725,23 @@ ul, ol { list-style: none; }
   opacity: 0.45;
 }
 
+/* Dark-mode select dropdown readability (Contact service select) */
+:root:not([data-theme="light"]) .contact-card .select {
+  background-color: var(--bg-2);
+  color: var(--text);
+}
+
+:root:not([data-theme="light"]) .contact-card .select option {
+  background-color: #050512;
+  color: #f9fafb;
+}
+
+:root:not([data-theme="light"]) .contact-card .select option:hover,
+:root:not([data-theme="light"]) .contact-card .select option:checked {
+  background-color: rgba(0,255,153,0.24);
+  color: #0b1020;
+}
+
 .textarea { min-height: 120px; resize: vertical; }
 
 .form__submit { margin-top: 6px; }
