@@ -1,11 +1,40 @@
 /* ═══════════════════════════════════════════════════════
-   PORTFOLIO — ANIMATIONS
+   PORTFOLIO — ANIMATIONS + GLOBAL THEME BOOTSTRAP
    ═══════════════════════════════════════════════════════ */
 
 function qsa(sel, root = document) { return Array.from(root.querySelectorAll(sel)); }
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hasHover = window.matchMedia('(hover: hover)').matches;
+const THEME_STORAGE_KEY = 'PREF_THEME';
+
+/* ─── Global theme bootstrap (runs on every page) ─── */
+function bootstrapTheme() {
+  const root = document.documentElement;
+  if (!root) return;
+
+  // If another script has already set an explicit theme, respect it.
+  if (root.hasAttribute('data-theme')) return;
+
+  let stored = null;
+  try {
+    stored = localStorage.getItem(THEME_STORAGE_KEY);
+  } catch (_) {}
+
+  let theme = stored;
+  if (!theme) {
+    const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    theme = mql && !mql.matches ? 'light' : 'dark';
+  }
+
+  if (theme === 'light') {
+    root.setAttribute('data-theme', 'light');
+  } else {
+    root.removeAttribute('data-theme');
+  }
+}
+
+bootstrapTheme();
 
 /* ─── Scroll reveal ─── */
 function initScrollReveal() {
