@@ -31,7 +31,7 @@ export default function Page() {
                 text={DATA.description}
               />
               <Link
-                href="/resume.pdf"
+                href="/Muhammad_Ammar_Machine_Learning_Engineer_CV.pdf"
                 download
                 className="inline-flex w-fit items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
