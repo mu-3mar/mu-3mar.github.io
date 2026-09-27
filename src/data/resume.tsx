@@ -3,12 +3,12 @@ import {
   HomeIcon,
 } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
+import { FaKaggle } from "react-icons/fa6";
 import {
   siDocker,
   siFastapi,
   siGit,
   siGithub,
-  siKaggle,
   siLinux,
   siMediapipe,
   siNumpy,
@@ -105,9 +105,7 @@ export const DATA = {
       Kaggle: {
         name: "Kaggle",
         url: "https://www.kaggle.com/mohamedsayedamarmsa",
-        icon: (props: SVGProps<SVGSVGElement>) => (
-          <SimpleIcon icon={siKaggle} {...props} />
-        ),
+        icon: FaKaggle,
         navbar: true,
       },
       email: {
