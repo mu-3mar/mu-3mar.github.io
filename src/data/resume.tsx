@@ -8,6 +8,7 @@ import {
   siFastapi,
   siGit,
   siGithub,
+  siKaggle,
   siLinux,
   siMediapipe,
   siNumpy,
@@ -99,6 +100,14 @@ export const DATA = {
         name: "LinkedIn",
         url: "https://linkedin.com/in/mu-3mar",
         icon: Icons.linkedin,
+        navbar: true,
+      },
+      Kaggle: {
+        name: "Kaggle",
+        url: "https://www.kaggle.com/mohamedsayedamarmsa",
+        icon: (props: SVGProps<SVGSVGElement>) => (
+          <SimpleIcon icon={siKaggle} {...props} />
+        ),
         navbar: true,
       },
       email: {
