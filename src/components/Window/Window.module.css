@@ -1,0 +1,160 @@
+.window {
+  container-type: inline-size;
+  container-name: app-window;
+  position: absolute;
+  min-width: 320px;
+  min-height: 300px;
+  background-color: #171a20;
+  border: 1px solid rgba(203, 213, 225, 0.1);
+  border-radius: 13px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48), 0 2px 8px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  resize: both;
+  animation: winOpen 0.2s cubic-bezier(0.2, 0.75, 0.25, 1);
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.active {
+  border-color: rgba(87, 166, 255, 0.38);
+  box-shadow: 0 26px 76px rgba(0, 0, 0, 0.52), 0 0 0 1px rgba(87, 166, 255, 0.08);
+}
+
+.inactive {
+  border-color: rgba(203, 213, 225, 0.07);
+}
+
+@keyframes winOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.titleBar {
+  min-height: 46px;
+  background: #1d2027;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 0 9px 0 16px;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.08);
+  cursor: default;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.windowIdentity {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.appIcon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  opacity: 0.92;
+}
+
+.titleText {
+  overflow: hidden;
+  color: #e8ecf2;
+  font-size: 12.5px;
+  font-weight: 560;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 0 0 auto;
+}
+
+.controls button {
+  width: 32px;
+  height: 30px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  background: transparent;
+  color: #aeb7c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.controls button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.controls button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f6f9;
+}
+
+.closeBtn:hover {
+  background: #a93642 !important;
+  color: #fff;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  background-color: var(--surface);
+  padding: 24px 28px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.bodyFlush {
+  padding: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .titleBar {
+    min-height: 42px;
+    padding-left: 12px;
+  }
+
+  .body:not(.bodyFlush) {
+    padding: 18px;
+  }
+}
+
+@container app-window (max-width: 520px) {
+  .titleBar {
+    gap: 6px;
+    padding-left: 11px;
+  }
+
+  .windowIdentity {
+    gap: 7px;
+  }
+
+  .controls {
+    gap: 1px;
+  }
+
+  .controls button {
+    width: 28px;
+  }
+
+  .body:not(.bodyFlush) {
+    padding: 18px;
+  }
+}

@@ -1,43 +1,375 @@
-# Muhammad Ammar Portfolio
+# Muhammad Ammar — Portfolio OS
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+<div align="center">
 
-# Features
+### An interactive Windows-style portfolio built with React and Vite.
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+A desktop-inspired developer portfolio where your resume, projects, skills, experience, games, and social profiles live inside a fully interactive operating-system interface.
 
-# Getting Started Locally
+<br />
 
-1. Clone this repository to your local machine:
+[**Live Portfolio**](https://mu-3mar.github.io) · [**GitHub Profile**](https://github.com/mu-3mar)
 
-   ```bash
-   git clone <repository-url>
-   ```
+<br /><br />
 
-2. Move to the cloned directory
+![React](https://img.shields.io/badge/React-2026-61DAFB?style=for-the-badge\&logo=react\&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge\&logo=vite\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
+![CSS Modules](https://img.shields.io/badge/CSS_Modules-Styling-264DE4?style=for-the-badge\&logo=css3\&logoColor=white)
 
-   ```bash
-   cd portfolio
-   ```
+</div>
 
-3. Install dependencies:
+---
 
-   ```bash
-   pnpm install
-   ```
+## About
 
-4. Start the local Server:
+**Portfolio OS** is a desktop-style personal portfolio designed to feel less like a traditional website and more like an interactive operating system.
 
-   ```bash
-   pnpm dev
-   ```
+Instead of navigating through conventional pages, visitors interact with a virtual desktop containing applications, windows, a taskbar, Start menu, system tray, personalization tools, and built-in games.
 
-5. Open the [Config file](./src/data/resume.tsx) and make changes
+The project was built to demonstrate practical React architecture, state management, component design, UI engineering, animations, and interactive frontend development.
 
-# License
+---
 
-Licensed under the [MIT license](./LICENSE).
+## Live Experience
+
+<div align="center">
+
+### [Open Portfolio OS](https://mu-3mar.github.io)
+
+**Best experienced on a laptop or desktop.**
+
+</div>
+
+---
+
+## Features
+
+### Desktop Experience
+
+* Windows-style desktop interface
+* Boot animation and lock screen
+* Desktop shortcuts
+* Start menu
+* Taskbar with running applications
+* System tray
+* Clock and calendar flyout
+* Quick settings flyout
+* Show Desktop functionality
+* Fullscreen mode
+* Desktop context menu
+
+### Window Management
+
+* Draggable windows
+* Resizable windows
+* Minimize and maximize
+* Window focusing and z-index management
+* Window snapping
+* Multiple simultaneous applications
+* Dynamic taskbar state
+
+### Portfolio Applications
+
+The desktop contains dedicated applications for:
+
+* Resume
+* About
+* Experience
+* Projects
+* Skills
+* Courses & Certifications
+* Contact
+* File Explorer
+* Browser
+* Code Editor
+* Paint
+* Personalization
+* Recycle Bin
+
+### Games
+
+A built-in Games Hub contains:
+
+* Snake
+* Tic-Tac-Toe
+* Memory Match
+
+### Personalization
+
+* Custom wallpapers
+* Wallpaper switching
+* Desktop context menu
+* OS-style personalization experience
+
+### External Profiles
+
+GitHub, LinkedIn, and Kaggle are integrated as external applications.
+
+Selecting them opens the corresponding profile in a new browser tab instead of an internal portfolio window.
+
+---
+
+## Tech Stack
+
+| Technology   | Purpose                                         |
+| ------------ | ----------------------------------------------- |
+| React        | UI architecture and component development       |
+| Vite         | Development environment and production bundling |
+| JavaScript   | Application logic                               |
+| CSS Modules  | Component-scoped styling                        |
+| Context API  | Global application state                        |
+| Font Awesome | Interface icons                                 |
+
+---
+
+## Architecture
+
+The application is structured around an **OS shell + independent applications** architecture.
+
+```text
+                         Portfolio OS
+                              │
+              ┌───────────────┴───────────────┐
+              │                               │
+          OS Shell                       Applications
+              │                               │
+      ┌───────┼────────┐              ┌───────┼────────┐
+      │       │        │              │       │        │
+   Desktop  Taskbar  Start Menu     Resume  Projects  Games
+      │
+      ├── Window Manager
+      ├── Context Menu
+      ├── Flyouts
+      ├── Wallpaper System
+      └── Power System
+```
+
+This separation allows individual portfolio sections to behave like applications running inside the desktop environment.
+
+---
+
+## Project Structure
+
+```text
+src/
+│
+├── apps/
+│   ├── Resume/
+│   ├── About/
+│   ├── Experience/
+│   ├── Projects/
+│   ├── Skills/
+│   ├── Certifications/
+│   ├── Contact/
+│   ├── Explorer/
+│   ├── Browser/
+│   ├── Code/
+│   ├── Paint/
+│   ├── Recycle/
+│   ├── Personalize/
+│   └── Games/
+│       ├── Snake/
+│       ├── TicTacToe/
+│       ├── MemoryMatch/
+│       └── GamesHub/
+│
+├── components/
+│   ├── LockScreen/
+│   ├── Desktop/
+│   ├── Taskbar/
+│   ├── StartMenu/
+│   ├── Window/
+│   ├── ContextMenu/
+│   ├── Flyouts/
+│   └── DesktopIcon/
+│
+├── context/
+│   ├── WindowManagerContext/
+│   └── WallpaperContext/
+│
+├── hooks/
+│   ├── useClock/
+│   └── useDraggableWindow/
+│
+├── data/
+│   ├── profile.js
+│   └── appRegistry.js
+│
+└── styles/
+    ├── global.css
+    └── shared doc-content.module.css
+```
+
+---
+
+## Window Management
+
+The core of the portfolio is the window management system.
+
+The `WindowManagerContext` controls:
+
+* Opening applications
+* Closing applications
+* Minimizing windows
+* Maximizing windows
+* Focusing windows
+* Z-index management
+* Window positioning
+* Window state
+* Taskbar synchronization
+* Window snapping
+
+This allows every application to behave like a native desktop window.
+
+---
+
+## Application Registry
+
+Application metadata is centralized in:
+
+```text
+src/data/appRegistry.js
+```
+
+The registry defines information such as:
+
+```text
+Application
+├── ID
+├── Title
+├── Icon
+├── Color
+├── Type
+└── Launch behavior
+```
+
+This makes adding new desktop applications significantly easier without modifying the core window manager.
+
+---
+
+## Games
+
+The built-in games are organized under:
+
+```text
+src/apps/Games/
+```
+
+The Games Hub provides a single entry point for launching the individual games.
+
+Current games:
+
+```text
+Games Hub
+├── Snake
+├── Tic-Tac-Toe
+└── Memory Match
+```
+
+---
+
+## Personalization
+
+The wallpaper system is managed through:
+
+```text
+WallpaperContext
+```
+
+Users can access personalization from the desktop context menu and switch between available wallpapers without leaving the desktop environment.
+
+---
+
+## Responsive Experience
+
+The portfolio is intentionally designed as a **desktop-first OS experience**.
+
+The window-based interface is optimized for laptop and desktop screens where there is enough space for multiple applications and desktop interactions.
+
+Mobile visitors receive a dedicated desktop-experience notice explaining the intended viewing environment.
+
+---
+
+## Running Locally
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start development server
+
+```bash
+npm run dev
+```
+
+### Create production build
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+---
+
+## Portfolio URL
+
+**https://mu-3mar.github.io**
+
+---
+
+## Portfolio Content
+
+The OS currently includes:
+
+```text
+Resume
+About
+Experience
+Projects
+Skills
+Courses & Certifications
+Contact
+GitHub
+LinkedIn
+Kaggle
+```
+
+All portfolio content is presented through the operating-system interface rather than traditional website sections.
+
+---
+
+## Author
+
+<div align="center">
+
+### Muhammad Ammar
+
+**Machine Learning Engineer**
+
+Building end-to-end machine learning solutions and integrating ML models into FastAPI applications.
+
+<br />
+
+[GitHub](https://github.com/mu-3mar) · [LinkedIn](https://linkedin.com/in/mu-3mar) · [Kaggle](https://www.kaggle.com/mohamedsayedamarmsa) · [Email](mailto:i.muhamad.amar@gmil.com) · [Portfolio](https://mu-3mar.github.io)
+
+</div>
+
+---
+<img width="1920" height="971" alt="Screenshot 2026-08-21 160123" src="https://github.com/user-attachments/assets/f63d7d48-d7c6-4eb1-88d9-9739681d45a3" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7fb8d042-f1b1-4f7d-941c-427c7de71cf0" />
+
+<img width="1920" height="963" alt="Screenshot 2026-08-21 124341" src="https://github.com/user-attachments/assets/026dc370-835d-457a-b8d7-c972d1d7fb70" />
+
+
+## License
+
+This project is a personal portfolio and demonstration of frontend engineering, React architecture, UI development, and interactive web application design.
