@@ -21,21 +21,21 @@
 |---|---|---|
 | `--bg: #111111` | ✅ | `src/App.css:2` |
 | `--bg-soft: #171717` | ✅ | `src/App.css:3` |
-| `--panel: rgba(255,255,255,0.02)` | ✅ | `src/App.css:4` |
-| `--panel-strong: rgba(255,255,255,0.045)` | ✅ | `src/App.css:5` |
-| `--border: rgba(255,255,255,0.12)` | ✅ | `src/App.css:6` |
-| `--text: #ffffff` | ✅ | `src/App.css:7` |
-| `--muted: rgba(255,255,255,0.76)` | ✅ | `src/App.css:8` |
-| `--soft: rgba(255,255,255,0.62)` | ✅ | `src/App.css:9` |
-| `--accent: #f4df3d` (gold) | ✅ | `src/App.css:10` |
-| `--accent-soft: rgba(244,223,61,0.14)` | ✅ | `src/App.css:11` |
-| `--accent-strong: rgba(244,223,61,0.22)` | ✅ | `src/App.css:12` |
+| `--panel: rgba(245,245,245,0.02)` | ✅ | `src/App.css:4` |
+| `--panel-strong: rgba(245,245,245,0.045)` | ✅ | `src/App.css:5` |
+| `--border: rgba(245,245,245,0.12)` | ✅ | `src/App.css:6` |
+| `--text: #F5F5F5` | ✅ | `src/App.css:7` |
+| `--muted: rgba(245,245,245,0.76)` | ✅ | `src/App.css:8` |
+| `--soft: rgba(245,245,245,0.62)` | ✅ | `src/App.css:9` |
+| `--accent: #FFC006` (gold) | ✅ | `src/App.css:10` |
+| `--accent-soft: rgba(255,192,6,0.14)` | ✅ | `src/App.css:11` |
+| `--accent-strong: rgba(255,192,6,0.22)` | ✅ | `src/App.css:12` |
 | `--danger: #ffb4b4` | ✅ | `src/App.css:13` |
 | `--success: #a7f3a6` | ✅ | `src/App.css:14` |
 | Body radial gold glow at top | ✅ | `src/App.css:27-29` |
 | Header translucent `rgba(17,17,17,0.76)` + blur(14px) | ✅ | `src/App.css:92-94` |
-| Logo white `#F5F5F5` + gold `#FFC107` | ✅ | `public/images/personal-logo.svg` |
-| Placeholder color `rgba(255,255,255,0.44)` | ✅ | `src/App.css:846` |
+| Logo white `#F5F5F5` + gold `#FFC006` | ✅ | `public/images/personal-logo.svg` |
+| Placeholder color `rgba(245,245,245,0.44)` | ✅ | `src/App.css:846` |
 
 ---
 

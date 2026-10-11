@@ -2,7 +2,7 @@
   font-family: Inter, 'Segoe UI', Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #ffffff;
+  color: #F5F5F5;
   background: #111111;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,7 +22,7 @@ html {
 body {
   margin: 0;
   background: #111111;
-  color: #ffffff;
+  color: #F5F5F5;
 }
 
 img {

@@ -13,33 +13,33 @@
   /* Backgrounds */
   --color-bg: #111111;                          /* Page background — near-black */
   --color-bg-soft: #171717;                     /* Slightly elevated surface */
-  --color-surface: rgba(255, 255, 255, 0.02);   /* Default card/panel surface */
-  --color-surface-strong: rgba(255, 255, 255, 0.045); /* Emphasized surface */
-  --color-surface-input: rgba(255, 255, 255, 0.02);   /* Form input background */
+  --color-surface: rgba(245, 245, 245, 0.02);   /* Default card/panel surface */
+  --color-surface-strong: rgba(245, 245, 245, 0.045); /* Emphasized surface */
+  --color-surface-input: rgba(245, 245, 245, 0.02);   /* Form input background */
 
   /* Header (sticky, translucent) */
   --color-header-bg: rgba(17, 17, 17, 0.76);
-  --color-header-border: rgba(255, 255, 255, 0.08);
+  --color-header-border: rgba(245, 245, 245, 0.08);
 
   /* Borders & dividers */
-  --color-border: rgba(255, 255, 255, 0.12);    /* Default border for cards/inputs */
-  --color-border-subtle: rgba(255, 255, 255, 0.08); /* Hairline divider */
+  --color-border: rgba(245, 245, 245, 0.12);    /* Default border for cards/inputs */
+  --color-border-subtle: rgba(245, 245, 245, 0.08); /* Hairline divider */
 
   /* Text */
-  --color-text: #ffffff;                        /* Primary headings & body */
-  --color-text-muted: rgba(255, 255, 255, 0.76);/* Secondary/paragraph text */
-  --color-text-soft: rgba(255, 255, 255, 0.62); /* Eyebrows, meta, labels */
-  --color-text-placeholder: rgba(255, 255, 255, 0.44); /* Input placeholder */
+  --color-text: #F5F5F5;                        /* Primary headings & body */
+  --color-text-muted: rgba(245, 245, 245, 0.76);/* Secondary/paragraph text */
+  --color-text-soft: rgba(245, 245, 245, 0.62); /* Eyebrows, meta, labels */
+  --color-text-placeholder: rgba(245, 245, 245, 0.44); /* Input placeholder */
 
   /* Accent (gold) — core brand color */
-  --color-accent: #f4df3d;                      /* Primary gold for CTAs, active states */
+  --color-accent: #FFC006;                      /* Primary gold for CTAs, active states */
   --color-accent-on-dark: #111111;              /* Text color on gold surfaces */
-  --color-accent-soft: rgba(244, 223, 61, 0.14);/* Gold tint background (hover, marks) */
-  --color-accent-strong: rgba(244, 223, 61, 0.22); /* Stronger gold tint */
-  --color-accent-glow: rgba(244, 223, 61, 0.12);/* Ambient glow ring */
+  --color-accent-soft: rgba(255, 192, 6, 0.14);/* Gold tint background (hover, marks) */
+  --color-accent-strong: rgba(255, 192, 6, 0.22); /* Stronger gold tint */
+  --color-accent-glow: rgba(255, 192, 6, 0.12);/* Ambient glow ring */
 
   /* Decorative gold (logo mark) */
-  --color-logo-gold: #FFC107;                   /* Gold used inside personal-logo.svg */
+  --color-logo-gold: #FFC006;                   /* Gold used inside personal-logo.svg */
   --color-logo-white: #F5F5F5;                  /* White used inside personal-logo.svg */
 
   /* Status colors */
@@ -47,8 +47,8 @@
   --color-danger: #ffb4b4;                      /* Form error message */
 
   /* Decorative gradients */
-  --gradient-body-top: radial-gradient(circle at top, rgba(244, 223, 61, 0.07), transparent 30%);
-  --gradient-portrait-glow: radial-gradient(circle at center, rgba(244, 223, 61, 0.12), transparent 62%);
+  --gradient-body-top: radial-gradient(circle at top, rgba(255, 192, 6, 0.07), transparent 30%);
+  --gradient-portrait-glow: radial-gradient(circle at center, rgba(255, 192, 6, 0.12), transparent 62%);
 
   /* --------------------------------------------------------------------------
      TYPOGRAPHY TOKENS
@@ -166,7 +166,7 @@
   --shadow-portrait: 0 24px 40px rgba(0, 0, 0, 0.28);
   --shadow-portrait-about: 0 24px 40px rgba(0, 0, 0, 0.2);
   --shadow-floating-logo: 0 4px 16px rgba(0, 0, 0, 0.48);
-  --shadow-focus-ring: 0 0 0 2px rgba(244, 223, 61, 0.12);
+  --shadow-focus-ring: 0 0 0 2px rgba(255, 192, 6, 0.12);
   --blur-header: 14px;            /* backdrop-filter for sticky header */
   --blur-portrait-glow: 28px;     /* Ambient gold glow behind portrait */
 

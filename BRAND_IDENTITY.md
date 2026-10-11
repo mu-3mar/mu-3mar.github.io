@@ -27,14 +27,14 @@ The brand is **dark, precise, and quietly premium**. It communicates engineering
 ### 1.3 The Dark/Gold Relationship
 
 - The surface is `#111111` (near-black, not pure black — avoids harsh contrast).
-- The accent is a warm **gold `#f4df3d`** used sparingly: active nav links, CTAs, the professional title, focus rings, timeline dots, and list bullets.
+- The accent is a warm **gold `#FFC006`** used sparingly: active nav links, CTAs, the professional title, focus rings, timeline dots, and list bullets.
 - Gold is **never** used for large body text; it is a highlight color only.
 - A subtle radial gold glow bleeds from the top of the page and behind the portrait, adding depth without decoration.
 
 ### 1.4 Recognizable Brand Signatures (Must Preserve)
 
 1. Near-black `#111111` background with a faint gold radial glow at the top.
-2. Single gold accent `#f4df3d` for CTAs, active states, and highlights.
+2. Single gold accent `#FFC006` for CTAs, active states, and highlights.
 3. Heavy, tightly-tracked display headings (font-weight 900, negative letter-spacing).
 4. Translucent, blurred sticky header with a gold underline on the active link.
 5. Pills/buttons with `border-radius: 999px`.
@@ -46,7 +46,7 @@ The brand is **dark, precise, and quietly premium**. It communicates engineering
 
 | Essential (preserve everywhere) | Adaptive (per product) |
 |---|---|
-| `#111111` background + gold `#f4df3d` accent | Number of sections, content density |
+| `#111111` background + gold `#FFC006` accent | Number of sections, content density |
 | Inter / system sans-serif with tight display tracking | Grid column counts (2, 3, 4 as needed) |
 | Pill buttons (`999px`) and rounded cards (`1.2rem`) | Hero layout (split, centered, full-bleed) |
 | Translucent blurred sticky header | Whether floating logos are used |
@@ -65,16 +65,16 @@ All values verified from `src/App.css` `:root` block and live rendering.
 |---|---|---|---|---|---|
 | `--color-bg` | `#111111` | 17, 17, 17 | Page background | Core | Verified (code) |
 | `--color-bg-soft` | `#171717` | 23, 23, 23 | Elevated surface (defined, lightly used) | Supporting | Verified (code) |
-| `--color-surface` | `rgba(255,255,255,0.02)` | — | Card/panel background | Core | Verified (code) |
-| `--color-surface-strong` | `rgba(255,255,255,0.045)` | — | Emphasized surface | Supporting | Verified (code) |
-| `--color-text` | `#ffffff` | 255, 255, 255 | Headings, primary text, buttons on gold | Core | Verified (code) |
-| `--color-text-muted` | `rgba(255,255,255,0.76)` | — | Body paragraphs, secondary text | Core | Verified (code) |
-| `--color-text-soft` | `rgba(255,255,255,0.62)` | — | Eyebrows, meta labels, footer | Core | Verified (code) |
-| `--color-accent` | `#f4df3d` | 244, 223, 61 | Gold — CTAs, active nav, highlights, focus | Core | Verified (code) |
-| `--color-accent-soft` | `rgba(244,223,61,0.14)` | — | Gold tint for hover backgrounds, tech marks | Supporting | Verified (code) |
-| `--color-accent-strong` | `rgba(244,223,61,0.22)` | — | Stronger gold tint | Supporting | Verified (code) |
-| `--color-border` | `rgba(255,255,255,0.12)` | — | Default card/input border | Core | Verified (code) |
-| `--color-border-subtle` | `rgba(255,255,255,0.08)` | — | Header bottom border, dividers | Supporting | Verified (code) |
+| `--color-surface` | `rgba(245,245,245,0.02)` | — | Card/panel background | Core | Verified (code) |
+| `--color-surface-strong` | `rgba(245,245,245,0.045)` | — | Emphasized surface | Supporting | Verified (code) |
+| `--color-text` | `#F5F5F5` | 245, 245, 245 | Headings, primary text, buttons on gold | Core | Verified (code) |
+| `--color-text-muted` | `rgba(245,245,245,0.76)` | — | Body paragraphs, secondary text | Core | Verified (code) |
+| `--color-text-soft` | `rgba(245,245,245,0.62)` | — | Eyebrows, meta labels, footer | Core | Verified (code) |
+| `--color-accent` | `#FFC006` | 255, 192, 6 | Gold — CTAs, active nav, highlights, focus | Core | Verified (code) |
+| `--color-accent-soft` | `rgba(255,192,6,0.14)` | — | Gold tint for hover backgrounds, tech marks | Supporting | Verified (code) |
+| `--color-accent-strong` | `rgba(255,192,6,0.22)` | — | Stronger gold tint | Supporting | Verified (code) |
+| `--color-border` | `rgba(245,245,245,0.12)` | — | Default card/input border | Core | Verified (code) |
+| `--color-border-subtle` | `rgba(245,245,245,0.08)` | — | Header bottom border, dividers | Supporting | Verified (code) |
 | `--color-success` | `#a7f3a6` | 167, 243, 166 | Form success message | Supporting | Verified (code) |
 | `--color-danger` | `#ffb4b4` | 255, 180, 180 | Form error message | Supporting | Verified (code) |
 
@@ -83,17 +83,17 @@ All values verified from `src/App.css` `:root` block and live rendering.
 | Token | Value | Usage |
 |---|---|---|
 | `--color-logo-white` | `#F5F5F5` | White paths in `personal-logo.svg` |
-| `--color-logo-gold` | `#FFC107` | Gold accent inside `personal-logo.svg` (slightly warmer than UI gold) |
-| `--gradient-body-top` | `radial-gradient(circle at top, rgba(244,223,61,0.07), transparent 30%)` | Ambient page-top glow |
-| `--gradient-portrait-glow` | `radial-gradient(circle at center, rgba(244,223,61,0.12), transparent 62%)` | Glow behind portrait |
+| `--color-logo-gold` | `#FFC006` | Gold accent inside `personal-logo.svg` (slightly warmer than UI gold) |
+| `--gradient-body-top` | `radial-gradient(circle at top, rgba(255,192,6,0.07), transparent 30%)` | Ambient page-top glow |
+| `--gradient-portrait-glow` | `radial-gradient(circle at center, rgba(255,192,6,0.12), transparent 62%)` | Glow behind portrait |
 
 ### 2.3 Color Usage Rules
 
 - **Backgrounds:** Always `#111111` (or `rgba(17,17,17,0.76)` for the translucent header). Do not use pure black `#000`.
-- **Text on dark:** White `#fff` for headings, `rgba(255,255,255,0.76)` for body, `rgba(255,255,255,0.62)` for meta.
+- **Text on dark:** White `#F5F5F5` for headings, `rgba(245,245,245,0.76)` for body, `rgba(245,245,245,0.62)` for meta.
 - **Text on gold:** Use `#111111` (dark) — never white on gold, as contrast is poor.
 - **Gold accent:** Use for primary actions, active states, focus rings, and small highlights. Do not flood large areas with gold.
-- **Borders:** 1px `rgba(255,255,255,0.12)` for cards/inputs; `rgba(255,255,255,0.08)` for hairlines.
+- **Borders:** 1px `rgba(245,245,245,0.12)` for cards/inputs; `rgba(245,245,245,0.08)` for hairlines.
 - **Gradients:** Only gold-on-transparent radial gradients for ambient glow. No multi-color linear gradients.
 
 ---
@@ -147,7 +147,7 @@ All `clamp()` values are verified from `src/App.css`.
 
 - **Path:** `public/images/personal-logo.svg`
 - **Format:** SVG, `viewBox="0 0 490 315"`, transparent background.
-- **Colors:** White `#F5F5F5` + Gold `#FFC107`.
+- **Colors:** White `#F5F5F5` + Gold `#FFC006`.
 - **Composition:** A geometric, abstract eye-and-hand-inspired mark. Two `<g>` groups: one white, one gold.
 - **Display size:** Rendered in a `4rem × 4rem` square container with `background-size: contain`, centered.
 - **Intended background:** Dark (`#111111`). The logo has no light variant; on light backgrounds it would need inversion (not currently provided).
@@ -222,7 +222,7 @@ All `clamp()` values are verified from `src/App.css`.
 ## 6. Components & Design Patterns
 
 ### 6.1 Sticky Header (`.site-header`)
-- **Appearance:** Translucent `rgba(17,17,17,0.76)` with `backdrop-filter: blur(14px)`, 1px bottom border `rgba(255,255,255,0.08)`.
+- **Appearance:** Translucent `rgba(17,17,17,0.76)` with `backdrop-filter: blur(14px)`, 1px bottom border `rgba(245,245,245,0.08)`.
 - **Layout:** Flex, space-between; brand (left), nav (center), socials (right).
 - **Z-index:** 20.
 - **Responsive:** Nav + socials hidden ≤980px; hamburger button shown; mobile menu drops down.
@@ -235,7 +235,7 @@ All `clamp()` values are verified from `src/App.css`.
 
 ### 6.3 Social Icon Button (`.social-link`)
 - **Size:** `2.4rem × 2.4rem`, `border-radius: 0.85rem`.
-- **Default:** `background: rgba(255,255,255,0.02)`, 1px `var(--border)`, color white.
+- **Default:** `background: rgba(245,245,245,0.02)`, 1px `var(--border)`, color white.
 - **Icon size:** `1.1rem`.
 - **Hover/focus:** gold color, gold border, `background: var(--accent-soft)`, 2px gold glow ring, 2px gold outline.
 - **Transition:** 180ms ease.
@@ -280,7 +280,7 @@ All `clamp()` values are verified from `src/App.css`.
 - **Radius:** `999px`.
 - **Padding:** `0.42rem 0.7rem`.
 - **Border:** 1px `var(--border)`.
-- **Background:** `rgba(255,255,255,0.02)`.
+- **Background:** `rgba(245,245,245,0.02)`.
 - **Font-size:** `0.76rem`.
 
 ### 6.10 Detail Panel / Card (`.detail-panel`)
@@ -302,9 +302,9 @@ All `clamp()` values are verified from `src/App.css`.
 
 ### 6.13 Form Input (`.contact-form input/textarea`)
 - **Border:** 1px `var(--border)`, `border-radius: 0.85rem`.
-- **Background:** `rgba(255,255,255,0.02)`.
+- **Background:** `rgba(245,245,245,0.02)`.
 - **Padding:** `0.8rem 0.9rem`.
-- **Placeholder:** `rgba(255,255,255,0.44)`.
+- **Placeholder:** `rgba(245,245,245,0.44)`.
 - **Focus:** 2px gold outline, 2px offset.
 
 ### 6.14 Footer (`.site-footer`)
@@ -323,8 +323,8 @@ All `clamp()` values are verified from `src/App.css`.
 ## 7. Effects, Motion & Decorative Language
 
 ### 7.1 Ambient Glow
-- **Page top:** `radial-gradient(circle at top, rgba(244,223,61,0.07), transparent 30%)` over `#111111`.
-- **Behind portrait:** `radial-gradient(circle at center, rgba(244,223,61,0.12), transparent 62%)` with `blur(28px)`.
+- **Page top:** `radial-gradient(circle at top, rgba(255,192,6,0.07), transparent 30%)` over `#111111`.
+- **Behind portrait:** `radial-gradient(circle at center, rgba(255,192,6,0.12), transparent 62%)` with `blur(28px)`.
 
 ### 7.2 Drop Shadows
 | Element | Shadow |
@@ -378,9 +378,9 @@ A global `@media (prefers-reduced-motion: reduce)` block:
 
 ### 8.4 Color Contrast
 - White on `#111111`: ~21:1 (excellent).
-- Muted `rgba(255,255,255,0.76)` on `#111111`: ~16:1 (excellent).
-- Soft `rgba(255,255,255,0.62)` on `#111111`: ~13:1 (good).
-- `#111111` on gold `#f4df3d`: ~13:1 (good).
+- Muted `rgba(245,245,245,0.76)` on `#111111`: ~16:1 (excellent).
+- Soft `rgba(245,245,245,0.62)` on `#111111`: ~13:1 (good).
+- `#111111` on gold `#FFC006`: ~13:1 (good).
 
 ### 8.5 Semantics
 - `<header>`, `<nav>`, `<main>`, `<footer>` landmarks.
@@ -405,7 +405,7 @@ Full implementation in [`design-tokens.css`](./design-tokens.css). Key groupings
 - **Breakpoints:** 980px (tablet), 640px (mobile).
 
 **Mapping to Tailwind (if used in future):** The current site does NOT use Tailwind. If adopting Tailwind, map tokens to `tailwind.config.js` under `theme.extend`:
-- `colors.bg = '#111111'`, `colors.accent = '#f4df3d'`, etc.
+- `colors.bg = '#111111'`, `colors.accent = '#FFC006'`, etc.
 - `borderRadius.card = '1.2rem'`, `borderRadius.pill = '999px'`.
 - `fontFamily.sans = ['Inter', 'Segoe UI', ...]`.
 - Extend `keyframes` and `animation` for `fadeInUp` and `floatTech`.
@@ -432,15 +432,15 @@ Full implementation in [`design-tokens.css`](./design-tokens.css). Key groupings
 
 ### ✅ Must Preserve
 1. `#111111` background (not pure black) with a faint gold radial glow at the top.
-2. Gold accent `#f4df3d` used only for CTAs, active states, focus, and small highlights.
+2. Gold accent `#FFC006` used only for CTAs, active states, focus, and small highlights.
 3. Inter/system sans-serif with heavy (900) tightly-tracked display headings.
 4. Pill buttons (`999px`) and rounded cards (`1.2rem`).
 5. Translucent blurred sticky header with gold active-link underline.
-6. 1px `rgba(255,255,255,0.12)` borders on cards/inputs.
+6. 1px `rgba(245,245,245,0.12)` borders on cards/inputs.
 7. The white+gold personal logo mark and matching favicon.
 8. `fadeInUp` section entrance (420ms) and 180ms interactive transitions.
 9. Gold focus outlines (`2px solid var(--accent)`).
-10. Three-level text hierarchy: white / `rgba(255,255,255,0.76)` / `rgba(255,255,255,0.62)`.
+10. Three-level text hierarchy: white / `rgba(245,245,245,0.76)` / `rgba(245,245,245,0.62)`.
 
 ### 🔄 May Adapt
 - Number and order of sections.
@@ -467,7 +467,7 @@ Full implementation in [`design-tokens.css`](./design-tokens.css). Key groupings
 
 **AI/ML Product Landing Page:** Reuse the hero split layout, gold CTA, and floating tech-logos field. Use the eyebrow + large-title section header pattern for feature sections. Project cards become feature cards.
 
-**Developer Tool:** Lean into the monospace-adjacent precision — use the same dark surface, gold accent, and hairline borders. Code blocks can use a subtle `rgba(255,255,255,0.04)` surface.
+**Developer Tool:** Lean into the monospace-adjacent precision — use the same dark surface, gold accent, and hairline borders. Code blocks can use a subtle `rgba(245,245,245,0.04)` surface.
 
 **Data Analytics Platform:** Cards/charts on `#111111`; gold for the primary metric or selected series; muted gridlines. Keep the same border-radius and padding.
 

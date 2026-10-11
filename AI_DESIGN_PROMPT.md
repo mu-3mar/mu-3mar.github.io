@@ -28,23 +28,23 @@ typography, spacing, border radius, borders, shadows, transitions, and z-index.
 ## Non-negotiable brand rules (MUST preserve)
 
 1. Background is #111111 (near-black, NEVER pure #000). Add a faint gold radial
-   glow at the top: radial-gradient(circle at top, rgba(244,223,61,0.07), transparent 30%).
-2. The ONLY accent color is gold #f4df3d. Use it for: primary CTAs, active nav
+   glow at the top: radial-gradient(circle at top, rgba(255,192,6,0.07), transparent 30%).
+2. The ONLY accent color is gold #FFC006. Use it for: primary CTAs, active nav
    links, focus rings, timeline dots, list bullets, and small highlights.
    Never use gold for large body text.
 3. Text on gold surfaces must be #111111 (dark), NOT white.
 4. Font stack: Inter, 'Segoe UI', Helvetica, Arial, sans-serif.
    (Inter is not bundled; rely on system fallback unless explicitly loaded.)
 5. Display headings: font-weight 900, negative letter-spacing (-0.07em to -0.08em),
-   line-height ~1. Body text: rgba(255,255,255,0.76), line-height 1.7.
-   Eyebrows/labels: uppercase, letter-spacing 0.12em–0.18em, rgba(255,255,255,0.62).
+   line-height ~1. Body text: rgba(245,245,245,0.76), line-height 1.7.
+   Eyebrows/labels: uppercase, letter-spacing 0.12em–0.18em, rgba(245,245,245,0.62).
 6. Buttons are pills (border-radius: 999px). Primary = gold fill with dark text.
-   Secondary = transparent with 1px rgba(255,255,255,0.12) border.
-7. Cards/panels: border-radius 1.2rem, 1px solid rgba(255,255,255,0.12),
-   background rgba(255,255,255,0.02).
+   Secondary = transparent with 1px rgba(245,245,245,0.12) border.
+7. Cards/panels: border-radius 1.2rem, 1px solid rgba(245,245,245,0.12),
+   background rgba(245,245,245,0.02).
 8. Sticky header: translucent rgba(17,17,17,0.76) with backdrop-filter: blur(14px),
-   1px bottom border rgba(255,255,255,0.08). Active nav link = gold text + 2px gold underline.
-9. Focus-visible states: 2px solid #f4df3d outline (offset 2–4px).
+   1px bottom border rgba(245,245,245,0.08). Active nav link = gold text + 2px gold underline.
+9. Focus-visible states: 2px solid #FFC006 outline (offset 2–4px).
 10. Interactive transitions: 180ms ease. Section entrance: fadeInUp 420ms ease.
 11. Use the personal logo (public/images/personal-logo.svg) and favicon
     (public/favicon.svg) exactly as provided — do not recolor or distort them.
@@ -93,11 +93,11 @@ Build the product now, applying the brand identity above to every visual decisio
 | Token | Value |
 |---|---|
 | `--color-bg` | `#111111` |
-| `--color-accent` | `#f4df3d` |
-| `--color-text` | `#ffffff` |
-| `--color-text-muted` | `rgba(255,255,255,0.76)` |
-| `--color-text-soft` | `rgba(255,255,255,0.62)` |
-| `--color-border` | `rgba(255,255,255,0.12)` |
+| `--color-accent` | `#FFC006` |
+| `--color-text` | `#F5F5F5` |
+| `--color-text-muted` | `rgba(245,245,245,0.76)` |
+| `--color-text-soft` | `rgba(245,245,245,0.62)` |
+| `--color-border` | `rgba(245,245,245,0.12)` |
 | `--radius-pill` | `999px` |
 | `--radius-card` | `1.2rem` |
 | `--radius-input` | `0.85rem` |

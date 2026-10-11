@@ -15,7 +15,7 @@ Paths are relative to the project root unless stated otherwise.
 | Format | SVG (vector) |
 | Dimensions | `width="980" height="630"`, `viewBox="0 0 490 315"` |
 | Aspect ratio | ~1.555 : 1 (landscape) |
-| Colors | White `#F5F5F5` + Gold `#FFC107` on **transparent** background |
+| Colors | White `#F5F5F5` + Gold `#FFC006` on **transparent** background |
 | Composition | Geometric eye-and-hand inspired mark; two path groups (white + gold) |
 | Usage | Header brand mark (rendered at `4rem × 4rem` via `background-size: contain`) |
 
@@ -88,7 +88,7 @@ Library: [`lucide-react`](https://www.npmjs.com/package/lucide-react) v1.55.0
 ### 4.2 Technology / Brand Logos
 
 Library: [`@icons-pack/react-simple-icons`](https://www.npmjs.com/package/@icons-pack/react-simple-icons) v13.15.1
-- **Style:** Official single-color brand SVG paths; rendered white (`#fff`) with `opacity: 0.92`.
+- **Style:** Official single-color brand SVG paths; rendered white (`#F5F5F5`) with `opacity: 0.92`.
 - **Used in:** Floating logo fields on Home and Skills pages (17 technologies).
 - **Technologies:** Python, NumPy, Pandas, Scikit-learn, PyTorch, TensorFlow, Keras, OpenCV, Ultralytics (YOLO), MediaPipe, FastAPI, Docker, ONNX, Firebase, Git, GitHub, Linux.
 - **Effect:** Each logo has `drop-shadow(0 4px 16px rgba(0,0,0,0.48))` and a gentle infinite drift animation.

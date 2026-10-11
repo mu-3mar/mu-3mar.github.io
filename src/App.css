@@ -1,15 +1,15 @@
 :root {
   --bg: #111111;
   --bg-soft: #171717;
-  --panel: rgba(255, 255, 255, 0.02);
-  --panel-strong: rgba(255, 255, 255, 0.045);
-  --border: rgba(255, 255, 255, 0.12);
-  --text: #ffffff;
-  --muted: rgba(255, 255, 255, 0.76);
-  --soft: rgba(255, 255, 255, 0.62);
-  --accent: #f4df3d;
-  --accent-soft: rgba(244, 223, 61, 0.14);
-  --accent-strong: rgba(244, 223, 61, 0.22);
+  --panel: rgba(245, 245, 245, 0.02);
+  --panel-strong: rgba(245, 245, 245, 0.045);
+  --border: rgba(245, 245, 245, 0.12);
+  --text: #F5F5F5;
+  --muted: rgba(245, 245, 245, 0.76);
+  --soft: rgba(245, 245, 245, 0.62);
+  --accent: #FFC006;
+  --accent-soft: rgba(255, 192, 6, 0.14);
+  --accent-strong: rgba(255, 192, 6, 0.22);
   --danger: #ffb4b4;
   --success: #a7f3a6;
 }
@@ -25,7 +25,7 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top, rgba(244, 223, 61, 0.07), transparent 30%),
+    radial-gradient(circle at top, rgba(255, 192, 6, 0.07), transparent 30%),
     var(--bg);
   color: var(--text);
   font-family: Inter, 'Segoe UI', sans-serif;
@@ -91,7 +91,7 @@ a {
   z-index: 20;
   backdrop-filter: blur(14px);
   background: rgba(17, 17, 17, 0.76);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(245, 245, 245, 0.08);
 }
 
 .header-inner {
@@ -164,7 +164,7 @@ a {
   border-radius: 0.85rem;
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
   border: 1px solid var(--border);
   color: var(--text);
 }
@@ -197,7 +197,7 @@ a {
   color: var(--muted);
   padding: 0.6rem 0.8rem;
   border-radius: 0.9rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
   border: 1px solid var(--border);
 }
 
@@ -268,7 +268,7 @@ a {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(245, 245, 245, 0.9);
   font-size: clamp(1.05rem, 1.4vw, 1.45rem);
   letter-spacing: -0.04em;
 }
@@ -351,7 +351,7 @@ a {
   position: absolute;
   inset: 7% 12% 0;
   border-radius: 50% 50% 42% 42%;
-  background: radial-gradient(circle at center, rgba(244, 223, 61, 0.12), transparent 62%);
+  background: radial-gradient(circle at center, rgba(255, 192, 6, 0.12), transparent 62%);
   filter: blur(28px);
 }
 
@@ -469,7 +469,7 @@ a {
   border: 1px solid var(--border);
   color: var(--text);
   font-size: 0.76rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
 }
 
 .project-actions {
@@ -548,7 +548,7 @@ a {
 .detail-image-wrap {
   border: 1px solid var(--border);
   border-radius: 1.2rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
   overflow: hidden;
 }
 
@@ -566,7 +566,7 @@ a {
 .summary-block {
   border: 1px solid var(--border);
   border-radius: 1.2rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
   padding: 1rem 1.1rem;
 }
 
@@ -604,8 +604,8 @@ a {
   align-items: center;
   gap: 0.6rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(245, 245, 245, 0.08);
+  background: rgba(245, 245, 245, 0.02);
   padding: 0.7rem 1rem;
   color: var(--text);
   letter-spacing: -0.02em;
@@ -675,7 +675,7 @@ a {
 
 .about-copy {
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
   border-radius: 1.3rem;
   padding: 1.5rem;
   display: grid;
@@ -836,14 +836,14 @@ a {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 0.85rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
   color: var(--text);
   padding: 0.8rem 0.9rem;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(255,255,255,0.44);
+  color: rgba(245,245,245,0.44);
 }
 
 .contact-form input:focus,
@@ -1039,7 +1039,7 @@ a {
   border: 1px solid var(--border);
   color: var(--text);
   font-size: 0.76rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
 }
 
 .project-actions {
@@ -1117,7 +1117,7 @@ a {
   padding: 0.7rem 0.9rem;
   border: 1px solid var(--border);
   border-radius: 0.9rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
 }
 
 .edu-block svg {
@@ -1162,7 +1162,7 @@ a {
   color: var(--accent);
   border-color: var(--accent);
   background: var(--accent-soft);
-  box-shadow: 0 0 0 2px rgba(244, 223, 61, 0.12);
+  box-shadow: 0 0 0 2px rgba(255, 192, 6, 0.12);
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -1230,7 +1230,7 @@ a {
   position: absolute;
   display: grid;
   place-items: center;
-  color: #fff;
+  color: #F5F5F5;
   opacity: 0.92;
   transform: translate(-50%, -50%);
   animation-timing-function: ease-in-out;
@@ -1278,7 +1278,7 @@ a {
 .project-image-empty {
   width: 100%;
   min-height: 260px;
-  background: rgba(255, 255, 255, 0.015);
+  background: rgba(245, 245, 245, 0.015);
 }
 
 .detail-image-wrap .project-image-empty {
@@ -1458,7 +1458,7 @@ a {
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 1.2rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
 }
 
 .detail-image-wrap img {
@@ -1609,7 +1609,7 @@ a {
   display: grid;
   gap: 1rem;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
   border-radius: 1.2rem;
 }
 
@@ -1627,14 +1627,14 @@ a {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 0.85rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(245, 245, 245, 0.02);
   color: var(--text);
   padding: 0.8rem 0.9rem;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(255,255,255,0.44);
+  color: rgba(245,245,245,0.44);
 }
 
 .contact-form input:focus,
