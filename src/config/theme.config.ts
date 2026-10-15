@@ -39,8 +39,12 @@ export interface ThemeConfig {
     logoUrl: string
     /** Fallback monogram or text logo */
     logoText: string
-    /** Path to profile avatar / portrait image */
+    /** Path to profile avatar / portrait image (fallback or default) */
     avatarUrl: string
+    /** Avatar specifically for dark theme */
+    avatarDarkUrl?: string
+    /** Avatar specifically for light theme */
+    avatarLightUrl?: string
     /** Fallback avatar placeholder */
     avatarPlaceholder: string
     /** Default project card cover placeholder */
@@ -59,7 +63,9 @@ export const themeConfig: ThemeConfig = {
     logoType: 'image',
     logoUrl: '/images/logo-placeholder.svg',
     logoText: 'MA',
-    avatarUrl: '/images/avatar-placeholder.svg',
+    avatarUrl: '/images/profile_dark_theme.png',
+    avatarDarkUrl: '/images/profile_dark_theme.png',
+    avatarLightUrl: '/images/profile_light_theme.png',
     avatarPlaceholder: '/images/avatar-placeholder.svg',
     projectPlaceholder: '/images/projects/placeholder-project.svg',
   },

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { useTheme } from '../context/ThemeContext'
 import { profileConfig } from '../config/profile.config'
 import { themeConfig } from '../config/theme.config'
 import { projects } from '../config/projects.config'
@@ -9,9 +10,15 @@ import { SectionHeader } from '../components/common/SectionHeader'
 import { ProjectCard } from '../components/common/ProjectCard'
 
 export const HomePage: React.FC = () => {
+  const { theme } = useTheme()
   const [avatarError, setAvatarError] = useState(false)
   const { name, title, heroSubtitle, heroSummary } = profileConfig
-  const { avatarUrl, avatarPlaceholder } = themeConfig.branding
+  const { avatarUrl, avatarDarkUrl, avatarLightUrl, avatarPlaceholder } = themeConfig.branding
+
+  const currentAvatar =
+    theme === 'light'
+      ? (avatarLightUrl || avatarUrl)
+      : (avatarDarkUrl || avatarUrl)
 
   // Dynamically select featured projects (or fallback to first 4 projects)
   const previewProjects = projects.filter((p) => p.featured)
@@ -40,7 +47,8 @@ export const HomePage: React.FC = () => {
         <div className="hero-visual">
           <div className="portrait-ambient">
             <img
-              src={avatarError ? avatarPlaceholder : avatarUrl}
+              key={theme}
+              src={avatarError ? avatarPlaceholder : currentAvatar}
               alt={name}
               onError={() => setAvatarError(true)}
             />
