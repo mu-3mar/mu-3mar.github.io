@@ -1,15 +1,23 @@
 import React, { useState } from 'react'
+import { useTheme } from '../../context/ThemeContext'
 import { themeConfig } from '../../config/theme.config'
 
 export const BrandLogo: React.FC<{ className?: string }> = ({ className = '' }) => {
+  const { theme } = useTheme()
   const [imgError, setImgError] = useState(false)
-  const { logoType, logoUrl, logoText } = themeConfig.branding
+  const { logoType, logoUrl, logoDarkUrl, logoLightUrl, logoText } = themeConfig.branding
 
-  if (logoType === 'image' && logoUrl && !imgError) {
+  const currentLogo =
+    theme === 'light'
+      ? (logoLightUrl || logoUrl)
+      : (logoDarkUrl || logoUrl)
+
+  if (logoType === 'image' && currentLogo && !imgError) {
     return (
       <span className={`brand-logo-wrap ${className}`}>
         <img
-          src={logoUrl}
+          key={theme}
+          src={currentLogo}
           alt={logoText || 'Brand Logo'}
           className="brand-logo-img"
           onError={() => setImgError(true)}
@@ -24,3 +32,4 @@ export const BrandLogo: React.FC<{ className?: string }> = ({ className = '' }) 
     </span>
   )
 }
+

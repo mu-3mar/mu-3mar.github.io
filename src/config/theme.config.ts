@@ -37,6 +37,10 @@ export interface ThemeConfig {
     logoType: 'image' | 'text'
     /** Path to site logo (in /public or external URL) */
     logoUrl: string
+    /** Logo specifically for dark theme */
+    logoDarkUrl?: string
+    /** Logo specifically for light theme */
+    logoLightUrl?: string
     /** Fallback monogram or text logo */
     logoText: string
     /** Path to profile avatar / portrait image (fallback or default) */
@@ -61,7 +65,9 @@ export const themeConfig: ThemeConfig = {
 
   branding: {
     logoType: 'image',
-    logoUrl: '/images/logo-placeholder.svg',
+    logoUrl: '/images/logo-dark.png',
+    logoDarkUrl: '/images/logo-dark.png',
+    logoLightUrl: '/images/logo-light.png',
     logoText: 'MA',
     avatarUrl: '/images/profile_dark_theme.png',
     avatarDarkUrl: '/images/profile_dark_theme.png',
@@ -69,6 +75,7 @@ export const themeConfig: ThemeConfig = {
     avatarPlaceholder: '/images/avatar-placeholder.svg',
     projectPlaceholder: '/images/projects/placeholder-project.svg',
   },
+
 
   colors: {
     dark: {

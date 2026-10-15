@@ -25,7 +25,7 @@ export const AboutPage: React.FC = () => {
         <div className="about-copy">
           <p>{aboutSummary}</p>
         </div>
-        <div className="portrait-stack">
+        <div className="portrait-ambient about-portrait">
           <img
             key={theme}
             src={avatarError ? avatarPlaceholder : currentAvatar}
@@ -34,6 +34,7 @@ export const AboutPage: React.FC = () => {
           />
         </div>
       </div>
+
 
       <div className="about-info-grid">
         <article className="detail-panel">

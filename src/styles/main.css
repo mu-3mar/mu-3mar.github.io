@@ -132,16 +132,15 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  width: 2.6rem;
+  height: 2.6rem;
+  transition: transform 180ms ease;
 }
 
 .brand-logo-wrap:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
+
 
 .brand-logo-img {
   width: 100%;
@@ -438,23 +437,22 @@ a {
 }
 
 .portrait-ambient {
-  width: min(100%, 34vw, 500px);
-  aspect-ratio: 1 / 1.05;
+  width: min(100%, 34vw, 460px);
+  aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
-  overflow: hidden;
   position: relative;
-  border-radius: 2rem;
 }
 
 .portrait-ambient::before {
   content: '';
   position: absolute;
-  inset: 5%;
+  inset: 0;
   border-radius: 50%;
   background: var(--portrait-glow);
-  filter: blur(32px);
+  filter: blur(28px);
   z-index: 0;
+  pointer-events: none;
 }
 
 .portrait-ambient img {
@@ -463,13 +461,13 @@ a {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.25));
   transition: transform 300ms ease;
 }
 
 .portrait-ambient:hover img {
   transform: scale(1.02);
 }
+
 
 /* ==========================================================================
    Section Headings & Common
@@ -942,22 +940,12 @@ a {
   color: var(--muted);
 }
 
-.portrait-stack {
+.about-portrait {
   width: min(100%, 320px);
-  aspect-ratio: 1 / 1.1;
+  aspect-ratio: 1 / 1;
   margin: 0 auto;
-  border-radius: 1.8rem;
-  overflow: hidden;
-  background: var(--panel-strong);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-card);
 }
 
-.portrait-stack img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .about-info-grid {
   display: grid;
