@@ -10,6 +10,15 @@
       content="Machine learning engineer portfolio featuring selected projects, skills, and contact details."
     />
     <title>Muhammad Ammar | Machine Learning Engineer</title>
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('portfolio-theme');
+          var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

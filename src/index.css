@@ -2,13 +2,19 @@
   font-family: Inter, 'Segoe UI', Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #F5F5F5;
-  background: #111111;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root,
+[data-theme='dark'] {
   color-scheme: dark;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
 }
 
 html {
@@ -21,8 +27,8 @@ html {
 
 body {
   margin: 0;
-  background: #111111;
-  color: #F5F5F5;
+  background-color: var(--bg, #111111);
+  color: var(--text, #F5F5F5);
 }
 
 img {
@@ -63,6 +69,7 @@ section {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 a {

@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Design Tokens & Theme Variables (Dark & Light Modes)
+   ========================================================================== */
+
+:root,
+[data-theme='dark'] {
+  --bg: #111111;
+  --bg-soft: #18181b;
+  --panel: rgba(245, 245, 245, 0.025);
+  --panel-strong: rgba(245, 245, 245, 0.05);
+  --panel-hover: rgba(245, 245, 245, 0.075);
+  --border: rgba(245, 245, 245, 0.12);
+  --border-subtle: rgba(245, 245, 245, 0.07);
+  --header-bg: rgba(17, 17, 17, 0.82);
+  --header-border: rgba(245, 245, 245, 0.08);
+
+  --text: #F5F5F5;
+  --muted: rgba(245, 245, 245, 0.76);
+  --soft: rgba(245, 245, 245, 0.58);
+  --placeholder: rgba(245, 245, 245, 0.38);
+
+  --accent: #FFC006;
+  --accent-soft: rgba(255, 192, 6, 0.14);
+  --accent-strong: rgba(255, 192, 6, 0.24);
+  --accent-glow: rgba(255, 192, 6, 0.15);
+  --accent-text: #111111;
+
+  --danger: #ff8080;
+  --danger-bg: rgba(239, 68, 68, 0.1);
+  --success: #86efac;
+  --success-bg: rgba(34, 197, 94, 0.1);
+
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --ambient-top-gradient: radial-gradient(circle at top, rgba(255, 192, 6, 0.08), transparent 35%);
+  --portrait-glow: radial-gradient(circle at center, rgba(255, 192, 6, 0.14), transparent 62%);
+  --logo-field-opacity: 0.32;
+  --logo-field-hover-opacity: 0.88;
+}
+
+[data-theme='light'] {
+  --bg: #f8fafc;
+  --bg-soft: #ffffff;
+  --panel: #ffffff;
+  --panel-strong: #f1f5f9;
+  --panel-hover: #f8fafc;
+  --border: rgba(15, 23, 42, 0.12);
+  --border-subtle: rgba(15, 23, 42, 0.06);
+  --header-bg: rgba(248, 250, 252, 0.88);
+  --header-border: rgba(15, 23, 42, 0.08);
+
+  --text: #0f172a;
+  --muted: #334155;
+  --soft: #64748b;
+  --placeholder: #94a3b8;
+
+  --accent: #d97706; /* warm amber for high contrast against white backgrounds */
+  --accent-soft: rgba(217, 119, 6, 0.12);
+  --accent-strong: rgba(217, 119, 6, 0.22);
+  --accent-glow: rgba(217, 119, 6, 0.16);
+  --accent-text: #ffffff;
+
+  --danger: #dc2626;
+  --danger-bg: rgba(220, 38, 38, 0.08);
+  --success: #16a34a;
+  --success-bg: rgba(22, 163, 74, 0.08);
+
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --ambient-top-gradient: radial-gradient(circle at top, rgba(217, 119, 6, 0.08), transparent 40%);
+  --portrait-glow: radial-gradient(circle at center, rgba(217, 119, 6, 0.15), transparent 65%);
+  --logo-field-opacity: 0.40;
+  --logo-field-hover-opacity: 0.95;
+}
+
+/* Global Theme Transitions */
+html,
+body,
+.page-shell,
+.site-header,
+.project-card,
+.detail-panel,
+.contact-card,
+.contact-form,
+.social-link,
+.theme-toggle-btn,
+.filter-chip,
+.chip,
+.timeline-item {
+  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+}
