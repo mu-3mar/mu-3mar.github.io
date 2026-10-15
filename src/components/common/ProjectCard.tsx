@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { SiGithub } from '@icons-pack/react-simple-icons'
 import type { Project } from '../../config/projects.config'
 import { ProjectImage } from './ProjectImage'
 
@@ -45,8 +46,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
             View project <ArrowRight size={16} />
           </Link>
           {project.githubUrl && (
-            <a href={project.githubUrl} target="_blank" rel="noreferrer">
-              GitHub
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub Repository"
+              title="GitHub"
+            >
+              <SiGithub size={18} aria-hidden={true} />
+              <span>GitHub</span>
             </a>
           )}
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, type ChangeEvent, type FormEvent } from 'react'
-import { Mail, Phone, FileDown } from 'lucide-react'
+import { Mail, Phone, FileDown, Send } from 'lucide-react'
 import { SiGithub, SiKaggle } from '@icons-pack/react-simple-icons'
 import { profileConfig } from '../config/profile.config'
 import { SectionHeader } from '../components/common/SectionHeader'
@@ -171,7 +171,8 @@ export const ContactPage: React.FC = () => {
             className="primary-button submit-button"
             disabled={submitState === 'submitting'}
           >
-            {submitState === 'submitting' ? 'Sending...' : 'Send Message'}
+            <Send size={18} aria-hidden={true} />
+            <span>{submitState === 'submitting' ? 'Sending...' : 'Send Message'}</span>
           </button>
 
           {submitMessage ? (

@@ -23,6 +23,10 @@ export interface Project {
   period?: string
   /** Category used for filtering (e.g. 'Computer Vision', 'Deep Learning', 'Machine Learning', 'Data Analysis') */
   category: string
+  /** Associated company name (optional, e.g. 'Cellula Technology') */
+  company?: string
+  /** Associated company slug for experience linking (optional, e.g. 'cellula-technology') */
+  companySlug?: string
   /** Whether this project is featured on the homepage preview */
   featured?: boolean
   /** Short summary of what was built */
@@ -102,6 +106,59 @@ export const projects: Project[] = [
     tech: ['Python', 'Scikit-learn', 'HistGradientBoosting', 'XGBoost'],
     githubUrl: 'https://github.com/mu-3mar/road-accident-risk-prediction',
     image: '/images/projects/project-road-accident-risk-cover.png',
+  },
+  {
+    slug: 'hotel-booking-cancellation-prediction',
+    title: 'Hotel Booking Cancellation Prediction',
+    type: 'Machine Learning · Classification',
+    period: '2025',
+    category: 'Machine Learning',
+    company: 'Cellula Technology',
+    companySlug: 'cellula-technology',
+    featured: false,
+    description:
+      'Built a classification pipeline on 500K+ hotel booking records to predict cancellations, achieving 87% accuracy and 0.91 F1-score on the minority class.',
+    problem:
+      'Hotel cancellations cause unpredictable revenue losses and scheduling bottlenecks, necessitating early and reliable prediction of high-risk bookings.',
+    solution:
+      'Conducted extensive exploratory analysis, engineered features reflecting customer lead time and booking patterns, and trained balanced classifiers optimized for minority-class recall.',
+    contribution:
+      'Handled data cleaning, feature engineering, model training, and integrated the model into a FastAPI REST API with a lightweight HTML interface for local predictions.',
+    tech: ['Python', 'Scikit-learn', 'FastAPI', 'Pandas', 'NumPy', 'HTML'],
+    githubUrl: 'https://github.com/mu-3mar',
+    image: '/images/projects/placeholder-project.svg',
+    implementationPoints: [
+      'Cleaned and validated 500K+ structured hotel booking records, resolving missing values and class imbalance.',
+      'Constructed domain-focused features capturing customer lead times, seasonality, and previous cancellation tendencies.',
+      'Trained and evaluated cross-validated classification models, reaching 87% overall accuracy and 0.91 F1-score on cancellations.',
+      'Packaged the trained model into a production-ready FastAPI endpoint with an interactive local interface.',
+    ],
+  },
+  {
+    slug: 'uber-fare-prediction',
+    title: 'Uber Fare Prediction',
+    type: 'Regression Modeling',
+    period: '2025',
+    category: 'Machine Learning',
+    company: 'Cellula Technology',
+    companySlug: 'cellula-technology',
+    featured: false,
+    description:
+      'Built a large-scale regression pipeline on 1M+ trip records using gradient boosting to forecast ride fares, achieving an R² of 0.74 and MAE of 1.01.',
+    problem:
+      'Fare estimation across metropolitan areas involves significant non-linear relationships with distance, time-of-day demand spikes, and geospatial clusters.',
+    solution:
+      'Developed specialized coordinate distance metrics, temporal encodings, and gradient-boosted regression models with automated hyperparameter tuning.',
+    contribution:
+      'Handled data cleaning, exploratory analysis, feature engineering, model training and evaluation, and deployed a FastAPI REST inference service.',
+    tech: ['Python', 'Gradient Boosting', 'Scikit-learn', 'FastAPI', 'Pandas', 'NumPy'],
+    githubUrl: 'https://github.com/mu-3mar',
+    image: '/images/projects/placeholder-project.svg',
+    implementationPoints: [
+      'Engineered geospatial distance measures (Haversine/Manhattan) and temporal cyclical features on 1M+ trip records.',
+      'Trained and tuned gradient boosted regressors to achieve an R² of 0.74 and MAE of 1.01.',
+      'Integrated the model into an asynchronous FastAPI REST API enabling real-time fare predictions.',
+    ],
   },
   {
     slug: 'ai-body-measurement-system',

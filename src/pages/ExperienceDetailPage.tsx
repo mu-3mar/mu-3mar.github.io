@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, Navigate, Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import { experience } from '../config/experience.config'
 
 export const ExperienceDetailPage: React.FC = () => {
@@ -31,6 +32,13 @@ export const ExperienceDetailPage: React.FC = () => {
                 <li key={detail}>{detail}</li>
               ))}
             </ul>
+            {project.slug && (
+              <div className="project-experience-link-wrap">
+                <Link to={`/projects/${project.slug}`} className="project-experience-link">
+                  View project details <ArrowRight size={16} />
+                </Link>
+              </div>
+            )}
           </article>
         ))}
       </div>

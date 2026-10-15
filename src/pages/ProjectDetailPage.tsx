@@ -1,6 +1,7 @@
 import React from 'react'
-import { useParams, Navigate } from 'react-router-dom'
+import { useParams, Navigate, Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { SiGithub } from '@icons-pack/react-simple-icons'
 import { projects } from '../config/projects.config'
 import { ProjectImage } from '../components/common/ProjectImage'
 import { SectionHeader } from '../components/common/SectionHeader'
@@ -26,6 +27,14 @@ export const ProjectDetailPage: React.FC = () => {
         <div>
           <p className="eyebrow">{project.type}</p>
           <h1>{project.title}</h1>
+          {project.company && project.companySlug ? (
+            <p className="project-company-tag">
+              Developed during internship at{' '}
+              <Link to={`/experience/${project.companySlug}`} className="company-tag-link">
+                {project.company} →
+              </Link>
+            </p>
+          ) : null}
         </div>
         <div className="detail-actions">
           {project.githubUrl && (
@@ -34,8 +43,11 @@ export const ProjectDetailPage: React.FC = () => {
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
+              aria-label="GitHub Repository"
             >
-              GitHub <ArrowRight size={18} />
+              <SiGithub size={18} aria-hidden={true} />
+              <span>GitHub</span>
+              <ArrowRight size={18} />
             </a>
           )}
           {project.demoUrl ? (

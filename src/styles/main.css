@@ -493,75 +493,84 @@ a {
 }
 
 /* ==========================================================================
-   Floating Tech Logos Background
+   Floating Tech Logos Background (Free Floating, No Framing Border)
    ========================================================================== */
 
 .tech-stack-shell {
-  padding: 1rem 0 3rem;
+  padding: 0;
 }
 
 .logo-field {
   position: relative;
   width: 100%;
-  border-radius: 1.8rem;
-  border: 1px solid var(--border-subtle);
-  background: var(--panel);
+  isolation: isolate;
   overflow: hidden;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 
 .logo-field-home {
-  height: 140px;
+  height: clamp(280px, 32vw, 390px);
 }
 
 .logo-field-skills {
-  height: 240px;
-  margin-bottom: 3rem;
+  height: clamp(380px, 45vw, 550px);
+  margin-top: 1rem;
 }
 
 .floating-logo {
   position: absolute;
-  transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
-  color: var(--muted);
-  opacity: var(--logo-field-opacity);
-  transition: opacity 200ms ease, transform 200ms ease, color 200ms ease;
-  animation-name: floatDrift;
-  animation-iteration-count: infinite;
+  color: var(--text);
+  opacity: var(--logo-field-opacity, 0.92);
+  transform: translate(-50%, -50%);
   animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: transform;
+  transition: color 200ms ease, transform 200ms ease, opacity 200ms ease, filter 200ms ease;
 }
 
 .floating-logo:hover {
-  opacity: var(--logo-field-hover-opacity);
+  opacity: 1;
   color: var(--accent);
-  transform: translate(-50%, -50%) scale(1.22);
-  z-index: 5;
+  transform: translate(-50%, -50%) scale(1.28);
+  filter: drop-shadow(0 0 16px var(--accent-glow));
+  z-index: 10;
 }
 
 .floating-logo svg {
   width: 100%;
   height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.48));
 }
 
-@keyframes floatDrift {
-  0%, 100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-10px);
-  }
+.float-path-0 { animation-name: logoDriftA; }
+.float-path-1 { animation-name: logoDriftB; }
+.float-path-2 { animation-name: logoDriftC; }
+.float-path-3 { animation-name: logoDriftD; }
+
+@keyframes logoDriftA {
+  from { transform: translate(-50%, -50%) translate(-17px, 12px); }
+  to { transform: translate(-50%, -50%) translate(18px, -20px); }
 }
 
-.float-path-1 {
-  animation-direction: alternate;
+@keyframes logoDriftB {
+  from { transform: translate(-50%, -50%) translate(19px, 17px); }
+  to { transform: translate(-50%, -50%) translate(-14px, -18px); }
 }
 
-.float-path-2 {
-  animation-direction: reverse;
+@keyframes logoDriftC {
+  from { transform: translate(-50%, -50%) translate(-13px, -18px); }
+  to { transform: translate(-50%, -50%) translate(20px, 14px); }
 }
 
-.float-path-3 {
-  animation-duration: 14s;
+@keyframes logoDriftD {
+  from { transform: translate(-50%, -50%) translate(14px, -16px); }
+  to { transform: translate(-50%, -50%) translate(-19px, 19px); }
 }
 
 /* ==========================================================================
@@ -708,11 +717,12 @@ a {
   font-weight: 500;
 }
 
+/* Projects Actions: White in dark mode / text color, hover to accent */
 .project-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.6rem;
+  padding-top: 0.8rem;
   border-top: 1px solid var(--border-subtle);
   font-size: 0.9rem;
   font-weight: 600;
@@ -721,12 +731,13 @@ a {
 .project-actions a {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  color: var(--accent);
-  transition: gap 180ms ease, color 180ms ease;
+  gap: 0.42rem;
+  color: var(--text);
+  transition: gap 180ms ease, color 180ms ease, opacity 180ms ease;
 }
 
 .project-actions a:hover {
+  color: var(--accent);
   gap: 0.55rem;
 }
 
@@ -754,6 +765,22 @@ a {
   font-weight: 800;
   letter-spacing: -0.05em;
   line-height: 1.1;
+}
+
+.project-company-tag {
+  margin-top: 0.45rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.company-tag-link {
+  color: var(--accent);
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.company-tag-link:hover {
+  text-decoration: underline;
 }
 
 .detail-actions {
@@ -839,6 +866,7 @@ a {
   font-size: 0.98rem;
 }
 
+/* Lists styling: restored to clean dot bullet • */
 .detail-list {
   display: flex;
   flex-direction: column;
@@ -850,60 +878,40 @@ a {
 
 .detail-list li {
   position: relative;
-  padding-left: 1.3rem;
+  padding-left: 1.2rem;
 }
 
 .detail-list li::before {
-  content: '▹';
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--accent);
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.project-experience-link-wrap {
+  margin-top: 1.2rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.project-experience-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: gap 180ms ease;
+}
+
+.project-experience-link:hover {
+  gap: 0.6rem;
 }
 
 .related-projects {
   margin-top: 2rem;
-}
-
-/* ==========================================================================
-   Skills Page
-   ========================================================================== */
-
-.skills-highlights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3.5rem;
-}
-
-.highlight-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.highlight-icon-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 0.85rem;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-weight: 800;
-  font-size: 0.92rem;
-  border: 1px solid var(--accent);
-  margin-bottom: 0.4rem;
-}
-
-.skill-groups-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-
-.skill-category-card h3 {
-  margin-bottom: 1.2rem;
 }
 
 /* ==========================================================================
@@ -922,28 +930,6 @@ a {
   font-size: 1.15rem;
   line-height: 1.8;
   color: var(--muted);
-}
-
-.about-pillars {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 1.4rem;
-}
-
-.about-pillars li {
-  position: relative;
-  padding-left: 1.4rem;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.about-pillars li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-weight: 700;
 }
 
 .portrait-stack {
@@ -1144,9 +1130,12 @@ a {
   color: var(--placeholder);
 }
 
+/* Contact submit button: natural size, left-aligned, not full-width */
 .submit-button {
-  width: 100%;
-  padding: 0.95rem;
+  width: auto;
+  align-self: flex-start;
+  justify-self: start;
+  padding: 0.85rem 1.8rem;
   margin-top: 0.5rem;
 }
 
@@ -1284,6 +1273,36 @@ a {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
+  }
+
+  .logo-field .floating-logo {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .float-path-0 { animation-name: logoDriftSmallA; }
+  .float-path-1 { animation-name: logoDriftSmallB; }
+  .float-path-2 { animation-name: logoDriftSmallC; }
+  .float-path-3 { animation-name: logoDriftSmallD; }
+
+  @keyframes logoDriftSmallA {
+    from { transform: translate(-50%, -50%) translate(-6px, 5px); }
+    to { transform: translate(-50%, -50%) translate(6px, -7px); }
+  }
+
+  @keyframes logoDriftSmallB {
+    from { transform: translate(-50%, -50%) translate(6px, 6px); }
+    to { transform: translate(-50%, -50%) translate(-5px, -6px); }
+  }
+
+  @keyframes logoDriftSmallC {
+    from { transform: translate(-50%, -50%) translate(-5px, -6px); }
+    to { transform: translate(-50%, -50%) translate(7px, 5px); }
+  }
+
+  @keyframes logoDriftSmallD {
+    from { transform: translate(-50%, -50%) translate(5px, -5px); }
+    to { transform: translate(-50%, -50%) translate(-6px, 7px); }
   }
 }
 

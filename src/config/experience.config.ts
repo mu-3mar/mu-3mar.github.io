@@ -6,6 +6,7 @@
 
 export interface ExperienceProject {
   name: string
+  slug?: string
   details: string[]
 }
 
@@ -41,6 +42,7 @@ export const experience: WorkExperience[] = [
     projects: [
       {
         name: 'Hotel Booking Cancellation Prediction',
+        slug: 'hotel-booking-cancellation-prediction',
         details: [
           'Built a classification pipeline on 500K+ hotel booking records, achieving 87% accuracy and 0.91 F1-score on the minority class.',
           'Handled data cleaning, exploratory analysis, feature engineering, model training, and evaluation.',
@@ -49,6 +51,7 @@ export const experience: WorkExperience[] = [
       },
       {
         name: 'Uber Fare Prediction',
+        slug: 'uber-fare-prediction',
         details: [
           'Built a regression pipeline on 1M+ trip records using gradient boosting, achieving R² of 0.74 and MAE of 1.01.',
           'Handled data cleaning, exploratory analysis, feature engineering, model training, and evaluation.',

@@ -7,7 +7,7 @@ import { SectionHeader } from '../components/common/SectionHeader'
 
 export const AboutPage: React.FC = () => {
   const [avatarError, setAvatarError] = useState(false)
-  const { name, aboutSummary, aboutPillars } = profileConfig
+  const { name, aboutSummary } = profileConfig
   const { avatarUrl, avatarPlaceholder } = themeConfig.branding
 
   return (
@@ -17,13 +17,6 @@ export const AboutPage: React.FC = () => {
       <div className="about-spotlight">
         <div className="about-copy">
           <p>{aboutSummary}</p>
-          {aboutPillars && aboutPillars.length > 0 && (
-            <ul className="about-pillars">
-              {aboutPillars.map((pillar) => (
-                <li key={pillar}>{pillar}</li>
-              ))}
-            </ul>
-          )}
         </div>
         <div className="portrait-stack">
           <img
