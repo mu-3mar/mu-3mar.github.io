@@ -171,8 +171,8 @@ export const ContactPage: React.FC = () => {
             className="primary-button submit-button"
             disabled={submitState === 'submitting'}
           >
-            <Send size={18} aria-hidden={true} />
-            <span>{submitState === 'submitting' ? 'Sending...' : 'Send Message'}</span>
+            <Send size={18} aria-hidden={true} className="submit-icon" />
+            <span className="submit-text">{submitState === 'submitting' ? 'Sending...' : 'Send Message'}</span>
           </button>
 
           {submitMessage ? (

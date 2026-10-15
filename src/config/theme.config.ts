@@ -105,9 +105,8 @@ export const themeConfig: ThemeConfig = {
       placeholder: '#94a3b8',
       // Unified brand gold (#FFC006) for solid buttons and badges
       accent: '#FFC006',
-      // Deepened brand gold for text on white backgrounds to guarantee high contrast
-      accentFg: '#946800',
-      accentSoft: 'rgba(255, 192, 6, 0.20)',
+      accentFg: '#FFC006',
+      accentSoft: 'rgba(255, 192, 6, 0.16)',
       accentStrong: 'rgba(255, 192, 6, 0.32)',
       accentGlow: 'rgba(255, 192, 6, 0.22)',
       accentText: '#111111', // Deep black text & icons on gold button/fill

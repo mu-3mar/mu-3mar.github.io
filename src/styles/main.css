@@ -1037,12 +1037,11 @@ a {
   margin-top: 0.4rem;
 }
 
-.experience-project-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.8rem;
+.experience-project-grid,
+.experience-detail-grid {
   margin-top: 2rem;
 }
+
 
 /* ==========================================================================
    Contact Page
@@ -1109,7 +1108,7 @@ a {
   gap: 0.45rem;
 }
 
-.contact-form span {
+.contact-form label > span {
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--text);
@@ -1140,13 +1139,25 @@ a {
   color: var(--placeholder);
 }
 
-/* Contact submit button: natural size, left-aligned, not full-width */
+/* Contact submit button: unified black text and icon in both themes */
 .submit-button {
   width: auto;
   align-self: flex-start;
   justify-self: start;
   padding: 0.85rem 1.8rem;
   margin-top: 0.5rem;
+  background: var(--accent) !important;
+  color: #111111 !important;
+}
+
+.submit-button,
+.submit-button span,
+.submit-button .submit-text,
+.submit-button svg,
+.submit-button .submit-icon {
+  color: #111111 !important;
+  stroke: #111111 !important;
+  fill: none;
 }
 
 .submit-button:disabled {

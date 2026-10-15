@@ -55,12 +55,11 @@
   --soft: #64748b;
   --placeholder: #94a3b8;
 
-  /* Unified Brand Gold (#FFC006) in Light Mode */
   --accent: #FFC006;
-  --accent-fg: #946800; /* Deepened shade for text on white backgrounds for AAA readability */
-  --accent-soft: rgba(255, 192, 6, 0.22);
-  --accent-strong: rgba(255, 192, 6, 0.35);
-  --accent-glow: rgba(255, 192, 6, 0.22);
+  --accent-fg: #FFC006;
+  --accent-soft: rgba(255, 192, 6, 0.16);
+  --accent-strong: rgba(255, 192, 6, 0.28);
+  --accent-glow: rgba(255, 192, 6, 0.18);
   --accent-text: #111111; /* Crisp black text & icons inside gold elements */
 
   --danger: #dc2626;

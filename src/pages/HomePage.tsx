@@ -13,9 +13,9 @@ export const HomePage: React.FC = () => {
   const { name, title, heroSubtitle, heroSummary } = profileConfig
   const { avatarUrl, avatarPlaceholder } = themeConfig.branding
 
-  // Dynamically select featured projects or top 3 projects
+  // Dynamically select featured projects (or fallback to first 4 projects)
   const previewProjects = projects.filter((p) => p.featured)
-  const displayProjects = previewProjects.length > 0 ? previewProjects.slice(0, 3) : projects.slice(0, 3)
+  const displayProjects = previewProjects.length > 0 ? previewProjects : projects.slice(0, 4)
 
   return (
     <>
