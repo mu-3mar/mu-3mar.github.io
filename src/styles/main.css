@@ -152,7 +152,7 @@ a {
 .brand-logo-monogram {
   background: var(--panel-strong);
   border: 1px solid var(--border);
-  color: var(--accent);
+  color: var(--accent-fg);
   font-weight: 800;
   font-size: 1.15rem;
   letter-spacing: -0.04em;
@@ -181,7 +181,7 @@ a {
 }
 
 .nav-link.active {
-  color: var(--accent);
+  color: var(--accent-fg);
 }
 
 .nav-link.active::after {
@@ -216,7 +216,7 @@ a {
 
 .theme-toggle-btn:hover,
 .theme-toggle-btn:focus-visible {
-  color: var(--accent);
+  color: var(--accent-fg);
   border-color: var(--accent);
   background: var(--accent-soft);
   box-shadow: 0 0 0 2px var(--accent-glow);
@@ -251,7 +251,7 @@ a {
 
 .social-link:hover,
 .social-link:focus-visible {
-  color: var(--accent);
+  color: var(--accent-fg);
   border-color: var(--accent);
   background: var(--accent-soft);
   box-shadow: 0 0 0 2px var(--accent-glow);
@@ -259,7 +259,7 @@ a {
 }
 
 .resume-link {
-  color: var(--accent);
+  color: var(--accent-fg);
 }
 
 /* Mobile Toggle & Menu */
@@ -277,7 +277,7 @@ a {
 
 .mobile-toggle:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-fg);
 }
 
 .mobile-menu {
@@ -307,7 +307,7 @@ a {
 }
 
 .mobile-link.active {
-  color: var(--accent);
+  color: var(--accent-fg);
   border-color: var(--accent);
   background: var(--accent-soft);
 }
@@ -354,7 +354,7 @@ a {
 .hero-professional-title {
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-fg);
   letter-spacing: -0.03em;
   margin: 0;
 }
@@ -383,7 +383,7 @@ a {
   margin-top: 0.6rem;
 }
 
-/* Buttons */
+/* Buttons - Unified Contrast: Black text & icons inside gold button */
 .primary-button,
 .secondary-button {
   display: inline-flex;
@@ -392,7 +392,7 @@ a {
   gap: 0.55rem;
   padding: 0.85rem 1.6rem;
   border-radius: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.98rem;
   transition: all 180ms ease;
   white-space: nowrap;
@@ -404,10 +404,15 @@ a {
   box-shadow: 0 4px 16px var(--accent-glow);
 }
 
+.primary-button svg {
+  color: var(--accent-text);
+  stroke: currentColor;
+}
+
 .primary-button:hover,
 .primary-button:focus-visible {
   transform: translateY(-2px);
-  filter: brightness(1.08);
+  filter: brightness(0.96);
   box-shadow: 0 6px 20px var(--accent-glow);
 }
 
@@ -420,7 +425,7 @@ a {
 .secondary-button:hover,
 .secondary-button:focus-visible {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-fg);
   background: var(--accent-soft);
   transform: translateY(-2px);
 }
@@ -478,7 +483,7 @@ a {
   font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-fg);
   font-weight: 700;
   margin: 0 0 0.5rem;
 }
@@ -524,7 +529,7 @@ a {
   display: grid;
   place-items: center;
   color: var(--text);
-  opacity: var(--logo-field-opacity, 0.92);
+  opacity: var(--logo-field-opacity, 0.90);
   transform: translate(-50%, -50%);
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -600,11 +605,12 @@ a {
   border-color: var(--accent);
 }
 
+/* Active filter chip: high-contrast gold fill with black text */
 .filter-chip.active {
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
   border-color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .project-grid {
@@ -691,7 +697,7 @@ a {
 }
 
 .project-title-link:hover h3 {
-  color: var(--accent);
+  color: var(--accent-fg);
 }
 
 .project-body p {
@@ -711,7 +717,7 @@ a {
   padding: 0.28rem 0.68rem;
   border-radius: 0.55rem;
   background: var(--panel-strong);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 500;
@@ -736,8 +742,12 @@ a {
   transition: gap 180ms ease, color 180ms ease, opacity 180ms ease;
 }
 
+.project-actions a svg {
+  flex-shrink: 0;
+}
+
 .project-actions a:hover {
-  color: var(--accent);
+  color: var(--accent-fg);
   gap: 0.55rem;
 }
 
@@ -774,7 +784,7 @@ a {
 }
 
 .company-tag-link {
-  color: var(--accent);
+  color: var(--accent-fg);
   font-weight: 600;
   transition: color 180ms ease;
 }
@@ -827,7 +837,7 @@ a {
   font-size: 0.76rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--accent);
+  color: var(--accent-fg);
   font-weight: 700;
   margin-bottom: 0.4rem;
 }
@@ -885,7 +895,7 @@ a {
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--accent);
+  color: var(--accent-fg);
   font-size: 1.15rem;
   line-height: 1.3;
 }
@@ -900,7 +910,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--accent);
+  color: var(--accent-fg);
   font-weight: 600;
   font-size: 0.92rem;
   transition: gap 180ms ease;
@@ -1010,7 +1020,7 @@ a {
 
 .back-link {
   display: inline-block;
-  color: var(--accent);
+  color: var(--accent-fg);
   font-weight: 600;
   margin-bottom: 1.5rem;
   transition: transform 180ms ease;
@@ -1021,7 +1031,7 @@ a {
 }
 
 .experience-meta {
-  color: var(--accent);
+  color: var(--accent-fg);
   font-weight: 600;
   font-size: 1.05rem;
   margin-top: 0.4rem;
@@ -1075,12 +1085,12 @@ a {
 }
 
 .contact-list li svg {
-  color: var(--accent);
+  color: var(--accent-fg);
   flex-shrink: 0;
 }
 
 .contact-list a:hover {
-  color: var(--accent);
+  color: var(--accent-fg);
 }
 
 .contact-form {
@@ -1148,7 +1158,7 @@ a {
   padding: 0.9rem 1.1rem;
   border-radius: 0.8rem;
   font-size: 0.92rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .form-status.success {

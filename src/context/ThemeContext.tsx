@@ -49,6 +49,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     root.style.setProperty('--soft', colors.soft)
     root.style.setProperty('--placeholder', colors.placeholder)
     root.style.setProperty('--accent', colors.accent)
+    root.style.setProperty('--accent-fg', colors.accentFg)
     root.style.setProperty('--accent-soft', colors.accentSoft)
     root.style.setProperty('--accent-strong', colors.accentStrong)
     root.style.setProperty('--accent-glow', colors.accentGlow)
