@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 import { profileConfig } from '../config/profile.config'
 import { themeConfig } from '../config/theme.config'
 import { education, experience, courses } from '../config/experience.config'
 import { SectionHeader } from '../components/common/SectionHeader'
+
 
 export const AboutPage: React.FC = () => {
   const { theme } = useTheme()
@@ -35,7 +37,6 @@ export const AboutPage: React.FC = () => {
         </div>
       </div>
 
-
       <div className="about-info-grid">
         <article className="detail-panel">
           <h3>Education</h3>
@@ -56,20 +57,26 @@ export const AboutPage: React.FC = () => {
           <h3>Experience</h3>
           {experience.map((job) => (
             <Link
-              className="timeline-item experience-link"
+              className="timeline-item experience-link-card"
               key={job.company}
               to={`/experience/${job.slug}`}
+              title={`View ${job.company} projects and details`}
             >
               <div className="timeline-dot" />
-              <div>
-                <strong>{job.company}</strong>
-                <p>{job.role}</p>
-                <small>{job.period}</small>
-                <small>Project-based work · View project details</small>
+              <div className="experience-link-content">
+                <div className="experience-link-header">
+                  <strong>{job.company}</strong>
+                  <span className="experience-badge">
+                    {job.projects.length} Projects <ArrowRight size={14} />
+                  </span>
+                </div>
+                <p className="experience-link-role">{job.role}</p>
+                <small className="experience-link-period">{job.period} {job.location ? `· ${job.location}` : ''}</small>
               </div>
             </Link>
           ))}
         </article>
+
 
         <article className="detail-panel">
           <h3>Courses & Certifications</h3>

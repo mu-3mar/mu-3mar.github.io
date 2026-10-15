@@ -19,6 +19,8 @@ export interface Project {
   title: string
   /** Subtitle/type badge, e.g. 'University Graduation Project', 'Deep Learning' */
   type: string
+  /** Work venue / classification: 'Self-Practice', 'Internship', 'Graduation Project', etc. */
+  context: string
   /** Year or duration, e.g. '2025' */
   period?: string
   /** Category used for filtering (e.g. 'Computer Vision', 'Deep Learning', 'Machine Learning', 'Data Analysis') */
@@ -53,7 +55,8 @@ export const projects: Project[] = [
   {
     slug: 'real-time-industrial-quality-control-system',
     title: 'Real-Time Industrial Quality Control System',
-    type: 'University Graduation Project',
+    type: 'Computer Vision System',
+    context: 'Graduation Project',
     period: '2025',
     category: 'Computer Vision',
     featured: true,
@@ -73,6 +76,7 @@ export const projects: Project[] = [
     slug: 'nyc-taxi-trip-duration-prediction',
     title: 'NYC Taxi Trip Duration Prediction',
     type: 'Regression Modeling',
+    context: 'Self-Practice',
     period: '2025',
     category: 'Data Analysis',
     featured: true,
@@ -92,6 +96,7 @@ export const projects: Project[] = [
     slug: 'road-accident-risk-prediction',
     title: 'Road Accident Risk Prediction',
     type: 'Risk Modeling',
+    context: 'Self-Practice',
     period: '2025',
     category: 'Machine Learning',
     featured: true,
@@ -110,12 +115,13 @@ export const projects: Project[] = [
   {
     slug: 'hotel-booking-cancellation-prediction',
     title: 'Hotel Booking Cancellation Prediction',
-    type: 'Machine Learning · Classification',
+    type: 'Classification Pipeline',
+    context: 'Internship · Cellula Technology',
     period: '2025',
     category: 'Machine Learning',
     company: 'Cellula Technology',
     companySlug: 'cellula-technology',
-    featured: false,
+    featured: true,
     description:
       'Built a classification pipeline on 500K+ hotel booking records to predict cancellations, achieving 87% accuracy and 0.91 F1-score on the minority class.',
     problem:
@@ -137,12 +143,13 @@ export const projects: Project[] = [
   {
     slug: 'uber-fare-prediction',
     title: 'Uber Fare Prediction',
-    type: 'Regression Modeling',
+    type: 'Regression Pipeline',
+    context: 'Internship · Cellula Technology',
     period: '2025',
     category: 'Machine Learning',
     company: 'Cellula Technology',
     companySlug: 'cellula-technology',
-    featured: false,
+    featured: true,
     description:
       'Built a large-scale regression pipeline on 1M+ trip records using gradient boosting to forecast ride fares, achieving an R² of 0.74 and MAE of 1.01.',
     problem:
@@ -164,6 +171,7 @@ export const projects: Project[] = [
     slug: 'ai-body-measurement-system',
     title: 'AI Body Measurement System',
     type: 'Deep Learning',
+    context: 'Self-Practice',
     period: '2025',
     category: 'Deep Learning',
     featured: false,
@@ -183,6 +191,7 @@ export const projects: Project[] = [
     slug: 'sign-language-recognition',
     title: 'Sign Language Recognition',
     type: 'Real-Time ML',
+    context: 'Self-Practice',
     period: '2025',
     category: 'Computer Vision',
     featured: false,
@@ -199,3 +208,4 @@ export const projects: Project[] = [
     image: '/images/projects/project-sign-language-recognition-cover.png',
   },
 ]
+
