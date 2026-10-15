@@ -14,10 +14,11 @@ export const ThemeToggle: React.FC<{ className?: string }> = ({ className = '' }
       title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       {theme === 'dark' ? (
-        <Sun size={19} className="theme-icon sun-icon" />
+        <Sun size={22} className="theme-icon sun-icon" />
       ) : (
-        <Moon size={19} className="theme-icon moon-icon" />
+        <Moon size={22} className="theme-icon moon-icon" />
       )}
+
     </button>
   )
 }

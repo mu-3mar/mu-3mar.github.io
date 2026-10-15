@@ -17,14 +17,12 @@ export interface Project {
   slug: string
   /** Display title */
   title: string
-  /** Subtitle/type badge, e.g. 'University Graduation Project', 'Deep Learning' */
-  type: string
+  /** General Category: 'Machine Learning' | 'Deep Learning' | 'NLP' | 'Computer Vision' (or dynamic) */
+  category: 'Machine Learning' | 'Deep Learning' | 'NLP' | 'Computer Vision' | string
+  /** Type mirrors general category */
+  type?: string
   /** Work venue / classification: 'Self-Practice', 'Internship', 'Graduation Project', etc. */
   context: string
-  /** Year or duration, e.g. '2025' */
-  period?: string
-  /** Category used for filtering (e.g. 'Computer Vision', 'Deep Learning', 'Machine Learning', 'Data Analysis') */
-  category: string
   /** Associated company name (optional, e.g. 'Cellula Technology') */
   company?: string
   /** Associated company slug for experience linking (optional, e.g. 'cellula-technology') */
@@ -55,10 +53,9 @@ export const projects: Project[] = [
   {
     slug: 'real-time-industrial-quality-control-system',
     title: 'Real-Time Industrial Quality Control System',
-    type: 'Computer Vision System',
-    context: 'Graduation Project',
-    period: '2025',
     category: 'Computer Vision',
+    type: 'Computer Vision',
+    context: 'Graduation Project',
     featured: true,
     description:
       'Built a two-stage vision pipeline that localizes products and then inspects defects in cropped regions for live factory monitoring.',
@@ -75,10 +72,9 @@ export const projects: Project[] = [
   {
     slug: 'nyc-taxi-trip-duration-prediction',
     title: 'NYC Taxi Trip Duration Prediction',
-    type: 'Regression Modeling',
+    category: 'Machine Learning',
+    type: 'Machine Learning',
     context: 'Self-Practice',
-    period: '2025',
-    category: 'Data Analysis',
     featured: true,
     description:
       'Developed a geospatial and temporal regression pipeline that predicts taxi trip duration using a large-scale travel dataset.',
@@ -95,10 +91,9 @@ export const projects: Project[] = [
   {
     slug: 'road-accident-risk-prediction',
     title: 'Road Accident Risk Prediction',
-    type: 'Risk Modeling',
-    context: 'Self-Practice',
-    period: '2025',
     category: 'Machine Learning',
+    type: 'Machine Learning',
+    context: 'Self-Practice',
     featured: true,
     description:
       'Created a predictive modeling workflow to estimate road accident risk across a large structured dataset using comparative model evaluation.',
@@ -115,10 +110,9 @@ export const projects: Project[] = [
   {
     slug: 'hotel-booking-cancellation-prediction',
     title: 'Hotel Booking Cancellation Prediction',
-    type: 'Classification Pipeline',
-    context: 'Internship · Cellula Technology',
-    period: '2025',
     category: 'Machine Learning',
+    type: 'Machine Learning',
+    context: 'Internship · Cellula Technology',
     company: 'Cellula Technology',
     companySlug: 'cellula-technology',
     featured: true,
@@ -143,10 +137,9 @@ export const projects: Project[] = [
   {
     slug: 'uber-fare-prediction',
     title: 'Uber Fare Prediction',
-    type: 'Regression Pipeline',
-    context: 'Internship · Cellula Technology',
-    period: '2025',
     category: 'Machine Learning',
+    type: 'Machine Learning',
+    context: 'Internship · Cellula Technology',
     company: 'Cellula Technology',
     companySlug: 'cellula-technology',
     featured: true,
@@ -170,10 +163,9 @@ export const projects: Project[] = [
   {
     slug: 'ai-body-measurement-system',
     title: 'AI Body Measurement System',
+    category: 'Deep Learning',
     type: 'Deep Learning',
     context: 'Self-Practice',
-    period: '2025',
-    category: 'Deep Learning',
     featured: false,
     description:
       'Built a multi-input deep learning system for estimating body measurements from front and side images, enabling size recommendation workflows.',
@@ -190,10 +182,9 @@ export const projects: Project[] = [
   {
     slug: 'sign-language-recognition',
     title: 'Sign Language Recognition',
-    type: 'Real-Time ML',
-    context: 'Self-Practice',
-    period: '2025',
     category: 'Computer Vision',
+    type: 'Computer Vision',
+    context: 'Self-Practice',
     featured: false,
     description:
       'Built an accessible sign-language recognition system using hand landmarks and a webcam client for live classification and text accumulation.',
@@ -208,4 +199,5 @@ export const projects: Project[] = [
     image: '/images/projects/project-sign-language-recognition-cover.png',
   },
 ]
+
 

@@ -24,11 +24,12 @@ def main():
     dark_img = Image.fromarray(inv_arr)
     dark_img.save('public/images/logo-dark.png')
 
-    # Tight square icons for favicon & PWA (fill almost 96% of the canvas)
-    def make_tight_icon(source_img, size):
+    # Edge-to-edge max-bleed square icon for tabs (fill 100% of the canvas)
+    def make_full_bleed_icon(source_img, size):
         res = Image.new('RGBA', (size, size), (0, 0, 0, 0))
         w, h = source_img.size
-        scale = (size * 0.98) / max(w, h)
+        # Fill 100% of the box so it is as large as Gmail, GitHub, etc.
+        scale = float(size) / max(w, h)
         nw, nh = max(1, int(w * scale)), max(1, int(h * scale))
         resized = source_img.resize((nw, nh), Image.Resampling.LANCZOS)
         offset_x = (size - nw) // 2
@@ -36,25 +37,33 @@ def main():
         res.paste(resized, (offset_x, offset_y), resized)
         return res
 
-    fav64 = make_tight_icon(img, 64)
-    fav64.save('public/favicon.png')
-    fav32 = make_tight_icon(img, 32)
+    fav16 = make_full_bleed_icon(img, 16)
+    fav32 = make_full_bleed_icon(img, 32)
+    fav48 = make_full_bleed_icon(img, 48)
+    fav64 = make_full_bleed_icon(img, 64)
+    
     fav32.save('public/favicon-32.png')
+    fav64.save('public/favicon.png')
 
-    icon192 = make_tight_icon(img, 192)
+    # Save multi-size favicon.ico
+    fav64.save('public/favicon.ico', format='ICO', sizes=[(16, 16), (32, 32), (48, 48), (64, 64)])
+
+    # PWA icons
+    icon192 = make_full_bleed_icon(img, 192)
     icon192.save('public/icon-192.png')
-    icon512 = make_tight_icon(img, 512)
+    icon512 = make_full_bleed_icon(img, 512)
     icon512.save('public/icon-512.png')
 
+    # SVG favicon with embedded high-res PNG
     with open('public/favicon.png', 'rb') as f:
         b64_data = base64.b64encode(f.read()).decode('ascii')
     
-    svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <image href="data:image/png;base64,{b64_data}" width="64" height="64" />
+    svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <image href="data:image/png;base64,{b64_data}" width="64" height="64" preserveAspectRatio="xMidYMid meet" />
 </svg>'''
     with open('public/favicon.svg', 'w') as f:
         f.write(svg_content)
-    print("Logos and favicons updated with tight bounding box!")
+    print("Full-bleed favicon.ico, favicon.svg, favicon.png generated!")
 
 if __name__ == '__main__':
     main()

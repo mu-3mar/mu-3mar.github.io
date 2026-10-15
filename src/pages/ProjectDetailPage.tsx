@@ -26,10 +26,11 @@ export const ProjectDetailPage: React.FC = () => {
       <div className="detail-header">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
-            <p className="eyebrow" style={{ margin: 0 }}>{project.type}</p>
+            <p className="eyebrow" style={{ margin: 0 }}>{project.category}</p>
             {project.context && <span className="project-context-tag">{project.context}</span>}
           </div>
           <h1>{project.title}</h1>
+
 
           {project.company && project.companySlug ? (
             <p className="project-company-tag">

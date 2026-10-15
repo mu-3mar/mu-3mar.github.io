@@ -23,10 +23,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
 
       <div className="project-body">
         <div className="project-meta">
-          <span>{project.type}</span>
+          <span className="project-category-badge">{project.category}</span>
           {project.context && <span className="project-context-tag">{project.context}</span>}
-          <span>{project.period || 'Project'}</span>
         </div>
+
 
 
         <Link to={`/projects/${project.slug}`} className="project-title-link">
