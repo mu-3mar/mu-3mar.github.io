@@ -28,7 +28,11 @@ export interface WorkExperience {
   /** Support multiple roles / career promotions within the same company */
   roles?: CompanyRole[]
   location?: string
-  projects: ExperienceProject[]
+  /**
+   * Optional: projects are automatically linked via `companySlug` in projects.config.ts.
+   * You do not need to duplicate project details here.
+   */
+  projects?: ExperienceProject[]
 }
 
 export interface EducationItem {
@@ -48,50 +52,11 @@ export interface CourseCertification {
 
 export const experience: WorkExperience[] = [
   {
-    slug: 'new-company',
-    company: 'New Company Name',
-    role: 'Machine Learning Engineer',
-    period: 'Jan 2026 – Present',
-    current: true,
-    location: 'Cairo, Egypt',
-    projects: [],
-  },
-  {
     slug: 'cellula-technology',
     company: 'Cellula Technology',
+    role: 'Machine Learning Intern',
+    period: 'Oct 2025 – Dec 2025',
     location: 'Remote',
-    current: true,
-    roles: [
-      {
-        title: 'Machine Learning Engineer',
-        period: 'Jan 2026 – Present',
-        current: true,
-      },
-      {
-        title: 'Machine Learning Intern',
-        period: 'Oct 2025 – Dec 2025',
-      },
-    ],
-    projects: [
-      {
-        name: 'Hotel Booking Cancellation Prediction',
-        slug: 'hotel-booking-cancellation-prediction',
-        details: [
-          'Built a classification pipeline on 500K+ hotel booking records, achieving 87% accuracy and 0.91 F1-score on the minority class.',
-          'Handled data cleaning, exploratory analysis, feature engineering, model training, and evaluation.',
-          'Integrated the model into a FastAPI REST API with a lightweight HTML interface for local predictions.',
-        ],
-      },
-      {
-        name: 'Uber Fare Prediction',
-        slug: 'uber-fare-prediction',
-        details: [
-          'Built a regression pipeline on 1M+ trip records using gradient boosting, achieving R² of 0.74 and MAE of 1.01.',
-          'Handled data cleaning, exploratory analysis, feature engineering, model training, and evaluation.',
-          'Integrated the model into a FastAPI REST API with a lightweight HTML interface for local predictions.',
-        ],
-      },
-    ],
   },
 ]
 

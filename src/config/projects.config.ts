@@ -125,8 +125,8 @@ export const projects: Project[] = [
     contribution:
       'Handled data cleaning, feature engineering, model training, and integrated the model into a FastAPI REST API with a lightweight HTML interface for local predictions.',
     tech: ['Python', 'Scikit-learn', 'FastAPI', 'Pandas', 'NumPy', 'HTML'],
-    githubUrl: 'https://github.com/mu-3mar',
-    image: '/images/projects/placeholder-project.svg',
+    githubUrl: 'https://github.com/mu-3mar/Hotel-Reservation-Classification',
+    image: '/images/projects/project-hotel-booking-cancellation-cover.png',
     implementationPoints: [
       'Cleaned and validated 500K+ structured hotel booking records, resolving missing values and class imbalance.',
       'Constructed domain-focused features capturing customer lead times, seasonality, and previous cancellation tendencies.',
@@ -152,8 +152,8 @@ export const projects: Project[] = [
     contribution:
       'Handled data cleaning, exploratory analysis, feature engineering, model training and evaluation, and deployed a FastAPI REST inference service.',
     tech: ['Python', 'Gradient Boosting', 'Scikit-learn', 'FastAPI', 'Pandas', 'NumPy'],
-    githubUrl: 'https://github.com/mu-3mar',
-    image: '/images/projects/placeholder-project.svg',
+    githubUrl: 'https://github.com/mu-3mar/Uber-Price-Prediction',
+    image: '/images/projects/project-uber-fare-prediction-cover.png',
     implementationPoints: [
       'Engineered geospatial distance measures (Haversine/Manhattan) and temporal cyclical features on 1M+ trip records.',
       'Trained and tuned gradient boosted regressors to achieve an R² of 0.74 and MAE of 1.01.',

@@ -14,7 +14,7 @@ export const ExperienceDetailPage: React.FC = () => {
   const companyProjects = projects.filter(
     (p) =>
       p.companySlug === entry.slug ||
-      entry.projects.some((ep) => ep.slug === p.slug || ep.name.toLowerCase() === p.title.toLowerCase())
+      entry.projects?.some((ep) => ep.slug === p.slug || ep.name.toLowerCase() === p.title.toLowerCase())
   )
 
   const rolesDisplay =

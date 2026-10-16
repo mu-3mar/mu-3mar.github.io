@@ -21,30 +21,25 @@ def main():
     inv[m, 2] = 255 - c_arr[m, 2]
     Image.fromarray(inv).save('public/images/logo-dark.png')
 
-    # 2. Function to generate bold full-bleed tab icon
-    def make_bold_tab_icon(source_img, size):
-        w, h = source_img.size
-        target_w = max(1, int(size * 0.96))
-        scale = float(target_w) / w
-        new_w = target_w
-        new_h = int(h * scale)
+    cw, ch = clean.size
+
+    # 2. Function to generate complete uncropped bold tab icon
+    def make_uncropped_bold_icon(source_img, size):
+        margin = 2 if size >= 32 else 1
+        target_h = size - (margin * 2)
+        scale = float(target_h) / ch
+        new_h = target_h
+        new_w = max(1, int(cw * scale))
         
         resized = source_img.resize((new_w, new_h), Image.Resampling.LANCZOS)
         
-        top_offset = (new_h - size) // 2
-        if top_offset < 0:
-            cropped = resized
-            paste_y = (size - new_h) // 2
-            paste_x = (size - new_w) // 2
-        else:
-            cropped = resized.crop((0, top_offset, new_w, top_offset + size))
-            paste_y = 0
-            paste_x = (size - new_w) // 2
-            
-        icon_content = Image.new('RGBA', (size, size), (0, 0, 0, 0))
-        icon_content.paste(cropped, (paste_x, paste_y), cropped)
+        paste_x = (size - new_w) // 2
+        paste_y = (size - new_h) // 2
         
-        # Add crisp white silhouette stroke around hair so it never vanishes on dark tabs
+        icon_content = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+        icon_content.paste(resized, (paste_x, paste_y), resized)
+        
+        # Crisp white silhouette stroke around hair so it never vanishes on dark tabs
         c_alpha = np.array(icon_content)[:, :, 3]
         mask = Image.fromarray(c_alpha)
         filter_size = 3 if size <= 64 else 5
@@ -59,10 +54,10 @@ def main():
         return final_icon
 
     # Generate multi-res favicons
-    fav16 = make_bold_tab_icon(clean, 16)
-    fav32 = make_bold_tab_icon(clean, 32)
-    fav48 = make_bold_tab_icon(clean, 48)
-    fav64 = make_bold_tab_icon(clean, 64)
+    fav16 = make_uncropped_bold_icon(clean, 16)
+    fav32 = make_uncropped_bold_icon(clean, 32)
+    fav48 = make_uncropped_bold_icon(clean, 48)
+    fav64 = make_uncropped_bold_icon(clean, 64)
 
     fav32.save('public/favicon-32.png')
     fav48.save('public/favicon-48.png')
@@ -70,9 +65,9 @@ def main():
     fav64.save('public/favicon.ico', format='ICO', sizes=[(16, 16), (32, 32), (48, 48), (64, 64)])
 
     # PWA icons
-    pwa192 = make_bold_tab_icon(clean, 192)
+    pwa192 = make_uncropped_bold_icon(clean, 192)
     pwa192.save('public/icon-192.png')
-    pwa512 = make_bold_tab_icon(clean, 512)
+    pwa512 = make_uncropped_bold_icon(clean, 512)
     pwa512.save('public/icon-512.png')
 
     # SVG favicon
@@ -86,7 +81,7 @@ def main():
     with open('public/favicon.svg', 'w') as f:
         f.write(svg_content)
 
-    print('All bold full-bleed favicons generated successfully!')
+    print('All complete uncropped favicons generated!')
 
 if __name__ == '__main__':
     main()
