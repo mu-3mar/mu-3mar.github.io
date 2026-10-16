@@ -970,70 +970,156 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.8rem;
+  align-items: stretch;
 }
 
-.timeline-item {
+/* Fixed height uniform panels with independent internal scrolling */
+.about-card-panel {
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1.6rem 1.4rem 1.6rem 1.6rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 1.3rem;
+  box-shadow: var(--shadow-card);
+}
+
+.about-card-panel .panel-header {
+  flex-shrink: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.about-card-panel .panel-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.card-panel-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.6rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.card-panel-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.card-panel-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card-panel-content::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.card-panel-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Timeline Architecture */
+.timeline-track {
   position: relative;
   display: flex;
-  gap: 1.1rem;
-  padding-bottom: 1.4rem;
+  flex-direction: column;
+  padding-left: 0.5rem;
+}
+
+.timeline-node {
+  position: relative;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
   border-left: 2px solid var(--border);
-  padding-left: 1.2rem;
-  margin-left: 0.6rem;
+}
+
+.timeline-node:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0.2rem;
 }
 
 .timeline-dot {
   position: absolute;
   left: -0.45rem;
-  top: 0.2rem;
-  width: 0.75rem;
-  height: 0.75rem;
+  top: 0.25rem;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 3px var(--bg);
+  box-shadow: 0 0 0 3px var(--panel);
+  z-index: 2;
+  transition: all 200ms ease;
 }
 
-.timeline-item strong {
+/* Active Indicator: Emerald green with subtle ambient glow */
+@keyframes pulseActiveDot {
+  0% {
+    box-shadow: 0 0 0 3px var(--panel), 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 3px var(--panel), 0 0 0 7px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 3px var(--panel), 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.timeline-dot.active {
+  background: #22c55e;
+  animation: pulseActiveDot 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Education timeline body */
+.timeline-body strong {
   display: block;
   font-size: 1.05rem;
   color: var(--text);
   margin-bottom: 0.25rem;
 }
 
-.timeline-item p {
+.timeline-body p {
   color: var(--muted);
   font-size: 0.92rem;
   margin-bottom: 0.2rem;
 }
 
-.timeline-item small {
+.timeline-body small {
   color: var(--soft);
   font-size: 0.82rem;
   display: block;
 }
 
+/* Experience Link Card (inside timeline node) */
 .experience-link-card {
-  display: flex;
-  align-items: flex-start;
-  transition: all 220ms ease;
-  border-radius: 1rem;
-  padding: 1rem 1.25rem 1rem 1.4rem;
-  margin-left: 0.3rem;
-  border: 1px solid var(--border);
-  background: var(--panel-strong);
+  display: block;
   text-decoration: none;
   cursor: pointer;
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem 1.15rem;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
 }
 
 .experience-link-card:hover {
   background: var(--panel-hover);
   border-color: var(--accent);
   transform: translateX(4px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .experience-link-content {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -1048,7 +1134,7 @@ a {
 
 .experience-link-header strong {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text);
   transition: color 180ms ease;
@@ -1062,15 +1148,16 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.3rem 0.65rem;
+  padding: 0.26rem 0.62rem;
   border-radius: 9999px;
   background: var(--accent);
   color: var(--accent-text);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   transition: transform 180ms ease, box-shadow 180ms ease;
   box-shadow: 0 2px 6px var(--accent-glow);
+  flex-shrink: 0;
 }
 
 .experience-link-card:hover .experience-badge {
@@ -1082,12 +1169,61 @@ a {
   margin: 0;
   color: var(--muted);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
 }
 
 .experience-link-period {
   color: var(--soft);
   font-size: 0.82rem;
+}
+
+/* Multiple roles / internal promotions within same company */
+.experience-roles-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+  padding-left: 0.4rem;
+  border-left: 1.5px dashed var(--border);
+}
+
+.experience-role-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-left: 0.9rem;
+}
+
+.role-subdot-wrapper {
+  position: absolute;
+  left: -0.62rem;
+  top: 0.3rem;
+}
+
+.role-subdot {
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--muted);
+  box-shadow: 0 0 0 2px var(--panel-strong);
+}
+
+.role-subdot.active {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px var(--panel-strong), 0 0 6px rgba(34, 197, 94, 0.7);
+}
+
+.role-subtitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.role-subperiod {
+  font-size: 0.8rem;
+  color: var(--soft);
 }
 
 
@@ -1351,6 +1487,11 @@ a {
 
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-card-panel {
+    height: 420px;
+    padding: 1.3rem 1.1rem;
   }
 
   .cta-row {

@@ -17,6 +17,19 @@ export const ExperienceDetailPage: React.FC = () => {
       entry.projects.some((ep) => ep.slug === p.slug || ep.name.toLowerCase() === p.title.toLowerCase())
   )
 
+  const rolesDisplay =
+    entry.roles && entry.roles.length > 0
+      ? entry.roles.map((r) => r.title).join(' · ')
+      : entry.role
+
+  const periodDisplay =
+    entry.period ||
+    (entry.roles && entry.roles.length > 0
+      ? `${entry.roles[entry.roles.length - 1].period.split('–')[0].trim()} – ${
+          entry.roles[0].period.split('–')[1]?.trim() || 'Present'
+        }`
+      : '')
+
   return (
     <section className="page-section experience-detail-page">
       <Link className="back-link" to="/about">
@@ -27,7 +40,9 @@ export const ExperienceDetailPage: React.FC = () => {
           <p className="eyebrow">Project-based experience</p>
           <h1>{entry.company}</h1>
           <p className="experience-meta">
-            {entry.role} · {entry.period} {entry.location ? `· ${entry.location}` : ''}
+            {rolesDisplay}
+            {periodDisplay ? ` · ${periodDisplay}` : ''}
+            {entry.location ? ` · ${entry.location}` : ''}
           </p>
         </div>
       </div>

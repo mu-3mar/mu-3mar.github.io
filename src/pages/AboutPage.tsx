@@ -38,55 +38,114 @@ export const AboutPage: React.FC = () => {
       </div>
 
       <div className="about-info-grid">
-        <article className="detail-panel">
-          <h3>Education</h3>
-          {education.map((item) => (
-            <div className="timeline-item" key={item.school}>
-              <div className="timeline-dot" />
-              <div>
-                <strong>{item.school}</strong>
-                <p>{item.details}</p>
-                <p>{item.degree}</p>
-                <small>{item.period}</small>
-              </div>
+        {/* Education Panel */}
+        <article className="detail-panel about-card-panel">
+          <div className="panel-header">
+            <h3>Education</h3>
+          </div>
+          <div className="card-panel-content">
+            <div className="timeline-track">
+              {education.map((item) => {
+                const isActive = item.current || item.period?.toLowerCase().includes('present')
+                return (
+                  <div className="timeline-node" key={item.school}>
+                    <div
+                      className={`timeline-dot ${isActive ? 'active' : ''}`}
+                      title={isActive ? 'Currently studying' : undefined}
+                    />
+                    <div className="timeline-body">
+                      <strong>{item.school}</strong>
+                      <p>{item.details}</p>
+                      <p>{item.degree}</p>
+                      <small>{item.period}</small>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-          ))}
+          </div>
         </article>
 
-        <article className="detail-panel">
-          <h3>Experience</h3>
-          {experience.map((job) => (
-            <Link
-              className="timeline-item experience-link-card"
-              key={job.company}
-              to={`/experience/${job.slug}`}
-              title={`View ${job.company} projects and details`}
-            >
-              <div className="timeline-dot" />
-              <div className="experience-link-content">
-                <div className="experience-link-header">
-                  <strong>{job.company}</strong>
-                  <span className="experience-badge">
-                    {job.projects.length} Projects <ArrowRight size={14} />
-                  </span>
-                </div>
-                <p className="experience-link-role">{job.role}</p>
-                <small className="experience-link-period">{job.period} {job.location ? `· ${job.location}` : ''}</small>
-              </div>
-            </Link>
-          ))}
+        {/* Experience Panel */}
+        <article className="detail-panel about-card-panel">
+          <div className="panel-header">
+            <h3>Experience</h3>
+          </div>
+          <div className="card-panel-content">
+            <div className="timeline-track">
+              {experience.map((job) => {
+                const isJobActive =
+                  job.current ||
+                  job.period?.toLowerCase().includes('present') ||
+                  job.roles?.some((r) => r.current || r.period.toLowerCase().includes('present'))
+
+                return (
+                  <div className="timeline-node" key={job.company}>
+                    <div
+                      className={`timeline-dot ${isJobActive ? 'active' : ''}`}
+                      title={isJobActive ? 'Current company / role' : undefined}
+                    />
+                    <Link
+                      className="experience-link-card"
+                      to={`/experience/${job.slug}`}
+                      title={`View ${job.company} projects and details`}
+                    >
+                      <div className="experience-link-content">
+                        <div className="experience-link-header">
+                          <strong>{job.company}</strong>
+                          <span className="experience-badge">
+                            {job.projects.length} Projects <ArrowRight size={14} />
+                          </span>
+                        </div>
+
+                        {job.roles && job.roles.length > 0 ? (
+                          <div className="experience-roles-track">
+                            {job.roles.map((r, idx) => {
+                              const isSubActive = r.current || r.period.toLowerCase().includes('present')
+                              return (
+                                <div key={idx} className="experience-role-item">
+                                  <div className="role-subdot-wrapper">
+                                    <span className={`role-subdot ${isSubActive ? 'active' : ''}`} />
+                                  </div>
+                                  <div className="role-subinfo">
+                                    <span className="role-subtitle">{r.title}</span>
+                                    <small className="role-subperiod">{r.period}</small>
+                                  </div>
+                                </div>
+                              )
+                            })}
+                          </div>
+                        ) : (
+                          <>
+                            <p className="experience-link-role">{job.role}</p>
+                            <small className="experience-link-period">
+                              {job.period} {job.location ? `· ${job.location}` : ''}
+                            </small>
+                          </>
+                        )}
+                      </div>
+                    </Link>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
         </article>
 
-
-        <article className="detail-panel">
-          <h3>Courses & Certifications</h3>
-          <ul className="detail-list">
-            {courses.map((course) => (
-              <li key={course.title}>
-                <strong>{course.provider}</strong>: {course.title}
-              </li>
-            ))}
-          </ul>
+        {/* Courses & Certifications Panel */}
+        <article className="detail-panel about-card-panel">
+          <div className="panel-header">
+            <h3>Courses & Certifications</h3>
+          </div>
+          <div className="card-panel-content">
+            <ul className="detail-list">
+              {courses.map((course) => (
+                <li key={course.title}>
+                  <strong>{course.provider}</strong>: {course.title}
+                </li>
+              ))}
+            </ul>
+          </div>
         </article>
       </div>
     </section>

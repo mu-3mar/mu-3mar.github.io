@@ -10,11 +10,23 @@ export interface ExperienceProject {
   details: string[]
 }
 
+export interface CompanyRole {
+  title: string
+  period: string
+  current?: boolean
+}
+
 export interface WorkExperience {
   slug: string
   company: string
-  role: string
-  period: string
+  /** Single role or primary role */
+  role?: string
+  /** Single role period */
+  period?: string
+  /** Whether currently working at this company */
+  current?: boolean
+  /** Support multiple roles / career promotions within the same company */
+  roles?: CompanyRole[]
   location?: string
   projects: ExperienceProject[]
 }
@@ -24,6 +36,8 @@ export interface EducationItem {
   degree: string
   period: string
   details: string
+  /** Whether currently studying here */
+  current?: boolean
 }
 
 export interface CourseCertification {
@@ -68,8 +82,10 @@ export const education: EducationItem[] = [
     degree: "Bachelor's Degree in Computer Science",
     period: '2022 – 2026',
     details: 'Faculty of Computer and Information Science · Department of Computer Science',
+    current: true,
   },
 ]
+
 
 export const courses: CourseCertification[] = [
   { provider: 'deeplearning.ai', title: 'Machine Learning Specialization' },
