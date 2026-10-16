@@ -115,7 +115,7 @@ export const projects: Project[] = [
     context: 'Internship · Cellula Technology',
     company: 'Cellula Technology',
     companySlug: 'cellula-technology',
-    featured: true,
+    featured: false,
     description:
       'Built a classification pipeline on 500K+ hotel booking records to predict cancellations, achieving 87% accuracy and 0.91 F1-score on the minority class.',
     problem:
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     context: 'Internship · Cellula Technology',
     company: 'Cellula Technology',
     companySlug: 'cellula-technology',
-    featured: true,
+    featured: false,
     description:
       'Built a large-scale regression pipeline on 1M+ trip records using gradient boosting to forecast ride fares, achieving an R² of 0.74 and MAE of 1.01.',
     problem:
@@ -198,6 +198,44 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/mu-3mar/sign-language-recognition',
     image: '/images/projects/project-sign-language-recognition-cover.png',
   },
+  {
+  slug: 'bank-marketing-campaign-prediction',
+  title: 'Bank Marketing Campaign Prediction',
+  category: 'Machine Learning',
+  type: 'Machine Learning',
+  context: 'Self-Practice',
+  featured: false,
+  description:
+    'Built a machine learning pipeline to predict term deposit subscriptions using customer demographics, financial behavior, and campaign interaction data.',
+  problem:
+    'Bank marketing campaigns face low conversion rates and class imbalance, making it difficult to identify customers most likely to subscribe to term deposits.',
+  solution:
+    'Developed a Random Forest classification pipeline with numerical and categorical preprocessing, feature engineering, and SMOTE to handle class imbalance, exposing predictions through a FastAPI REST API.',
+  contribution:
+    'Handled exploratory data analysis, data preprocessing, feature engineering, model training and evaluation, and integrated the model into a FastAPI REST API for real-time predictions.',
+  tech: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'FastAPI', 'SMOTE'],
+  githubUrl: 'https://github.com/mu-3mar/Bank-Marketing-Campaign-Prediction',
+  image: '/images/projects/project-bank-marketing-campaign-cover.png',
+},
+{
+  slug: 'stroke-risk-prediction-system',
+  title: 'Stroke Risk Prediction System',
+  category: 'Machine Learning',
+  type: 'Machine Learning',
+  context: 'Self-Practice',
+  featured: false,
+  description:
+    'Built an end-to-end machine learning system to estimate stroke risk using patient demographics, medical history, and health-related features, with a Streamlit interface for interactive predictions.',
+  problem:
+    'Analyzing multiple patient risk factors to estimate stroke risk requires a consistent prediction pipeline and an accessible interface for exploring model results.',
+  solution:
+    'Developed a complete ML pipeline with exploratory data analysis, preprocessing, and comparison of five classification models: Logistic Regression, Random Forest, SVM, Decision Tree, and Gradient Boosting. Deployed the selected model through a FastAPI REST API connected to a Streamlit frontend that displays risk predictions and probabilities.',
+  contribution:
+    'Performed EDA and data preprocessing, trained and compared five machine learning models, saved the best-performing model and scaler, and integrated the prediction pipeline with a FastAPI backend and Streamlit user interface.',
+  tech: ['Python', 'Pandas', 'Scikit-learn', 'FastAPI', 'Streamlit', 'Jupyter Notebook'],
+  githubUrl: 'https://github.com/mu-3mar/Stroke-Risk-Prediction',
+  image: '/images/projects/project-stroke-risk-prediction-cover.png',
+},
 ]
 
 
