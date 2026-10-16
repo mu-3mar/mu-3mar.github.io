@@ -48,11 +48,30 @@ export interface CourseCertification {
 
 export const experience: WorkExperience[] = [
   {
+    slug: 'new-company',
+    company: 'New Company Name',
+    role: 'Machine Learning Engineer',
+    period: 'Jan 2026 – Present',
+    current: true,
+    location: 'Cairo, Egypt',
+    projects: [],
+  },
+  {
     slug: 'cellula-technology',
     company: 'Cellula Technology',
-    role: 'Machine Learning Intern',
-    period: 'Oct 2025 – Dec 2025',
     location: 'Remote',
+    current: true,
+    roles: [
+      {
+        title: 'Machine Learning Engineer',
+        period: 'Jan 2026 – Present',
+        current: true,
+      },
+      {
+        title: 'Machine Learning Intern',
+        period: 'Oct 2025 – Dec 2025',
+      },
+    ],
     projects: [
       {
         name: 'Hotel Booking Cancellation Prediction',
@@ -80,9 +99,8 @@ export const education: EducationItem[] = [
   {
     school: 'Mansoura University',
     degree: "Bachelor's Degree in Computer Science",
-    period: '2022 – 2026',
+    period: '2022 – Jul 2026',
     details: 'Faculty of Computer and Information Science · Department of Computer Science',
-    current: true,
   },
 ]
 

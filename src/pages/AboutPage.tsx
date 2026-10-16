@@ -5,8 +5,28 @@ import { useTheme } from '../context/ThemeContext'
 import { profileConfig } from '../config/profile.config'
 import { themeConfig } from '../config/theme.config'
 import { education, experience, courses } from '../config/experience.config'
+import { projects } from '../config/projects.config'
 import { SectionHeader } from '../components/common/SectionHeader'
 
+// Helper to sort timeline items in reverse chronological order (newest on top)
+const getRecencyScore = (period?: string, isCurrent?: boolean): number => {
+  if (isCurrent || period?.toLowerCase().includes('present')) return 999999
+  if (!period) return 0
+  const years = period.match(/\b(20\d\d)\b/g)
+  if (years && years.length > 0) {
+    const lastYear = parseInt(years[years.length - 1], 10)
+    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+    const lower = period.toLowerCase()
+    let monthScore = 0
+    for (let i = 0; i < months.length; i++) {
+      if (lower.includes(months[i])) {
+        monthScore = i + 1
+      }
+    }
+    return lastYear * 100 + monthScore
+  }
+  return 0
+}
 
 export const AboutPage: React.FC = () => {
   const { theme } = useTheme()
@@ -18,6 +38,28 @@ export const AboutPage: React.FC = () => {
     theme === 'light'
       ? (avatarLightUrl || avatarUrl)
       : (avatarDarkUrl || avatarUrl)
+
+  const sortedEducation = [...education].sort((a, b) => {
+    const isACurrent = a.current || a.period?.toLowerCase().includes('present')
+    const isBCurrent = b.current || b.period?.toLowerCase().includes('present')
+    return getRecencyScore(b.period, isBCurrent) - getRecencyScore(a.period, isACurrent)
+  })
+
+  const sortedExperience = [...experience].sort((a, b) => {
+    const isACurrent =
+      a.current ||
+      a.period?.toLowerCase().includes('present') ||
+      a.roles?.some((r) => r.current || r.period.toLowerCase().includes('present'))
+    const isBCurrent =
+      b.current ||
+      b.period?.toLowerCase().includes('present') ||
+      b.roles?.some((r) => r.current || r.period.toLowerCase().includes('present'))
+
+    const aPeriod = a.roles && a.roles.length > 0 ? a.roles[0].period : a.period
+    const bPeriod = b.roles && b.roles.length > 0 ? b.roles[0].period : b.period
+
+    return getRecencyScore(bPeriod, isBCurrent) - getRecencyScore(aPeriod, isACurrent)
+  })
 
   return (
     <section className="page-section about-page">
@@ -45,7 +87,7 @@ export const AboutPage: React.FC = () => {
           </div>
           <div className="card-panel-content">
             <div className="timeline-track">
-              {education.map((item) => {
+              {sortedEducation.map((item) => {
                 const isActive = item.current || item.period?.toLowerCase().includes('present')
                 return (
                   <div className="timeline-node" key={item.school}>
@@ -73,11 +115,29 @@ export const AboutPage: React.FC = () => {
           </div>
           <div className="card-panel-content">
             <div className="timeline-track">
-              {experience.map((job) => {
+              {sortedExperience.map((job) => {
                 const isJobActive =
                   job.current ||
                   job.period?.toLowerCase().includes('present') ||
                   job.roles?.some((r) => r.current || r.period.toLowerCase().includes('present'))
+
+                // Dynamically resolve real project count from projects.config.ts or fallback to job.projects
+                const projectCount =
+                  projects.filter(
+                    (p) =>
+                      p.companySlug === job.slug ||
+                      job.projects?.some((ep) => ep.slug === p.slug || ep.name.toLowerCase() === p.title.toLowerCase())
+                  ).length ||
+                  job.projects?.length ||
+                  0
+
+                const sortedRoles = job.roles
+                  ? [...job.roles].sort((rA, rB) => {
+                      const isACurr = rA.current || rA.period.toLowerCase().includes('present')
+                      const isBCurr = rB.current || rB.period.toLowerCase().includes('present')
+                      return getRecencyScore(rB.period, isBCurr) - getRecencyScore(rA.period, isACurr)
+                    })
+                  : []
 
                 return (
                   <div className="timeline-node" key={job.company}>
@@ -94,13 +154,13 @@ export const AboutPage: React.FC = () => {
                         <div className="experience-link-header">
                           <strong>{job.company}</strong>
                           <span className="experience-badge">
-                            {job.projects.length} Projects <ArrowRight size={14} />
+                            {projectCount} Projects <ArrowRight size={14} />
                           </span>
                         </div>
 
-                        {job.roles && job.roles.length > 0 ? (
+                        {sortedRoles.length > 0 ? (
                           <div className="experience-roles-track">
-                            {job.roles.map((r, idx) => {
+                            {sortedRoles.map((r, idx) => {
                               const isSubActive = r.current || r.period.toLowerCase().includes('present')
                               return (
                                 <div key={idx} className="experience-role-item">

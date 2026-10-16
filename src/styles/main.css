@@ -1206,7 +1206,7 @@ a {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: var(--muted);
+  background: var(--accent);
   box-shadow: 0 0 0 2px var(--panel-strong);
 }
 
