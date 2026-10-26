@@ -50,6 +50,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     root.style.setProperty('--placeholder', colors.placeholder)
     root.style.setProperty('--accent', colors.accent)
     root.style.setProperty('--accent-fg', colors.accentFg)
+    if (colors.accentHover) root.style.setProperty('--accent-hover', colors.accentHover)
+    if (colors.accentActive) root.style.setProperty('--accent-active', colors.accentActive)
     root.style.setProperty('--accent-soft', colors.accentSoft)
     root.style.setProperty('--accent-strong', colors.accentStrong)
     root.style.setProperty('--accent-glow', colors.accentGlow)
@@ -58,6 +60,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     root.style.setProperty('--success', colors.success)
     root.style.setProperty('--shadow-card', colors.shadowCard)
     root.style.setProperty('--ambient-top-gradient', colors.ambientGradient)
+    if (colors.portraitGlow) root.style.setProperty('--portrait-glow', colors.portraitGlow)
   }, [theme])
 
   const toggleTheme = () => {

@@ -133,8 +133,8 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 4.2rem;
-  height: 4.2rem;
+  width: 5.6rem;
+  height: 3.8rem;
   transition: transform 200ms ease;
 }
 
@@ -142,10 +142,17 @@ a {
   transform: scale(1.08);
 }
 
-.brand-logo-img {
+.brand-logo-img,
+.brand-logo-frame {
   width: 100%;
   height: 100%;
+  border: none;
+  pointer-events: none;
+  display: block;
   object-fit: contain;
+  background: transparent !important;
+  background-color: transparent !important;
+  color-scheme: normal !important;
 }
 
 .brand-logo-monogram {
@@ -384,7 +391,7 @@ a {
   margin-top: 0.6rem;
 }
 
-/* Buttons - Unified Contrast: Black text & icons inside gold button */
+/* Buttons - High Contrast: White text & icons inside brand accent button */
 .primary-button,
 .secondary-button {
   display: inline-flex;
@@ -413,8 +420,13 @@ a {
 .primary-button:hover,
 .primary-button:focus-visible {
   transform: translateY(-2px);
-  filter: brightness(0.96);
+  background: var(--accent-hover, var(--accent));
   box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+  background: var(--accent-active, var(--accent));
 }
 
 .secondary-button {
@@ -791,7 +803,7 @@ a {
   border-color: var(--accent);
 }
 
-/* Active filter chip: high-contrast gold fill with black text */
+/* Active filter chip: high-contrast accent fill with contrast text */
 .filter-chip.active {
   background: var(--accent);
   color: var(--accent-text);
@@ -1534,7 +1546,7 @@ a {
   color: var(--placeholder);
 }
 
-/* Contact submit button: unified black text and icon in both themes */
+/* Contact submit button: unified text and icon matching accent text */
 .submit-button {
   width: auto;
   align-self: flex-start;
@@ -1542,7 +1554,7 @@ a {
   padding: 0.85rem 1.8rem;
   margin-top: 0.5rem;
   background: var(--accent) !important;
-  color: #111111 !important;
+  color: var(--accent-text) !important;
 }
 
 .submit-button,
@@ -1550,9 +1562,18 @@ a {
 .submit-button .submit-text,
 .submit-button svg,
 .submit-button .submit-icon {
-  color: #111111 !important;
-  stroke: #111111 !important;
+  color: var(--accent-text) !important;
+  stroke: var(--accent-text) !important;
   fill: none;
+}
+
+.submit-button:hover:not(:disabled),
+.submit-button:focus-visible:not(:disabled) {
+  background: var(--accent-hover, var(--accent)) !important;
+}
+
+.submit-button:active:not(:disabled) {
+  background: var(--accent-active, var(--accent)) !important;
 }
 
 .submit-button:disabled {

@@ -20,6 +20,8 @@ export interface ThemeColors {
   placeholder: string
   accent: string
   accentFg: string
+  accentHover?: string
+  accentActive?: string
   accentSoft: string
   accentStrong: string
   accentGlow: string
@@ -28,6 +30,7 @@ export interface ThemeColors {
   success: string
   shadowCard: string
   ambientGradient: string
+  portraitGlow?: string
 }
 
 export interface ThemeConfig {
@@ -65,68 +68,73 @@ export const themeConfig: ThemeConfig = {
 
   branding: {
     logoType: 'image',
-    logoUrl: '/images/logo-dark.png',
-    logoDarkUrl: '/images/logo-dark.png',
-    logoLightUrl: '/images/logo-light.png',
+    logoUrl: '/logo-animated.html',
+    logoDarkUrl: '/logo-animated.html',
+    logoLightUrl: '/logo-animated.html',
     logoText: 'MA',
-    avatarUrl: '/images/profile_dark_theme.png',
-    avatarDarkUrl: '/images/profile_dark_theme.png',
-    avatarLightUrl: '/images/profile_light_theme.png',
+    avatarUrl: '/images/profile_dark_theme.png?v=2',
+    avatarDarkUrl: '/images/profile_dark_theme.png?v=2',
+    avatarLightUrl: '/images/profile_light_theme.png?v=2',
     avatarPlaceholder: '/images/avatar-placeholder.svg',
     projectPlaceholder: '/images/projects/placeholder-project.svg',
   },
 
-
   colors: {
     dark: {
-      bg: '#111111',
-      bgSoft: '#18181b',
-      panel: 'rgba(245, 245, 245, 0.025)',
-      panelStrong: 'rgba(245, 245, 245, 0.05)',
-      panelHover: 'rgba(245, 245, 245, 0.075)',
-      border: 'rgba(245, 245, 245, 0.12)',
-      borderSubtle: 'rgba(245, 245, 245, 0.07)',
-      headerBg: 'rgba(17, 17, 17, 0.82)',
-      text: '#F5F5F5',
-      muted: 'rgba(245, 245, 245, 0.76)',
-      soft: 'rgba(245, 245, 245, 0.58)',
-      placeholder: 'rgba(245, 245, 245, 0.38)',
-      // Unified brand gold (#FFC006)
-      accent: '#FFC006',
-      accentFg: '#FFC006',
-      accentSoft: 'rgba(255, 192, 6, 0.14)',
-      accentStrong: 'rgba(255, 192, 6, 0.24)',
-      accentGlow: 'rgba(255, 192, 6, 0.18)',
-      accentText: '#111111', // Deep black text & icons on gold button/fill
-      danger: '#ff8080',
-      success: '#86efac',
-      shadowCard: '0 8px 30px rgba(0, 0, 0, 0.35)',
-      ambientGradient: 'radial-gradient(circle at top, rgba(255, 192, 6, 0.08), transparent 35%)',
+      bg: '#141211',
+      bgSoft: '#1C1816',
+      panel: '#211B18',
+      panelStrong: '#2A221E',
+      panelHover: '#2E2521',
+      border: '#382A25',
+      borderSubtle: '#2D221E',
+      headerBg: 'rgba(20, 18, 17, 0.85)',
+      text: '#FFF8F5',
+      muted: '#C7BBB5',
+      soft: '#A99A93',
+      placeholder: 'rgba(199, 187, 181, 0.40)',
+      // Unified brand Orange-Red (#F04B24)
+      accent: '#F04B24',
+      accentFg: '#F04B24',
+      accentHover: '#FF7048',
+      accentActive: '#D93C1A',
+      accentSoft: 'rgba(240, 75, 36, 0.15)',
+      accentStrong: 'rgba(240, 75, 36, 0.28)',
+      accentGlow: 'rgba(240, 75, 36, 0.20)',
+      accentText: '#FFFFFF', // High-contrast white text & icons on brand button/fill
+      danger: '#ff6b6b',
+      success: '#4ade80',
+      shadowCard: '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
+      ambientGradient: 'radial-gradient(circle at top, rgba(240, 75, 36, 0.10), transparent 38%)',
+      portraitGlow: 'radial-gradient(circle at center, rgba(240, 75, 36, 0.16), transparent 62%)',
     },
     light: {
-      bg: '#f8fafc',
-      bgSoft: '#ffffff',
-      panel: '#ffffff',
-      panelStrong: '#f1f5f9',
-      panelHover: '#f8fafc',
-      border: 'rgba(15, 23, 42, 0.12)',
-      borderSubtle: 'rgba(15, 23, 42, 0.07)',
-      headerBg: 'rgba(248, 250, 252, 0.88)',
-      text: '#0f172a',
-      muted: '#334155',
-      soft: '#64748b',
-      placeholder: '#94a3b8',
-      // Unified brand gold (#FFC006) for solid buttons and badges
-      accent: '#FFC006',
-      accentFg: '#FFC006',
-      accentSoft: 'rgba(255, 192, 6, 0.16)',
-      accentStrong: 'rgba(255, 192, 6, 0.32)',
-      accentGlow: 'rgba(255, 192, 6, 0.22)',
-      accentText: '#111111', // Deep black text & icons on gold button/fill
+      bg: '#FFF8F5',
+      bgSoft: '#F7EEE9',
+      panel: '#FFFFFF',
+      panelStrong: '#F3E8E2',
+      panelHover: '#FAF2ED',
+      border: '#EBDCD5',
+      borderSubtle: 'rgba(41, 32, 29, 0.06)',
+      headerBg: 'rgba(255, 248, 245, 0.88)',
+      text: '#29201D',
+      muted: '#6E625C',
+      soft: '#806D64',
+      placeholder: 'rgba(41, 32, 29, 0.38)',
+      // Unified brand Orange-Red (#F04B24)
+      accent: '#F04B24',
+      accentFg: '#D93C1A', // Refined for WCAG AA text/icon readability on light background
+      accentHover: '#D93C1A',
+      accentActive: '#A92D19',
+      accentSoft: 'rgba(240, 75, 36, 0.10)',
+      accentStrong: 'rgba(240, 75, 36, 0.22)',
+      accentGlow: 'rgba(240, 75, 36, 0.12)',
+      accentText: '#FFFFFF', // High-contrast white text & icons on brand button/fill
       danger: '#dc2626',
       success: '#16a34a',
-      shadowCard: '0 4px 20px rgba(0, 0, 0, 0.06)',
-      ambientGradient: 'radial-gradient(circle at top, rgba(255, 192, 6, 0.10), transparent 40%)',
+      shadowCard: '0 4px 20px rgba(41, 32, 29, 0.06)',
+      ambientGradient: 'radial-gradient(circle at top, rgba(240, 75, 36, 0.08), transparent 40%)',
+      portraitGlow: 'radial-gradient(circle at center, rgba(240, 75, 36, 0.14), transparent 65%)',
     },
   },
 }

@@ -1,9 +1,9 @@
 import React, { useState, type ChangeEvent, type FormEvent } from 'react'
 import { Mail, Phone, FileDown, Send } from 'lucide-react'
-import { SiGithub, SiKaggle } from '@icons-pack/react-simple-icons'
+import { SiGithub } from '@icons-pack/react-simple-icons'
 import { profileConfig } from '../config/profile.config'
 import { SectionHeader } from '../components/common/SectionHeader'
-import { LinkedInIcon } from '../components/common/SocialLinks'
+import { LinkedInIcon, KaggleIcon } from '../components/common/SocialLinks'
 
 export const ContactPage: React.FC = () => {
   const { contact, socials, resume } = profileConfig
@@ -100,7 +100,7 @@ export const ContactPage: React.FC = () => {
             )}
             {socials.kaggle && (
               <li>
-                <SiKaggle size={18} />
+                <KaggleIcon size={18} />
                 <a href={socials.kaggle} target="_blank" rel="noreferrer">
                   Kaggle
                 </a>

@@ -4,72 +4,77 @@
 
 :root,
 [data-theme='dark'] {
-  --bg: #111111;
-  --bg-soft: #18181b;
-  --panel: rgba(245, 245, 245, 0.025);
-  --panel-strong: rgba(245, 245, 245, 0.05);
-  --panel-hover: rgba(245, 245, 245, 0.075);
-  --border: rgba(245, 245, 245, 0.12);
-  --border-subtle: rgba(245, 245, 245, 0.07);
-  --header-bg: rgba(17, 17, 17, 0.82);
-  --header-border: rgba(245, 245, 245, 0.08);
+  --bg: #141211;
+  --bg-soft: #1C1816;
+  --panel: #211B18;
+  --panel-strong: #2A221E;
+  --panel-hover: #2E2521;
+  --border: #382A25;
+  --border-subtle: #2D221E;
+  --header-bg: rgba(20, 18, 17, 0.85);
+  --header-border: rgba(255, 248, 245, 0.08);
 
-  --text: #F5F5F5;
-  --muted: rgba(245, 245, 245, 0.76);
-  --soft: rgba(245, 245, 245, 0.58);
-  --placeholder: rgba(245, 245, 245, 0.38);
+  --text: #FFF8F5;
+  --muted: #C7BBB5;
+  --soft: #A99A93;
+  --placeholder: rgba(199, 187, 181, 0.40);
 
-  /* Unified Brand Gold (#FFC006) */
-  --accent: #FFC006;
-  --accent-fg: #FFC006;
-  --accent-soft: rgba(255, 192, 6, 0.14);
-  --accent-strong: rgba(255, 192, 6, 0.24);
-  --accent-glow: rgba(255, 192, 6, 0.18);
-  --accent-text: #111111; /* Black text & icons inside gold elements */
+  /* Unified Brand Orange-Red (#F04B24) */
+  --accent: #F04B24;
+  --accent-fg: #F04B24;
+  --accent-hover: #FF7048;
+  --accent-active: #D93C1A;
+  --accent-soft: rgba(240, 75, 36, 0.15);
+  --accent-strong: rgba(240, 75, 36, 0.28);
+  --accent-glow: rgba(240, 75, 36, 0.20);
+  --accent-text: #FFFFFF; /* High-contrast white text & icons inside brand elements */
 
-  --danger: #ff8080;
-  --danger-bg: rgba(239, 68, 68, 0.12);
-  --success: #86efac;
-  --success-bg: rgba(34, 197, 94, 0.12);
+  --danger: #ff6b6b;
+  --danger-bg: rgba(239, 68, 68, 0.14);
+  --success: #4ade80;
+  --success-bg: rgba(34, 197, 94, 0.14);
 
   --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  --ambient-top-gradient: radial-gradient(circle at top, rgba(255, 192, 6, 0.08), transparent 35%);
-  --portrait-glow: radial-gradient(circle at center, rgba(255, 192, 6, 0.14), transparent 62%);
+  --ambient-top-gradient: radial-gradient(circle at top, rgba(240, 75, 36, 0.10), transparent 38%);
+  --portrait-glow: radial-gradient(circle at center, rgba(240, 75, 36, 0.16), transparent 62%);
   --logo-field-opacity: 0.88;
   --logo-field-hover-opacity: 1;
 }
 
 [data-theme='light'] {
-  --bg: #f8fafc;
-  --bg-soft: #ffffff;
-  --panel: #ffffff;
-  --panel-strong: #f1f5f9;
-  --panel-hover: #f8fafc;
-  --border: rgba(15, 23, 42, 0.12);
-  --border-subtle: rgba(15, 23, 42, 0.07);
-  --header-bg: rgba(248, 250, 252, 0.88);
-  --header-border: rgba(15, 23, 42, 0.08);
+  --bg: #FFF8F5;
+  --bg-soft: #F7EEE9;
+  --panel: #FFFFFF;
+  --panel-strong: #F3E8E2;
+  --panel-hover: #FAF2ED;
+  --border: #EBDCD5;
+  --border-subtle: rgba(41, 32, 29, 0.06);
+  --header-bg: rgba(255, 248, 245, 0.88);
+  --header-border: rgba(41, 32, 29, 0.08);
 
-  --text: #0f172a;
-  --muted: #334155;
-  --soft: #64748b;
-  --placeholder: #94a3b8;
+  --text: #29201D;
+  --muted: #6E625C;
+  --soft: #806D64;
+  --placeholder: rgba(41, 32, 29, 0.38);
 
-  --accent: #FFC006;
-  --accent-fg: #FFC006;
-  --accent-soft: rgba(255, 192, 6, 0.16);
-  --accent-strong: rgba(255, 192, 6, 0.28);
-  --accent-glow: rgba(255, 192, 6, 0.18);
-  --accent-text: #111111; /* Crisp black text & icons inside gold elements */
+  /* Unified Brand Orange-Red (#F04B24) */
+  --accent: #F04B24;
+  --accent-fg: #D93C1A; /* Refined for WCAG AA text/icon readability on light background */
+  --accent-hover: #D93C1A;
+  --accent-active: #A92D19;
+  --accent-soft: rgba(240, 75, 36, 0.10);
+  --accent-strong: rgba(240, 75, 36, 0.22);
+  --accent-glow: rgba(240, 75, 36, 0.12);
+  --accent-text: #FFFFFF; /* High-contrast white text & icons inside brand elements */
 
   --danger: #dc2626;
   --danger-bg: rgba(220, 38, 38, 0.08);
   --success: #16a34a;
   --success-bg: rgba(22, 163, 74, 0.08);
 
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
-  --ambient-top-gradient: radial-gradient(circle at top, rgba(255, 192, 6, 0.10), transparent 40%);
-  --portrait-glow: radial-gradient(circle at center, rgba(255, 192, 6, 0.16), transparent 65%);
+  --shadow-card: 0 4px 20px rgba(41, 32, 29, 0.06);
+  --ambient-top-gradient: radial-gradient(circle at top, rgba(240, 75, 36, 0.08), transparent 40%);
+  --portrait-glow: radial-gradient(circle at center, rgba(240, 75, 36, 0.14), transparent 65%);
   --logo-field-opacity: 0.80;
   --logo-field-hover-opacity: 1;
 }

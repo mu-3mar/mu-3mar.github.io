@@ -12,7 +12,35 @@ export const BrandLogo: React.FC<{ className?: string }> = ({ className = '' }) 
       ? (logoLightUrl || logoUrl)
       : (logoDarkUrl || logoUrl)
 
+  const isHtml = currentLogo && currentLogo.toLowerCase().includes('.html')
+
   if (logoType === 'image' && currentLogo && !imgError) {
+    if (isHtml) {
+      const baseUrl = currentLogo.split('?')[0]
+      const iframeSrc = `${baseUrl}?theme=${theme}&v=4`
+
+      return (
+        <span className={`brand-logo-wrap ${className}`}>
+          <iframe
+            key={`${theme}-${baseUrl}`}
+            src={iframeSrc}
+            title={logoText || 'Brand Logo'}
+            className="brand-logo-frame"
+            scrolling="no"
+            tabIndex={-1}
+            aria-hidden="true"
+            allowTransparency={true}
+            style={{
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              border: 'none',
+              colorScheme: 'normal',
+            }}
+          />
+        </span>
+      )
+    }
+
     return (
       <span className={`brand-logo-wrap ${className}`}>
         <img
