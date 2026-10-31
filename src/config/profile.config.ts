@@ -32,6 +32,7 @@ export interface ProfileConfig {
     github: string
     linkedin: string
     kaggle: string
+    docker: string
     twitter?: string
   }
   resume: {
@@ -59,7 +60,7 @@ export const profileConfig: ProfileConfig = {
     'I build machine learning pipelines for classification, regression, and computer vision — from data preparation and feature engineering to model evaluation and FastAPI deployment.',
 
   aboutSummary:
-    'Machine Learning Engineer with hands-on experience building end-to-end machine learning solutions across classification, regression, and deep learning. Experienced in data preprocessing, feature engineering, model evaluation, and model optimization using Python and Scikit-learn. Also experienced in integrating ML models into FastAPI applications and building practical ML systems from data and modeling to inference.',
+    'I am a Computer Science graduate and Junior AI/ML Engineer with hands-on experience building end-to-end machine learning, deep learning, and computer vision systems. I work across the full model lifecycle — from data preparation, exploratory analysis, and feature engineering to model evaluation, optimization, and deployment. My experience includes real-time object detection with YOLO, ONNX, and TensorRT, predictive modeling with Scikit-learn and XGBoost, and production-oriented model serving through FastAPI and Docker.',
 
   aboutPillars: [
     'Computer vision',
@@ -83,6 +84,7 @@ export const profileConfig: ProfileConfig = {
     github: 'https://github.com/mu-3mar',
     linkedin: 'https://linkedin.com/in/mu-3mar',
     kaggle: 'https://www.kaggle.com/mohamedsayedamarmsa',
+    docker: 'https://hub.docker.com/u/mu3mar',
   },
 
   resume: {

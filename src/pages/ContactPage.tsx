@@ -1,6 +1,6 @@
 import React, { useState, type ChangeEvent, type FormEvent } from 'react'
 import { Mail, Phone, FileDown, Send } from 'lucide-react'
-import { SiGithub } from '@icons-pack/react-simple-icons'
+import { SiGithub, SiDocker } from '@icons-pack/react-simple-icons'
 import { profileConfig } from '../config/profile.config'
 import { SectionHeader } from '../components/common/SectionHeader'
 import { LinkedInIcon, KaggleIcon } from '../components/common/SocialLinks'
@@ -95,6 +95,14 @@ export const ContactPage: React.FC = () => {
                 <LinkedInIcon />
                 <a href={socials.linkedin} target="_blank" rel="noreferrer">
                   LinkedIn
+                </a>
+              </li>
+            )}
+            {socials.docker && (
+              <li>
+                <SiDocker size={18} aria-hidden="true" />
+                <a href={socials.docker} target="_blank" rel="noreferrer">
+                  Docker Hub
                 </a>
               </li>
             )}

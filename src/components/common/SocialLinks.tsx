@@ -1,6 +1,6 @@
 import React from 'react'
 import { FileDown } from 'lucide-react'
-import { SiGithub } from '@icons-pack/react-simple-icons'
+import { SiGithub, SiDocker } from '@icons-pack/react-simple-icons'
 import { profileConfig } from '../../config/profile.config'
 
 export function LinkedInIcon() {
@@ -61,6 +61,19 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         </a>
       )}
 
+      {socials.docker && (
+        <a
+          href={socials.docker}
+          className="social-link"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Docker Hub"
+          title="Docker Hub"
+        >
+          <SiDocker size={22} />
+        </a>
+      )}
+
       {socials.kaggle && (
         <a
           href={socials.kaggle}
@@ -88,4 +101,3 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
     </div>
   )
 }
-

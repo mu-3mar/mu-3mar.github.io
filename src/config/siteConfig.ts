@@ -13,5 +13,6 @@ export const siteConfig = {
   githubUrl: profileConfig.socials.github,
   linkedinUrl: profileConfig.socials.linkedin,
   kaggleUrl: profileConfig.socials.kaggle,
+  dockerHubUrl: profileConfig.socials.docker,
   resumeUrl: profileConfig.resume.url,
 } as const

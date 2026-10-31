@@ -1,7 +1,16 @@
-import React from 'react'
-import { useParams, Navigate, Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
-import { SiGithub } from '@icons-pack/react-simple-icons'
+import React, { useEffect } from 'react'
+import { useParams, Navigate, Link, useLocation } from 'react-router-dom'
+import {
+  ArrowRight,
+  ExternalLink,
+  ShieldAlert,
+  AlertCircle,
+  Database,
+  Cpu,
+  BarChart3,
+  Box,
+} from 'lucide-react'
+import { SiGithub, SiDocker } from '@icons-pack/react-simple-icons'
 import { projects } from '../config/projects.config'
 import { ProjectImage } from '../components/common/ProjectImage'
 import { SectionHeader } from '../components/common/SectionHeader'
@@ -9,9 +18,22 @@ import { ProjectCard } from '../components/common/ProjectCard'
 
 export const ProjectDetailPage: React.FC = () => {
   const { slug } = useParams()
+  const location = useLocation()
   const project = projects.find((entry) => entry.slug === slug)
 
+  useEffect(() => {
+    if (location.hash !== '#project-demo' || !project?.videoUrl) {
+      return
+    }
+
+    document.getElementById('project-demo')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [location.hash, project?.videoUrl])
+
   if (!project) {
+    return <Navigate to="/projects" replace />
+  }
+
+  if (project.disabled) {
     return <Navigate to="/projects" replace />
   }
 
@@ -31,7 +53,6 @@ export const ProjectDetailPage: React.FC = () => {
           </div>
           <h1>{project.title}</h1>
 
-
           {project.company && project.companySlug ? (
             <p className="project-company-tag">
               Developed during internship at{' '}
@@ -42,31 +63,64 @@ export const ProjectDetailPage: React.FC = () => {
           ) : null}
         </div>
         <div className="detail-actions">
+          {project.hasDemo && (project.demoUrl || project.videoUrl) && (
+            project.videoUrl ? (
+              <a className="primary-button" href="#project-demo" aria-label={`${project.title} Watch Demo`}>
+                <ExternalLink size={18} aria-hidden={true} />
+                <span>Watch Demo</span>
+                <ArrowRight size={18} />
+              </a>
+            ) : (
+              <a
+                className="primary-button"
+                href={project.demoUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${project.title} Live Demo`}
+              >
+                <ExternalLink size={18} aria-hidden={true} />
+                <span>Live Demo</span>
+                <ArrowRight size={18} />
+              </a>
+            )
+          )}
           {project.githubUrl && (
             <a
-              className="primary-button"
+              className={project.hasDemo && (project.demoUrl || project.videoUrl) ? 'secondary-button' : 'primary-button'}
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
-              aria-label="GitHub Repository"
+              aria-label={`${project.title} GitHub Repository`}
             >
               <SiGithub size={18} aria-hidden={true} />
               <span>GitHub</span>
-              <ArrowRight size={18} />
+              {!(project.hasDemo && (project.demoUrl || project.videoUrl)) && <ArrowRight size={18} />}
             </a>
           )}
-          {project.demoUrl ? (
+          {project.hasDocker && project.dockerHubUrl && (
             <a
               className="secondary-button"
-              href={project.demoUrl}
+              href={project.dockerHubUrl}
               target="_blank"
               rel="noreferrer"
+              aria-label={`${project.title} Docker Hub`}
             >
-              Live Demo
+              <SiDocker size={18} aria-hidden={true} />
+              <span>Docker Hub</span>
             </a>
-          ) : null}
+          )}
         </div>
       </div>
+
+      {project.disclaimer && (
+        <div className="project-alert-banner warning" role="region" aria-label="Healthcare Disclaimer">
+          <div className="project-alert-header">
+            <ShieldAlert size={18} className="project-alert-icon" aria-hidden="true" />
+            <span className="project-alert-title">Healthcare Disclaimer</span>
+          </div>
+          <p className="project-alert-body">{project.disclaimer}</p>
+        </div>
+      )}
 
       <div className="detail-hero">
         <div className="detail-image-wrap">
@@ -90,6 +144,31 @@ export const ProjectDetailPage: React.FC = () => {
         </div>
       </div>
 
+      {project.videoUrl && (
+        <article className="project-demo-panel full-width" id="project-demo">
+          <div className="panel-title-row">
+            <ExternalLink size={20} className="panel-title-icon" aria-hidden="true" />
+            <div>
+              <h2>Project Demo</h2>
+              <p className="panel-lead">Watch the real-time quality control system in action.</p>
+            </div>
+          </div>
+          <div className="project-video-frame">
+            <video
+              controls
+              autoPlay
+              muted
+              playsInline
+              preload="metadata"
+              poster={project.image}
+            >
+              <source src={project.videoUrl} type="video/mp4" />
+              Your browser does not support embedded video playback.
+            </video>
+          </div>
+        </article>
+      )}
+
       <div className="detail-grid">
         <article className="detail-panel">
           <h2>Overview</h2>
@@ -108,32 +187,162 @@ export const ProjectDetailPage: React.FC = () => {
         </article>
       </div>
 
-      <div className="detail-grid">
-        <article className="detail-panel">
-          <h2>Implementation</h2>
-          <ul className="detail-list">
-            {project.implementationPoints && project.implementationPoints.length > 0 ? (
-              project.implementationPoints.map((point) => <li key={point}>{point}</li>)
-            ) : (
-              <>
-                <li>Data preparation and validation using the project’s primary signal sources.</li>
-                <li>Feature engineering and modeling decisions shaped around the task objective.</li>
-                <li>Training, evaluation, and iterative improvement based on measurable outcomes.</li>
-                <li>Inference and integration into a usable interface or API workflow.</li>
-              </>
-            )}
-          </ul>
-        </article>
+      {project.dataset && (
+        <article className="detail-panel full-width">
+          <div className="panel-title-row">
+            <Database size={20} className="panel-title-icon" aria-hidden="true" />
+            <h2>{project.dataset.title || 'Dataset & Health Indicators'}</h2>
+          </div>
+          <p className="panel-lead"><strong>Source:</strong> {project.dataset.source}</p>
 
-        <article className="detail-panel">
-          <h2>Engineering focus</h2>
-          <ul className="detail-list">
-            {project.tech.slice(0, 5).map((item) => (
-              <li key={item}>{item}</li>
+          <div className="project-stat-grid">
+            {project.dataset.stats.map((stat) => (
+              <div key={stat.label} className="project-stat-card">
+                <span className="project-stat-value">{stat.value}</span>
+                <span className="project-stat-label">{stat.label}</span>
+              </div>
             ))}
-          </ul>
+          </div>
+
+          {project.dataset.notes && (
+            <div className="project-note-box" style={{ marginTop: '1rem' }}>
+              <p>{project.dataset.notes}</p>
+            </div>
+          )}
         </article>
-      </div>
+      )}
+
+      {project.mlWorkflow && (
+        <article className="detail-panel full-width">
+          <div className="panel-title-row">
+            <Cpu size={20} className="panel-title-icon" aria-hidden="true" />
+            <h2>Machine Learning Workflow</h2>
+          </div>
+
+          <div className="detail-grid" style={{ gap: '1.2rem', marginTop: '0.6rem' }}>
+            <div className="workflow-step">
+              <h3 style={{ fontSize: '1.02rem', marginTop: '0', marginBottom: '0.6rem', color: 'var(--text)' }}>
+                Data Preparation & Exploration
+              </h3>
+              <ul className="detail-list">
+                {project.mlWorkflow.dataPrep.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="workflow-step">
+              <h3 style={{ fontSize: '1.02rem', marginTop: '0', marginBottom: '0.6rem', color: 'var(--text)' }}>
+                Model Development & Selection
+              </h3>
+              <ul className="detail-list">
+                {project.mlWorkflow.modelDev.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      )}
+
+      {project.evaluation && (
+        <article className="detail-panel full-width">
+          <div className="panel-title-row">
+            <BarChart3 size={20} className="panel-title-icon" aria-hidden="true" />
+            <h2>Model Evaluation</h2>
+          </div>
+          <p className="panel-lead">
+            {project.evaluation.lead || (
+              <>Final test results evaluated at decision threshold <strong>0.60</strong>:</>
+            )}
+          </p>
+
+          <div className="project-stat-grid">
+            {project.evaluation.metrics.map((m) => (
+              <div key={m.label} className="project-stat-card">
+                <span className="project-stat-value">{m.value}</span>
+                <span className="project-stat-label">{m.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {project.evaluation.tradeoffExplanation && (
+            <div className="evaluation-tradeoff-box">
+              <h3>{project.evaluation.tradeoffTitle || 'Performance Insights'}</h3>
+              <p>{project.evaluation.tradeoffExplanation}</p>
+            </div>
+          )}
+
+          {project.evaluation.caveat && (
+            <div className="project-alert-banner info" style={{ marginTop: '1rem' }} role="region" aria-label="Evaluation Caveat">
+              <div className="project-alert-header">
+                <AlertCircle size={18} className="project-alert-icon" aria-hidden="true" />
+                <span className="project-alert-title">Evaluation Caveat</span>
+              </div>
+              <p className="project-alert-body">{project.evaluation.caveat}</p>
+            </div>
+          )}
+        </article>
+      )}
+
+      {project.dockerDetails && (
+        <article className="detail-panel full-width">
+          <div className="panel-title-row">
+            <Box size={20} className="panel-title-icon" aria-hidden="true" />
+            <h2>Docker & Deployment</h2>
+          </div>
+          <p>{project.dockerDetails.description}</p>
+
+          <div className="docker-info-card">
+            <span className="meta-label">Docker Image</span>
+            <code className="docker-tag">{project.dockerDetails.imageTag}</code>
+          </div>
+
+          {project.dockerDetails.verificationNote && (
+            <p className="meta-subtext" style={{ marginTop: '0.75rem' }}>
+              {project.dockerDetails.verificationNote}
+            </p>
+          )}
+
+          <div className="docker-card-actions">
+            {project.hasDocker && project.dockerHubUrl && (
+              <a
+                className="secondary-button"
+                href={project.dockerHubUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="View on Docker Hub"
+              >
+                <SiDocker size={18} aria-hidden={true} />
+                <span>Docker Hub Repository</span>
+                <ExternalLink size={16} />
+              </a>
+            )}
+          </div>
+        </article>
+      )}
+
+      {project.implementationPoints && !project.mlWorkflow && (
+        <div className="detail-grid">
+          <article className="detail-panel">
+            <h2>Implementation</h2>
+            <ul className="detail-list">
+              {project.implementationPoints.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="detail-panel">
+            <h2>Engineering focus</h2>
+            <ul className="detail-list">
+              {project.tech.slice(0, 5).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      )}
 
       {relatedProjects.length > 0 ? (
         <div className="related-projects">
