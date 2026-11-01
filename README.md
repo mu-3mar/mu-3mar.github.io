@@ -15,7 +15,7 @@ Use this document as your single reference for adding new projects, updating you
 5. [Projects Management](#5-projects-management)
 6. [Assigning Projects to Work Experiences (Crucial)](#6-assigning-projects-to-work-experiences-crucial)
 7. [Work Experience & Career Promotions](#7-work-experience--career-promotions)
-8. [Education & Certifications](#8-education--certifications)
+8. [Academic Journey & Certifications](#8-academic-journey--certifications)
 9. [About Page Breakdown](#9-about-page-breakdown)
 10. [Contact Page & Email Delivery](#10-contact-page--email-delivery)
 11. [Navigation, Social Links & Downloadable CV](#11-navigation-social-links--downloadable-cv)
@@ -499,7 +499,7 @@ Instead of creating duplicate company cards, use the nested `roles` array:
 
 ---
 
-## 8. Education & Certifications
+## 8. Academic Journey & Certifications
 
 ### Exact File: `src/config/experience.config.ts`
 
@@ -510,6 +510,7 @@ export interface EducationItem {
   degree: string
   period: string
   details: string
+  projectSlug?: string
   current?: boolean
 }
 ```
@@ -542,7 +543,7 @@ export const courses: CourseCertification[] = [
 ```
 
 ### Fixed-Height Scrolling Panels
-The 3 panels on the About page (`Education`, `Experience`, and `Courses & Certifications`) have a **fixed height of 480px** (420px on mobile). Even if you add 20 certificates or multiple degrees, the layout will never stretch or distort; instead, an internal scrollbar appears inside that card.
+The 3 panels on the About page (`Academic Journey`, `Experience`, and `Courses & Certifications`) have a **fixed height of 480px** (420px on mobile). Even if you add 20 certificates or multiple degrees, the layout will never stretch or distort; instead, an internal scrollbar appears inside that card.
 
 ---
 
@@ -741,7 +742,7 @@ To ensure complete transparency, here is a list of the few UI labels that are ha
 | **Projects Page** | "Selected projects" section title | `src/pages/ProjectsPage.tsx` (line 27) |
 | **Project Details** | Section titles: "Overview", "Technologies", "Implementation", "Engineering focus" | `src/pages/ProjectDetailPage.tsx` (lines 95–129) |
 | **Project Details** | "Related projects" section title | `src/pages/ProjectDetailPage.tsx` (line 140) |
-| **About Page** | Panel headings: "Education", "Experience", "Courses & Certifications" | `src/pages/AboutPage.tsx` (lines 44, 72, 138) |
+| **About Page** | Panel headings: "Academic Journey", "Experience", "Courses & Certifications" | `src/pages/AboutPage.tsx` (lines 44, 72, 138) |
 | **Contact Page** | Form inputs: Name, Email, Subject, Message, "Send Message" button | `src/pages/ContactPage.tsx` (lines 121–176) |
 | **404 Page** | "404 - Page not found", "Back to Home" button | `src/pages/NotFoundPage.tsx` |
 

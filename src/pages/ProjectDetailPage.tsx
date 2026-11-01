@@ -20,6 +20,8 @@ export const ProjectDetailPage: React.FC = () => {
   const { slug } = useParams()
   const location = useLocation()
   const project = projects.find((entry) => entry.slug === slug)
+  const backTo = typeof location.state?.backTo === 'string' ? location.state.backTo : '/projects'
+  const backLabel = backTo.startsWith('/academic/') ? '← Graduation Project' : backTo.startsWith('/experience/') ? '← Experience' : '← Projects'
 
   useEffect(() => {
     if (location.hash !== '#project-demo' || !project?.videoUrl) {
@@ -45,7 +47,10 @@ export const ProjectDetailPage: React.FC = () => {
 
   return (
     <section className="page-section project-detail-page">
-      <div className="detail-header">
+    <Link className="back-link" to={backTo}>
+      {backLabel}
+    </Link>
+    <div className="detail-header">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
             <p className="eyebrow" style={{ margin: 0 }}>{project.category}</p>

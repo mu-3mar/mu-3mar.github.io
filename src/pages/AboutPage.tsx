@@ -80,10 +80,10 @@ export const AboutPage: React.FC = () => {
       </div>
 
       <div className="about-info-grid">
-        {/* Education Panel */}
+        {/* Academic Journey Panel */}
         <article className="detail-panel about-card-panel">
           <div className="panel-header">
-            <h3>Education</h3>
+            <h3>Academic Journey</h3>
           </div>
           <div className="card-panel-content">
             <div className="timeline-track">
@@ -95,12 +95,33 @@ export const AboutPage: React.FC = () => {
                       className={`timeline-dot ${isActive ? 'active' : ''}`}
                       title={isActive ? 'Currently studying' : undefined}
                     />
-                    <div className="timeline-body">
-                      <strong>{item.school}</strong>
-                      <p>{item.details}</p>
-                      <p>{item.degree}</p>
-                      <small>{item.period}</small>
-                    </div>
+                    {item.projectSlug ? (
+                      <Link
+                        className="experience-link-card"
+                        to={`/academic/${item.projectSlug}`}
+                        aria-label={`View graduation project from ${item.degree}`}
+                      >
+                        <div className="experience-link-content">
+                          <div className="experience-link-header">
+                            <strong>{item.school}</strong>
+                            <span className="experience-badge">
+                              Graduation Project <ArrowRight size={14} />
+                            </span>
+                          </div>
+                          <p className="experience-link-role">{item.degree}</p>
+                          <small className="experience-link-period">
+                            {item.period} · {item.details}
+                          </small>
+                        </div>
+                      </Link>
+                    ) : (
+                      <div className="timeline-body">
+                        <strong>{item.school}</strong>
+                        <p>{item.details}</p>
+                        <p>{item.degree}</p>
+                        <small>{item.period}</small>
+                      </div>
+                    )}
                   </div>
                 )
               })}

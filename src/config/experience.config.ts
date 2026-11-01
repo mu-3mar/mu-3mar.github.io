@@ -40,6 +40,8 @@ export interface EducationItem {
   degree: string
   period: string
   details: string
+  /** Optional project page associated with this academic entry */
+  projectSlug?: string
   /** Whether currently studying here */
   current?: boolean
 }
@@ -66,6 +68,7 @@ export const education: EducationItem[] = [
     degree: "Bachelor's Degree in Computer Science",
     period: '2022 – Jul 2026',
     details: 'Faculty of Computer and Information Science · Department of Computer Science',
+    projectSlug: 'real-time-industrial-quality-control-system',
   },
 ]
 

@@ -8,9 +8,13 @@ import { ProjectImage } from './ProjectImage'
 interface ProjectCardProps {
   project: Project
   compact?: boolean
+  backTo?: string
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = false }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = false, backTo }) => {
+  const projectPath = `/projects/${project.slug}`
+  const projectLocationState = backTo ? { backTo } : undefined
+
   return (
     <article className={`${compact ? 'project-card compact' : 'project-card'}${project.disabled ? ' project-card-disabled' : ''}`}>
       {project.disabled ? (
@@ -20,7 +24,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
         </div>
       ) : (
         <Link
-          to={`/projects/${project.slug}`}
+          to={projectPath}
+          state={projectLocationState}
           className="project-visual"
           aria-label={`Open ${project.title}`}
         >
@@ -37,7 +42,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
         {project.disabled ? (
           <h3 className="project-title-disabled">{project.title}</h3>
         ) : (
-          <Link to={`/projects/${project.slug}`} className="project-title-link">
+          <Link to={projectPath} state={projectLocationState} className="project-title-link">
             <h3>{project.title}</h3>
           </Link>
         )}
@@ -64,7 +69,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
               Project unavailable <ArrowRight size={16} />
             </span>
           ) : (
-            <Link to={`/projects/${project.slug}`}>
+            <Link to={projectPath} state={projectLocationState}>
               View project <ArrowRight size={16} />
             </Link>
           )}

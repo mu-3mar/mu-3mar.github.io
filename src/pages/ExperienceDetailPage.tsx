@@ -48,10 +48,9 @@ export const ExperienceDetailPage: React.FC = () => {
       </div>
       <div className="project-grid experience-detail-grid">
         {companyProjects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <ProjectCard key={project.slug} project={project} backTo={`/experience/${entry.slug}`} />
         ))}
       </div>
     </section>
   )
 }
-
