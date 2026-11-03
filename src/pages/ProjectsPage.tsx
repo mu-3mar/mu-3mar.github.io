@@ -8,7 +8,9 @@ export const ProjectsPage: React.FC = () => {
 
   // Core categories ordered cleanly, plus any newly added categories in projects.config automatically
   const preferredOrder = ['Machine Learning', 'Deep Learning', 'NLP', 'Computer Vision']
-  const uniqueInProjects = Array.from(new Set(projects.map((project) => project.category)))
+  const uniqueInProjects = Array.from(
+    new Set(projects.flatMap((project) => project.categories ?? [project.category])),
+  )
   const extraCategories = uniqueInProjects.filter((cat) => !preferredOrder.includes(cat))
   const categories = [
     'All',
@@ -20,7 +22,9 @@ export const ProjectsPage: React.FC = () => {
   const visibleProjects =
     selectedCategory === 'All'
       ? projects
-      : projects.filter((project) => project.category === selectedCategory)
+      : projects.filter((project) =>
+          (project.categories ?? [project.category]).includes(selectedCategory),
+        )
 
   return (
     <section className="page-section">

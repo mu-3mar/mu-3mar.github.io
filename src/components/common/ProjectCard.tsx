@@ -35,7 +35,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
 
       <div className="project-body">
         <div className="project-meta">
-          <span className="project-category-badge">{project.category}</span>
+          {(project.categories ?? [project.category]).map((category) => (
+            <span className="project-category-badge" key={category}>{category}</span>
+          ))}
           {project.context && <span className="project-context-tag">{project.context}</span>}
         </div>
 

@@ -19,6 +19,8 @@ export interface Project {
   title: string
   /** General Category: 'Machine Learning' | 'Deep Learning' | 'NLP' | 'Computer Vision' (or dynamic) */
   category: 'Machine Learning' | 'Deep Learning' | 'NLP' | 'Computer Vision' | string
+  /** Additional categories used when a project spans multiple disciplines */
+  categories?: string[]
   /** Type mirrors general category */
   type?: string
   /** Work venue / classification: 'Self-Practice', 'Internship', 'Graduation Project', etc. */
@@ -772,7 +774,7 @@ export const projects: Project[] = [
     {
     slug: 'ai-body-measurement-system',
     title: 'AI Body Measurement System',
-    category: 'Deep Learning',
+      category: 'Computer Vision',
       type: 'Deep Learning · Computer Vision · Multi-Input Regression',
     context: 'Self-Practice',
     featured: false,
@@ -866,6 +868,7 @@ export const projects: Project[] = [
     slug: 'sign-language-recognition',
     title: 'Sign Language Recognition',
     category: 'Computer Vision',
+    categories: ['Computer Vision', 'Deep Learning'],
     type: 'Computer Vision · Deep Learning · Real-Time Inference',
     context: 'Self-Practice',
     featured: false,
