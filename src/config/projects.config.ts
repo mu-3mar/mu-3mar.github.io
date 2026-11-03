@@ -25,6 +25,8 @@ export interface Project {
   type?: string
   /** Work venue / classification: 'Self-Practice', 'Internship', 'Graduation Project', etc. */
   context: string
+  /** Optional project development period; leave unset when the dates are unknown */
+  period?: string
   /** Associated company name (optional, e.g. 'Cellula Technology') */
   company?: string
   /** Associated company slug for experience linking (optional, e.g. 'cellula-technology') */
@@ -99,6 +101,7 @@ export const projects: Project[] = [
     category: 'Computer Vision',
     type: 'Computer Vision · Deep Learning · Edge AI',
     context: 'Graduation Project',
+    period: 'Oct 2025 – May 2026',
     featured: true,
     description:
       'QC-SCM is a high-speed industrial quality inspection platform that combines dual-stage deep learning models (product localization and defect analysis) with a multi-threaded asynchronous architecture, sub-30ms hardware acceleration via ONNX/TensorRT, and Firebase cloud telemetry.',
@@ -167,6 +170,7 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     type: 'Machine Learning · Healthcare Analytics · Full-Stack ML Deployment',
     context: 'Self-Practice',
+    period: 'Oct 1, 2026 – Nov 1, 2026',
     featured: true,
     description:
       'An end-to-end machine learning application that estimates diabetes/prediabetes risk from 21 health indicators using CDC BRFSS survey data. It combines data preprocessing, classification, threshold tuning, a FastAPI backend, an interactive web interface, and Docker containerization.',
@@ -263,6 +267,7 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     type: 'Machine Learning · Regression · Risk Analytics · API Deployment',
     context: 'Self-Practice',
+    period: 'Oct 1, 2025 – Nov 1, 2025',
     featured: true,
     description:
       'RoadGuard is an end-to-end machine learning system that estimates a continuous accident_risk score from road, traffic, weather, lighting, and time-related conditions. It combines exploratory analysis, stable feature preprocessing, model selection and tuning, a saved inference pipeline, batch prediction, a lightweight HTTP API, a browser interface, and Docker support.',
@@ -365,6 +370,7 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     type: 'Machine Learning · Regression · Geospatial Analytics · API Deployment',
     context: 'Internship · Cellula Technology',
+    period: 'Oct 2025 – Dec 2025',
     company: 'Cellula Technology',
     companySlug: 'cellula-technology',
     featured: false,
@@ -470,6 +476,7 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     type: 'Machine Learning · Classification · Full-Stack ML Deployment',
     context: 'Self-Practice',
+    period: 'Oct 1, 2025 – Nov 1, 2025',
     featured: false,
     description:
       'An end-to-end machine learning application that estimates whether a bank customer will subscribe to a term deposit after a marketing contact. It combines exploratory analysis, reproducible preprocessing, class-imbalance handling, model comparison, a tuned Random Forest pipeline, FastAPI inference, an interactive web interface, and Docker/Vercel deployment.',
@@ -577,6 +584,7 @@ export const projects: Project[] = [
   category: 'Machine Learning',
   type: 'Machine Learning · Classification · Healthcare Analytics · Full-Stack ML Deployment',
   context: 'Self-Practice',
+  period: 'Oct 2025 – Jan 2026',
   featured: false,
   description:
     'An end-to-end machine learning application that estimates stroke-risk likelihood from age and 15 health and symptom indicators. It combines exploratory analysis, reproducible preprocessing, model comparison, a serialized Support Vector Machine classifier, a FastAPI inference service, a responsive browser interface, Docker support, and Vercel deployment.',
@@ -680,6 +688,7 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     type: 'Machine Learning · Regression · Full-Stack ML Deployment',
     context: 'Self-Practice',
+    period: 'Oct 2024 – Jan 2025',
     featured: false,
     description:
       'TripSight is an end-to-end machine learning application that estimates New York City taxi trip duration from route coordinates, pickup time, passenger count, vendor, and store-and-forward status. It combines geospatial and temporal feature engineering, a Ridge regression pipeline, a FastAPI inference service, Docker deployment, and a dependency-free browser frontend.',
@@ -777,6 +786,7 @@ export const projects: Project[] = [
       category: 'Computer Vision',
       type: 'Deep Learning · Computer Vision · Multi-Input Regression',
     context: 'Self-Practice',
+    period: 'Jan 2025 – May 2025',
     featured: false,
     description:
         'An end-to-end computer vision application that estimates 14 body measurements in centimetres from front and side photographs plus gender, height, and weight metadata. It combines background removal, silhouette preprocessing, a multi-input Keras regression model, FastAPI inference, and transparent clothing-size heuristics.',
@@ -871,6 +881,7 @@ export const projects: Project[] = [
     categories: ['Computer Vision', 'Deep Learning'],
     type: 'Computer Vision · Deep Learning · Real-Time Inference',
     context: 'Self-Practice',
+    period: 'Jan 2025 – May 2025',
     featured: false,
     description:
       'An end-to-end real-time American Sign Language alphabet recognizer that detects one hand from a webcam, converts its 21 landmarks into a normalized 63-value feature vector, and classifies isolated signs with a PyTorch 1D CNN. The result is exposed through FastAPI with browser and OpenCV clients, temporal stabilization, text accumulation, and English spell correction.',
@@ -961,6 +972,7 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     type: 'Machine Learning',
     context: 'Internship · Cellula Technology',
+    period: 'Oct 2025 – Dec 2025',
     disabled: true,
     disabledNote: 'This project is being prepared and will be added soon.',
     company: 'Cellula Technology',

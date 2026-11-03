@@ -53,8 +53,11 @@ export const ProjectDetailPage: React.FC = () => {
     <div className="detail-header">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
-            <p className="eyebrow" style={{ margin: 0 }}>{project.category}</p>
+            {(project.categories ?? [project.category]).map((category) => (
+              <p className="eyebrow" style={{ margin: 0 }} key={category}>{category}</p>
+            ))}
             {project.context && <span className="project-context-tag">{project.context}</span>}
+            {project.period && <span className="project-context-tag">{project.period}</span>}
           </div>
           <h1>{project.title}</h1>
 

@@ -35,10 +35,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, compact = fal
 
       <div className="project-body">
         <div className="project-meta">
-          {(project.categories ?? [project.category]).map((category) => (
-            <span className="project-category-badge" key={category}>{category}</span>
-          ))}
           {project.context && <span className="project-context-tag">{project.context}</span>}
+          {project.period && <span className="project-context-tag">{project.period}</span>}
         </div>
 
         {project.disabled ? (
